@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Newsletter Subscription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #4b2c5e;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #faf3ec;
+        }
+        .content {
+            padding: 20px;
+            background-color: #ffffff;
+        }
+        .info-box {
+            background-color: #f8f2e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>New Newsletter Subscription</h1>
+    </div>
+    <div class="content">
+        <div class="info-box">
+            <h3>Subscription Details:</h3>
+            <p><strong>Subscriber Email:</strong> {{subscriber_email}}</p>
+            <p><strong>Message:</strong> {{message}}</p>
+        </div>
+        <div class="info-box">
+            <h3>Additional Information:</h3>
+            <p><strong>IP Address:</strong> {{ip_address}}</p>
+            <p><strong>Page Source:</strong> {{page_source}}</p>
+            <p><strong>Subscription Time:</strong> {{submission_time}}</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>This is an automated message from the Fight For Mesothelioma website.</p>
+    </div>
+</body>
+</html> 

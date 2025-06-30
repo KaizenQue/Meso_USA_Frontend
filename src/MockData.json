@@ -1,0 +1,3006 @@
+{
+  "yearly_data": {
+    "2019": {
+      "country": {
+        "USA": {
+          "regions": {
+            "North": {
+              "suppliers": [
+                {
+                  "name": "Supplier 1",
+                  "procurement_KPIs": {
+                    "purchase_volume": {
+                      "value": 1000,
+                      "unit": "units"
+                    },
+                    "price_trends": {
+                      "average_price": 20,
+                      "currency": "USD"
+                    },
+                    "anomalies": [
+                      {
+                        "type": "fraud_detection",
+                        "description": "Irregular payment behavior"
+                      }
+                    ],
+                    "carbon_intensity": {
+                      "carbon_intensity_data": [
+                        {
+                          "month": "January",
+                          "carbon_intensity": 120,
+                          "percentage_decrease": 0.23
+                        },
+                        {
+                          "month": "February",
+                          "carbon_intensity": 15,
+                          "percentage_decrease": 1.17
+                        },
+                        {
+                          "month": "March",
+                          "carbon_intensity": 10,
+                          "percentage_decrease": 8.33
+                        },
+                        {
+                          "month": "April",
+                          "carbon_intensity": 10,
+                          "percentage_decrease": 12.5
+                        },
+                        {
+                          "month": "May",
+                          "carbon_intensity": 30,
+                          "percentage_decrease": 1.67
+                        },
+                        {
+                          "month": "June",
+                          "carbon_intensity": 35,
+                          "percentage_decrease": 20.83
+                        },
+                        {
+                          "month": "July",
+                          "carbon_intensity": 40,
+                          "percentage_decrease": 25.0
+                        },
+                        {
+                          "month": "August",
+                          "carbon_intensity": 85,
+                          "percentage_decrease": 9.17
+                        },
+                        {
+                          "month": "September",
+                          "carbon_intensity": 30,
+                          "percentage_decrease": 3.33
+                        },
+                        {
+                          "month": "October",
+                          "carbon_intensity": 75,
+                          "percentage_decrease": 3.5
+                        },
+                        {
+                          "month": "November",
+                          "carbon_intensity": 40,
+                          "percentage_decrease": 1.67
+                        },
+                        {
+                          "month": "December",
+                          "carbon_intensity": 65,
+                          "percentage_decrease": 45.83
+                        }
+                      ],
+                      "current_year": "2023",
+                      "unit": "kg CO2 per unit of output"
+                    },
+                    "emission_factors": {
+                      "value": 15,
+                      "unit": "kgCO2e"
+                    },
+                    "trends": {
+                      "monthly": [
+                        {
+                          "month": "Q1",
+                          "purchase_volume": 100,
+                          "average_price": 22
+                        },
+                        {
+                          "month": "Q2",
+                          "purchase_volume": 180,
+                          "average_price": 21
+                        },
+                        {
+                          "month": "Q3",
+                          "purchase_volume": 30,
+                          "average_price": 22
+                        },
+                        {
+                          "month": "Q4",
+                          "purchase_volume": 120,
+                          "average_price": 21
+                        }
+                      ]
+                    },
+                    "delivery_delay": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Feb",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Mar",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Apr",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "May",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Jun",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Jul",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Aug",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Sep",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Oct",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Nov",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Dec",
+                          "delay_days": 2
+                        }
+                      ]
+                    },
+                    "seasonal_high_low": {
+                      "monthly_purchase_volume": [
+                        { "month": "January", "volume": 10000 },
+                        { "month": "February", "volume": 12000 },
+                        { "month": "March", "volume": 14000 },
+                        { "month": "April", "volume": 42000, "anomaly": true },
+                        { "month": "May", "volume": 16000 },
+                        { "month": "June", "volume": 18000 }
+                      ],
+                      "suppliers_contributing_spike": [
+                        {
+                          "name": "Milk",
+                          "previous_month_volume": 5000,
+                          "current_month_volume": 20000,
+                          "increase_percentage": 300
+                        },
+                        {
+                          "name": "Meat",
+                          "previous_month_volume": 4000,
+                          "current_month_volume": 12000,
+                          "increase_percentage": 200
+                        }
+                      ],
+                      "high_season": "Q1",
+                      "low_season": "Q2"
+                    },
+                    "duplicate_payment": {
+                      "payment_history": [
+                        {
+                          "month": "Jan",
+                          "amount": "$1000"
+                        },
+                        {
+                          "month": "Feb",
+                          "amount": "$2000"
+                        },
+                        {
+                          "month": "Mar",
+                          "amount": "$1000",
+                          "amount2": "$4000"
+                        },
+                        {
+                          "month": "Apr",
+                          "amount": "6000"
+                        },
+                        {
+                          "month": "May",
+                          "amount": "$1000"
+                        },
+                        {
+                          "month": "Jun",
+                          "amount": "$3000"
+                        },
+                        {
+                          "month": "Jul",
+                          "amount": "$5100"
+                        },
+                        {
+                          "month": "Aug",
+                          "amount": "$2000"
+                        },
+                        {
+                          "month": "Sep",
+                          "amount": "$7000",
+                          "amount2": "$8200"
+                        },
+                        {
+                          "month": "Oct",
+                          "amount": "$5000",
+                          "amount2": "$8200"
+                        },
+                        {
+                          "month": "Nov",
+                          "amount": "$1000"
+                        },
+                        {
+                          "month": "Dec",
+                          "amount": "$5000"
+                        }
+                      ],
+                      "fraud_detected": true,
+                      "details": "Duplicate payments for same invoice"
+                    },
+                    "incomplete_information": {
+                      "missing_data": ["supplier_contact"]
+                    },
+                    "Price_trends": {
+                      "product": "Grains",
+                      "data": [
+                        {
+                          "month": "January",
+                          "average_price": 100,
+                          "percentage_increase": 0
+                        },
+                        {
+                          "month": "February",
+                          "average_price": 102,
+                          "percentage_increase": 2
+                        },
+                        {
+                          "month": "March",
+                          "average_price": 105,
+                          "percentage_increase": 5
+                        },
+                        {
+                          "month": "April",
+                          "average_price": 108,
+                          "percentage_increase": 8
+                        },
+                        {
+                          "month": "May",
+                          "average_price": 110,
+                          "percentage_increase": 10
+                        },
+                        {
+                          "month": "June",
+                          "average_price": 112,
+                          "percentage_increase": 12
+                        },
+                        {
+                          "month": "July",
+                          "average_price": 115,
+                          "percentage_increase": 15
+                        },
+                        {
+                          "month": "August",
+                          "average_price": 117,
+                          "percentage_increase": 17
+                        },
+                        {
+                          "month": "September",
+                          "average_price": 120,
+                          "percentage_increase": 20
+                        },
+                        {
+                          "month": "October",
+                          "average_price": 122,
+                          "percentage_increase": 22
+                        },
+                        {
+                          "month": "November",
+                          "average_price": 125,
+                          "percentage_increase": 25
+                        },
+                        {
+                          "month": "December",
+                          "average_price": 130,
+                          "percentage_increase": 30
+                        }
+                      ],
+                      "summary": {
+                        "average_price_increase": 15,
+                        "unit": "percentage"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "Supplier 2",
+                  "procurement_KPIs": {
+                    "purchase_volume": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "value": 900,
+                          "purchase_volume": 190,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Feb",
+                          "value": 200,
+                          "purchase_volume": 90,
+                          "average_price": 9
+                        },
+                        {
+                          "month": "Mar",
+                          "value": 300,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Apr",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "May",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Jun",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Jul",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Aug",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Sep",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Oct",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Nov",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Dec",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        }
+                      ]
+                    },
+
+                    "carbon_intensity": {
+                      "carbon_intensity_data": [
+                        {
+                          "month": "January",
+                          "carbon_intensity": 120,
+                          "percentage_decrease": 0
+                        },
+                        {
+                          "month": "February",
+                          "carbon_intensity": 115,
+                          "percentage_decrease": 4.17
+                        },
+                        {
+                          "month": "March",
+                          "carbon_intensity": 110,
+                          "percentage_decrease": 8.33
+                        },
+                        {
+                          "month": "April",
+                          "carbon_intensity": 105,
+                          "percentage_decrease": 12.5
+                        },
+                        {
+                          "month": "May",
+                          "carbon_intensity": 100,
+                          "percentage_decrease": 16.67
+                        },
+                        {
+                          "month": "June",
+                          "carbon_intensity": 95,
+                          "percentage_decrease": 20.83
+                        },
+                        {
+                          "month": "July",
+                          "carbon_intensity": 90,
+                          "percentage_decrease": 25.0
+                        },
+                        {
+                          "month": "August",
+                          "carbon_intensity": 85,
+                          "percentage_decrease": 29.17
+                        },
+                        {
+                          "month": "September",
+                          "carbon_intensity": 80,
+                          "percentage_decrease": 33.33
+                        },
+                        {
+                          "month": "October",
+                          "carbon_intensity": 75,
+                          "percentage_decrease": 37.5
+                        },
+                        {
+                          "month": "November",
+                          "carbon_intensity": 70,
+                          "percentage_decrease": 41.67
+                        },
+                        {
+                          "month": "December",
+                          "carbon_intensity": 65,
+                          "percentage_decrease": 45.83
+                        }
+                      ],
+                      "current_year": "2023",
+                      "unit": "kg CO2 per unit of output"
+                    },
+                    "emission_factors": {
+                      "value": 12,
+                      "unit": "kgCO2e"
+                    },
+                    "trends": {
+                      "monthly": [
+                        {
+                          "month": "January",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "February",
+                          "purchase_volume": 110,
+                          "average_price": 17
+                        }
+                      ]
+                    },
+                    "delivery_delay": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Feb",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Mar",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Apr",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "May",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jun",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jul",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Aug",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Sep",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Oct",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Nov",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Dec",
+                          "delay_days": 3
+                        }
+                      ]
+                    },
+                    "seasonal_high_low": {
+                      "monthly_purchase_volume": [
+                        { "month": "January", "volume": 1000 },
+                        { "month": "February", "volume": 100 },
+                        { "month": "March", "volume": 100 },
+                        { "month": "April", "volume": 42000, "anomaly": true },
+                        { "month": "May", "volume": 100 },
+                        { "month": "June", "volume": 1800 }
+                      ],
+                      "suppliers_contributing_spike": [
+                        {
+                          "name": "Milk",
+                          "previous_month_volume": 5000,
+                          "current_month_volume": 200,
+                          "increase_percentage": 300
+                        },
+                        {
+                          "name": "Meat",
+                          "previous_month_volume": 400,
+                          "current_month_volume": 100,
+                          "increase_percentage": 200
+                        }
+                      ],
+                      "high_season": "Q1",
+                      "low_season": "Q2"
+                    },
+                   
+                    "incomplete_information": {
+                      "missing_data": []
+                    }
+                  }
+                },
+                {
+                  "name": "Supplier 3",
+                  "procurement_KPIs": {
+                    "purchase_volume": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "value": 900,
+                          "purchase_volume": 190,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Feb",
+                          "value": 200,
+                          "purchase_volume": 90,
+                          "average_price": 9
+                        },
+                        {
+                          "month": "Mar",
+                          "value": 300,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Apr",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "May",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Jun",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Jul",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Aug",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Sep",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Oct",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Nov",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Dec",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        }
+                      ]
+                    },
+
+                    "carbon_intensity": {
+                      "carbon_intensity_data": [
+                        {
+                          "month": "January",
+                          "carbon_intensity": 120,
+                          "percentage_decrease": 0
+                        },
+                        {
+                          "month": "February",
+                          "carbon_intensity": 115,
+                          "percentage_decrease": 4.17
+                        },
+                        {
+                          "month": "March",
+                          "carbon_intensity": 110,
+                          "percentage_decrease": 8.33
+                        },
+                        {
+                          "month": "April",
+                          "carbon_intensity": 105,
+                          "percentage_decrease": 12.5
+                        },
+                        {
+                          "month": "May",
+                          "carbon_intensity": 100,
+                          "percentage_decrease": 16.67
+                        },
+                        {
+                          "month": "June",
+                          "carbon_intensity": 95,
+                          "percentage_decrease": 20.83
+                        },
+                        {
+                          "month": "July",
+                          "carbon_intensity": 90,
+                          "percentage_decrease": 25.0
+                        },
+                        {
+                          "month": "August",
+                          "carbon_intensity": 85,
+                          "percentage_decrease": 29.17
+                        },
+                        {
+                          "month": "September",
+                          "carbon_intensity": 80,
+                          "percentage_decrease": 33.33
+                        },
+                        {
+                          "month": "October",
+                          "carbon_intensity": 75,
+                          "percentage_decrease": 37.5
+                        },
+                        {
+                          "month": "November",
+                          "carbon_intensity": 70,
+                          "percentage_decrease": 41.67
+                        },
+                        {
+                          "month": "December",
+                          "carbon_intensity": 65,
+                          "percentage_decrease": 45.83
+                        }
+                      ],
+                      "current_year": "2023",
+                      "unit": "kg CO2 per unit of output"
+                    },
+                    "emission_factors": {
+                      "value": 12,
+                      "unit": "kgCO2e"
+                    },
+                    
+                    "delivery_delay": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Feb",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Mar",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Apr",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "May",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jun",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Jul",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Aug",
+                          "delay_days": 9
+                        },
+                        {
+                          "month": "Sep",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Oct",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Nov",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Dec",
+                          "delay_days": 3
+                        }
+                      ]
+                    },
+                    "seasonal_high_low": {
+                      "monthly_purchase_volume": [
+                        { "month": "January", "volume": 1000 },
+                        { "month": "February", "volume": 100 },
+                        { "month": "March", "volume": 100 },
+                        { "month": "April", "volume": 42000, "anomaly": true },
+                        { "month": "May", "volume": 100 },
+                        { "month": "June", "volume": 1800 }
+                      ],
+                      "suppliers_contributing_spike": [
+                        {
+                          "name": "Milk",
+                          "previous_month_volume": 5000,
+                          "current_month_volume": 200,
+                          "increase_percentage": 300
+                        },
+                        {
+                          "name": "Meat",
+                          "previous_month_volume": 400,
+                          "current_month_volume": 100,
+                          "increase_percentage": 200
+                        }
+                      ],
+                      "high_season": "Q1",
+                      "low_season": "Q2"
+                    },
+                   
+                    "incomplete_information": {
+                      "missing_data": []
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "India": {
+          "regions": {
+            "North": {
+              "suppliers": [
+                {
+                  "name": "Supplier 1",
+                  "procurement_KPIs": {
+                    "purchase_volume": {
+                      "value": 1000,
+                      "unit": "units"
+                    },
+                    "price_trends": {
+                      "average_price": 20,
+                      "currency": "USD"
+                    },
+                    "anomalies": [
+                      {
+                        "type": "fraud_detection",
+                        "description": "Irregular payment behavior"
+                      }
+                    ],
+                    "carbon_intensity": {
+                      "carbon_intensity_data": [
+                        {
+                          "month": "January",
+                          "carbon_intensity": 120,
+                          "percentage_decrease": 0.23
+                        },
+                        {
+                          "month": "February",
+                          "carbon_intensity": 15,
+                          "percentage_decrease": 1.17
+                        },
+                        {
+                          "month": "March",
+                          "carbon_intensity": 10,
+                          "percentage_decrease": 8.33
+                        },
+                        {
+                          "month": "April",
+                          "carbon_intensity": 10,
+                          "percentage_decrease": 12.5
+                        },
+                        {
+                          "month": "May",
+                          "carbon_intensity": 30,
+                          "percentage_decrease": 1.67
+                        },
+                        {
+                          "month": "June",
+                          "carbon_intensity": 35,
+                          "percentage_decrease": 20.83
+                        },
+                        {
+                          "month": "July",
+                          "carbon_intensity": 40,
+                          "percentage_decrease": 25.0
+                        },
+                        {
+                          "month": "August",
+                          "carbon_intensity": 85,
+                          "percentage_decrease": 9.17
+                        },
+                        {
+                          "month": "September",
+                          "carbon_intensity": 30,
+                          "percentage_decrease": 3.33
+                        },
+                        {
+                          "month": "October",
+                          "carbon_intensity": 75,
+                          "percentage_decrease": 3.5
+                        },
+                        {
+                          "month": "November",
+                          "carbon_intensity": 40,
+                          "percentage_decrease": 1.67
+                        },
+                        {
+                          "month": "December",
+                          "carbon_intensity": 65,
+                          "percentage_decrease": 45.83
+                        }
+                      ],
+                      "current_year": "2023",
+                      "unit": "kg CO2 per unit of output"
+                    },
+                    "emission_factors": {
+                      "value": 15,
+                      "unit": "kgCO2e"
+                    },
+                    "trends": {
+                      "monthly": [
+                        {
+                          "month": "Q1",
+                          "purchase_volume": 100,
+                          "average_price": 22
+                        },
+                        {
+                          "month": "Q2",
+                          "purchase_volume": 180,
+                          "average_price": 21
+                        },
+                        {
+                          "month": "Q3",
+                          "purchase_volume": 30,
+                          "average_price": 22
+                        },
+                        {
+                          "month": "Q4",
+                          "purchase_volume": 120,
+                          "average_price": 21
+                        }
+                      ]
+                    },
+                    "delivery_delay": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Feb",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Mar",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Apr",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "May",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Jun",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jul",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Aug",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Sep",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Oct",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Nov",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Dec",
+                          "delay_days": 0
+                        }
+                      ]
+                    },
+                    "seasonal_high_low": {
+                      "monthly_purchase_volume": [
+                        { "month": "January", "volume": 10000 },
+                        { "month": "February", "volume": 12000 },
+                        { "month": "March", "volume": 14000 },
+                        { "month": "April", "volume": 42000, "anomaly": true },
+                        { "month": "May", "volume": 16000 },
+                        { "month": "June", "volume": 18000 }
+                      ],
+                      "suppliers_contributing_spike": [
+                        {
+                          "name": "Milk",
+                          "previous_month_volume": 5000,
+                          "current_month_volume": 20000,
+                          "increase_percentage": 300
+                        },
+                        {
+                          "name": "Meat",
+                          "previous_month_volume": 4000,
+                          "current_month_volume": 12000,
+                          "increase_percentage": 200
+                        }
+                      ],
+                      "high_season": "Q1",
+                      "low_season": "Q2"
+                    },
+                    "duplicate_payment": {
+                      "payment_history": [
+                        {
+                          "month": "Jan",
+                          "amount": "$200"
+                        },
+                        {
+                          "month": "Feb",
+                          "amount": "$700"
+                        },
+                        {
+                          "month": "Mar",
+                          "amount": "$100",
+                          "amount2": "$6000"
+                        },
+                        {
+                          "month": "Apr",
+                          "amount": "$6000"
+                        },
+                        {
+                          "month": "May",
+                          "amount": "$1000",
+                          "amount2": "$6000"
+                        },
+                        {
+                          "month": "Jun",
+                          "amount": "$600"
+                        },
+                        {
+                          "month": "Jul",
+                          "amount": "$500",
+                          "amount2": "$6000"
+                        },
+                        {
+                          "month": "Aug",
+                          "amount": "$2000"
+                        },
+                        {
+                          "month": "Sep",
+                          "amount": "$3000",
+                          "amount2": "$200"
+                        },
+                        {
+                          "month": "Oct",
+                          "amount": "$1000",
+                          "amount2": "$8200"
+                        },
+                        {
+                          "month": "Nov",
+                          "amount": "$1000"
+                        },
+                        {
+                          "month": "Dec",
+                          "amount": "$5900"
+                        }
+                      ],
+                      "fraud_detected": true,
+                      "details": "Duplicate payments for same invoice"
+                    },
+                    "incomplete_information": {
+                      "missing_data": ["supplier_contact"]
+                    },
+                    "Price_trends": {
+                      "product": "Grains",
+                      "data": [
+                        {
+                          "month": "January",
+                          "average_price": 100,
+                          "percentage_increase": 0
+                        },
+                        {
+                          "month": "February",
+                          "average_price": 102,
+                          "percentage_increase": 2
+                        },
+                        {
+                          "month": "March",
+                          "average_price": 105,
+                          "percentage_increase": 5
+                        },
+                        {
+                          "month": "April",
+                          "average_price": 108,
+                          "percentage_increase": 8
+                        },
+                        {
+                          "month": "May",
+                          "average_price": 110,
+                          "percentage_increase": 10
+                        },
+                        {
+                          "month": "June",
+                          "average_price": 112,
+                          "percentage_increase": 12
+                        },
+                        {
+                          "month": "July",
+                          "average_price": 115,
+                          "percentage_increase": 15
+                        },
+                        {
+                          "month": "August",
+                          "average_price": 117,
+                          "percentage_increase": 17
+                        },
+                        {
+                          "month": "September",
+                          "average_price": 120,
+                          "percentage_increase": 20
+                        },
+                        {
+                          "month": "October",
+                          "average_price": 122,
+                          "percentage_increase": 22
+                        },
+                        {
+                          "month": "November",
+                          "average_price": 125,
+                          "percentage_increase": 25
+                        },
+                        {
+                          "month": "December",
+                          "average_price": 130,
+                          "percentage_increase": 30
+                        }
+                      ],
+                      "summary": {
+                        "average_price_increase": 15,
+                        "unit": "percentage"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "Supplier 2",
+                  "procurement_KPIs": {
+                    "purchase_volume": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "value": 900,
+                          "purchase_volume": 190,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Feb",
+                          "value": 200,
+                          "purchase_volume": 90,
+                          "average_price": 9
+                        },
+                        {
+                          "month": "Mar",
+                          "value": 300,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Apr",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "May",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Jun",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Jul",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Aug",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Sep",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Oct",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Nov",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Dec",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        }
+                      ]
+                    },
+
+                    "carbon_intensity": {
+                      "carbon_intensity_data": [
+                        {
+                          "month": "January",
+                          "carbon_intensity": 120,
+                          "percentage_decrease": 0
+                        },
+                        {
+                          "month": "February",
+                          "carbon_intensity": 115,
+                          "percentage_decrease": 4.17
+                        },
+                        {
+                          "month": "March",
+                          "carbon_intensity": 110,
+                          "percentage_decrease": 8.33
+                        },
+                        {
+                          "month": "April",
+                          "carbon_intensity": 105,
+                          "percentage_decrease": 12.5
+                        },
+                        {
+                          "month": "May",
+                          "carbon_intensity": 100,
+                          "percentage_decrease": 16.67
+                        },
+                        {
+                          "month": "June",
+                          "carbon_intensity": 95,
+                          "percentage_decrease": 20.83
+                        },
+                        {
+                          "month": "July",
+                          "carbon_intensity": 90,
+                          "percentage_decrease": 25.0
+                        },
+                        {
+                          "month": "August",
+                          "carbon_intensity": 85,
+                          "percentage_decrease": 29.17
+                        },
+                        {
+                          "month": "September",
+                          "carbon_intensity": 80,
+                          "percentage_decrease": 33.33
+                        },
+                        {
+                          "month": "October",
+                          "carbon_intensity": 75,
+                          "percentage_decrease": 37.5
+                        },
+                        {
+                          "month": "November",
+                          "carbon_intensity": 70,
+                          "percentage_decrease": 41.67
+                        },
+                        {
+                          "month": "December",
+                          "carbon_intensity": 65,
+                          "percentage_decrease": 45.83
+                        }
+                      ],
+                      "current_year": "2023",
+                      "unit": "kg CO2 per unit of output"
+                    },
+                    "emission_factors": {
+                      "value": 12,
+                      "unit": "kgCO2e"
+                    },
+                    "trends": {
+                      "monthly": [
+                        {
+                          "month": "January",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "February",
+                          "purchase_volume": 110,
+                          "average_price": 17
+                        }
+                      ]
+                    },
+                    "delivery_delay": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Feb",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Mar",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Apr",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "May",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jun",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jul",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Aug",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Sep",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Oct",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Nov",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Dec",
+                          "delay_days": 3
+                        }
+                      ]
+                    },
+                    "seasonal_high_low": {
+                      "monthly_purchase_volume": [
+                        { "month": "January", "volume": 1000 },
+                        { "month": "February", "volume": 100 },
+                        { "month": "March", "volume": 100 },
+                        { "month": "April", "volume": 42000, "anomaly": true },
+                        { "month": "May", "volume": 100 },
+                        { "month": "June", "volume": 1800 }
+                      ],
+                      "suppliers_contributing_spike": [
+                        {
+                          "name": "Milk",
+                          "previous_month_volume": 5000,
+                          "current_month_volume": 200,
+                          "increase_percentage": 300
+                        },
+                        {
+                          "name": "Meat",
+                          "previous_month_volume": 400,
+                          "current_month_volume": 100,
+                          "increase_percentage": 200
+                        }
+                      ],
+                      "high_season": "Q1",
+                      "low_season": "Q2"
+                    },
+                   
+                    "incomplete_information": {
+                      "missing_data": []
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "2020": {
+      "country": {
+        "USA": {
+          "regions": {
+            "North": {
+              "suppliers": [
+                {
+                  "name": "Supplier 1",
+                  "procurement_KPIs": {
+                    "purchase_volume": {
+                      "value": 1000,
+                      "unit": "units"
+                    },
+                    "price_trends": {
+                      "average_price": 20,
+                      "currency": "USD"
+                    },
+                    "anomalies": [
+                      {
+                        "type": "fraud_detection",
+                        "description": "Irregular payment behavior"
+                      }
+                    ],
+                    "carbon_intensity": {
+                      "carbon_intensity_data": [
+                        {
+                          "month": "January",
+                          "carbon_intensity": 10,
+                          "percentage_decrease": 0.23
+                        },
+                        {
+                          "month": "February",
+                          "carbon_intensity": 135,
+                          "percentage_decrease": 1.17
+                        },
+                        {
+                          "month": "March",
+                          "carbon_intensity": 10,
+                          "percentage_decrease": 8.33
+                        },
+                        {
+                          "month": "April",
+                          "carbon_intensity": 40,
+                          "percentage_decrease": 12.5
+                        },
+                        {
+                          "month": "May",
+                          "carbon_intensity": 39,
+                          "percentage_decrease": 1.67
+                        },
+                        {
+                          "month": "June",
+                          "carbon_intensity": 35,
+                          "percentage_decrease": 20.83
+                        },
+                        {
+                          "month": "July",
+                          "carbon_intensity": 40,
+                          "percentage_decrease": 25.0
+                        },
+                        {
+                          "month": "August",
+                          "carbon_intensity": 85,
+                          "percentage_decrease": 9.17
+                        },
+                        {
+                          "month": "September",
+                          "carbon_intensity": 30,
+                          "percentage_decrease": 3.33
+                        },
+                        {
+                          "month": "October",
+                          "carbon_intensity": 15,
+                          "percentage_decrease": 3.5
+                        },
+                        {
+                          "month": "November",
+                          "carbon_intensity": 40,
+                          "percentage_decrease": 1.67
+                        },
+                        {
+                          "month": "December",
+                          "carbon_intensity": 65,
+                          "percentage_decrease": 45.83
+                        }
+                      ],
+                      "current_year": "2023",
+                      "unit": "kg CO2 per unit of output"
+                    },
+                    "emission_factors": {
+                      "value": 15,
+                      "unit": "kgCO2e"
+                    },
+                    "trends": {
+                      "monthly": [
+                        {
+                          "month": "Q1",
+                          "purchase_volume": 10,
+                          "average_price": 22
+                        },
+                        {
+                          "month": "Q2",
+                          "purchase_volume": 80,
+                          "average_price": 21
+                        },
+                        {
+                          "month": "Q3",
+                          "purchase_volume": 30,
+                          "average_price": 22
+                        },
+                        {
+                          "month": "Q4",
+                          "purchase_volume": 10,
+                          "average_price": 21
+                        }
+                      ]
+                    },
+                    "delivery_delay": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Feb",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Mar",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Apr",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "May",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jun",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Jul",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Aug",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Sep",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Oct",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Nov",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Dec",
+                          "delay_days": 0
+                        }
+                      ]
+                    },
+                    "seasonal_high_low": {
+                      "monthly_purchase_volume": [
+                        { "month": "January", "volume": 2000 },
+                        { "month": "February", "volume": 1400 },
+                        { "month": "March", "volume": 7000 },
+                        { "month": "April", "volume": 92000, "anomaly": true },
+                        { "month": "May", "volume": 1600 },
+                        { "month": "June", "volume": 15000 }
+                      ],
+                      "suppliers_contributing_spike": [
+                        {
+                          "name": "Milk",
+                          "previous_month_volume": 5000,
+                          "current_month_volume": 20000,
+                          "increase_percentage": 300
+                        },
+                        {
+                          "name": "Meat",
+                          "previous_month_volume": 4000,
+                          "current_month_volume": 12000,
+                          "increase_percentage": 200
+                        }
+                      ],
+                      "high_season": "Q1",
+                      "low_season": "Q2"
+                    },
+                    "duplicate_payment": {
+                      "payment_history": [
+                        {
+                          "month": "Jan",
+                          "amount": "$100",
+                          "amount2": "$3000"
+                        },
+                        {
+                          "month": "Feb",
+                          "amount": "$2000"
+                        },
+                        {
+                          "month": "Mar",
+                          "amount": "$1000"
+                        },
+                        {
+                          "month": "Apr",
+                          "amount": "2000"
+                        },
+                        {
+                          "month": "May",
+                          "amount": "$8000"
+                        },
+                        {
+                          "month": "Jun",
+                          "amount": "$2000"
+                        },
+                        {
+                          "month": "Jul",
+                          "amount": "$5100",
+                          "amount2": "$400"
+                        },
+                        {
+                          "month": "Aug",
+                          "amount": "$2000"
+                        },
+                        {
+                          "month": "Sep",
+                          "amount": "$7000",
+                          "amount2": "$8200"
+                        },
+                        {
+                          "month": "Oct",
+                          "amount": "$5000",
+                          "amount2": "$8200"
+                        },
+                        {
+                          "month": "Nov",
+                          "amount": "$1000"
+                        },
+                        {
+                          "month": "Dec",
+                          "amount": "$3000"
+                        }
+                      ],
+                      "fraud_detected": true,
+                      "details": "Duplicate payments for same invoice"
+                    },
+                    "incomplete_information": {
+                      "missing_data": ["supplier_contact"]
+                    },
+                    "Price_trends": {
+                      "product": "Grains",
+                      "data": [
+                        {
+                          "month": "January",
+                          "average_price": 100,
+                          "percentage_increase": 0
+                        },
+                        {
+                          "month": "February",
+                          "average_price": 902,
+                          "percentage_increase": 2
+                        },
+                        {
+                          "month": "March",
+                          "average_price": 105,
+                          "percentage_increase": 5
+                        },
+                        {
+                          "month": "April",
+                          "average_price": 108,
+                          "percentage_increase": 8
+                        },
+                        {
+                          "month": "May",
+                          "average_price": 112,
+                          "percentage_increase": 10
+                        },
+                        {
+                          "month": "June",
+                          "average_price": 132,
+                          "percentage_increase": 12
+                        },
+                        {
+                          "month": "July",
+                          "average_price": 115,
+                          "percentage_increase": 15
+                        },
+                        {
+                          "month": "August",
+                          "average_price": 117,
+                          "percentage_increase": 17
+                        },
+                        {
+                          "month": "September",
+                          "average_price": 120,
+                          "percentage_increase": 20
+                        },
+                        {
+                          "month": "October",
+                          "average_price": 23,
+                          "percentage_increase": 22
+                        },
+                        {
+                          "month": "November",
+                          "average_price": 125,
+                          "percentage_increase": 25
+                        },
+                        {
+                          "month": "December",
+                          "average_price": 10,
+                          "percentage_increase": 30
+                        }
+                      ],
+                      "summary": {
+                        "average_price_increase": 15,
+                        "unit": "percentage"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "Supplier 2",
+                  "procurement_KPIs": {
+                    "purchase_volume": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "value": 900,
+                          "purchase_volume": 110,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Feb",
+                          "value": 200,
+                          "purchase_volume": 190,
+                          "average_price": 9
+                        },
+                        {
+                          "month": "Mar",
+                          "value": 300,
+                          "unit": "units",
+                          "purchase_volume": 80,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Apr",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "May",
+                          "value": 400,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Jun",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Jul",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 40,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Aug",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 70,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Sep",
+                          "value": 700,
+                          "unit": "units",
+                          "purchase_volume": 50,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Oct",
+                          "value": 700,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Nov",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Dec",
+                          "value": 300,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        }
+                      ]
+                    },
+
+                    "carbon_intensity": {
+                      "carbon_intensity_data": [
+                        {
+                          "month": "January",
+                          "carbon_intensity": 120,
+                          "percentage_decrease": 0
+                        },
+                        {
+                          "month": "February",
+                          "carbon_intensity": 115,
+                          "percentage_decrease": 4.17
+                        },
+                        {
+                          "month": "March",
+                          "carbon_intensity": 110,
+                          "percentage_decrease": 8.33
+                        },
+                        {
+                          "month": "April",
+                          "carbon_intensity": 105,
+                          "percentage_decrease": 12.5
+                        },
+                        {
+                          "month": "May",
+                          "carbon_intensity": 100,
+                          "percentage_decrease": 16.67
+                        },
+                        {
+                          "month": "June",
+                          "carbon_intensity": 95,
+                          "percentage_decrease": 20.83
+                        },
+                        {
+                          "month": "July",
+                          "carbon_intensity": 90,
+                          "percentage_decrease": 25.0
+                        },
+                        {
+                          "month": "August",
+                          "carbon_intensity": 85,
+                          "percentage_decrease": 29.17
+                        },
+                        {
+                          "month": "September",
+                          "carbon_intensity": 80,
+                          "percentage_decrease": 33.33
+                        },
+                        {
+                          "month": "October",
+                          "carbon_intensity": 75,
+                          "percentage_decrease": 37.5
+                        },
+                        {
+                          "month": "November",
+                          "carbon_intensity": 70,
+                          "percentage_decrease": 41.67
+                        },
+                        {
+                          "month": "December",
+                          "carbon_intensity": 65,
+                          "percentage_decrease": 45.83
+                        }
+                      ],
+                      "current_year": "2023",
+                      "unit": "kg CO2 per unit of output"
+                    },
+                    "emission_factors": {
+                      "value": 12,
+                      "unit": "kgCO2e"
+                    },
+                    "trends": {
+                      "monthly": [
+                        {
+                          "month": "January",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "February",
+                          "purchase_volume": 110,
+                          "average_price": 17
+                        }
+                      ]
+                    },
+                    "delivery_delay": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Feb",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Mar",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Apr",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "May",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jun",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jul",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Aug",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Sep",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Oct",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Nov",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Dec",
+                          "delay_days": 3
+                        }
+                      ]
+                    },
+                    "seasonal_high_low": {
+                      "monthly_purchase_volume": [
+                        { "month": "January", "volume": 1000 },
+                        { "month": "February", "volume": 100 },
+                        { "month": "March", "volume": 100 },
+                        { "month": "April", "volume": 42000, "anomaly": true },
+                        { "month": "May", "volume": 100 },
+                        { "month": "June", "volume": 1800 }
+                      ],
+                      "suppliers_contributing_spike": [
+                        {
+                          "name": "Milk",
+                          "previous_month_volume": 5000,
+                          "current_month_volume": 200,
+                          "increase_percentage": 300
+                        },
+                        {
+                          "name": "Meat",
+                          "previous_month_volume": 400,
+                          "current_month_volume": 100,
+                          "increase_percentage": 200
+                        }
+                      ],
+                      "high_season": "Q1",
+                      "low_season": "Q2"
+                    },
+                   
+                    "incomplete_information": {
+                      "missing_data": []
+                    }
+                  }
+                },
+                {
+                  "name": "Supplier 3",
+                  "procurement_KPIs": {
+                    "purchase_volume": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "value": 900,
+                          "purchase_volume": 190,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Feb",
+                          "value": 200,
+                          "purchase_volume": 90,
+                          "average_price": 9
+                        },
+                        {
+                          "month": "Mar",
+                          "value": 300,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Apr",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "May",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Jun",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Jul",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Aug",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Sep",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Oct",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Nov",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Dec",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        }
+                      ]
+                    },
+
+                    "carbon_intensity": {
+                      "carbon_intensity_data": [
+                        {
+                          "month": "January",
+                          "carbon_intensity": 120,
+                          "percentage_decrease": 0
+                        },
+                        {
+                          "month": "February",
+                          "carbon_intensity": 115,
+                          "percentage_decrease": 4.17
+                        },
+                        {
+                          "month": "March",
+                          "carbon_intensity": 110,
+                          "percentage_decrease": 8.33
+                        },
+                        {
+                          "month": "April",
+                          "carbon_intensity": 105,
+                          "percentage_decrease": 12.5
+                        },
+                        {
+                          "month": "May",
+                          "carbon_intensity": 100,
+                          "percentage_decrease": 16.67
+                        },
+                        {
+                          "month": "June",
+                          "carbon_intensity": 95,
+                          "percentage_decrease": 20.83
+                        },
+                        {
+                          "month": "July",
+                          "carbon_intensity": 90,
+                          "percentage_decrease": 25.0
+                        },
+                        {
+                          "month": "August",
+                          "carbon_intensity": 85,
+                          "percentage_decrease": 29.17
+                        },
+                        {
+                          "month": "September",
+                          "carbon_intensity": 80,
+                          "percentage_decrease": 33.33
+                        },
+                        {
+                          "month": "October",
+                          "carbon_intensity": 75,
+                          "percentage_decrease": 37.5
+                        },
+                        {
+                          "month": "November",
+                          "carbon_intensity": 70,
+                          "percentage_decrease": 41.67
+                        },
+                        {
+                          "month": "December",
+                          "carbon_intensity": 65,
+                          "percentage_decrease": 45.83
+                        }
+                      ],
+                      "current_year": "2023",
+                      "unit": "kg CO2 per unit of output"
+                    },
+                    "emission_factors": {
+                      "value": 12,
+                      "unit": "kgCO2e"
+                    },
+                    
+                    "delivery_delay": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Feb",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Mar",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Apr",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "May",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jun",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Jul",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Aug",
+                          "delay_days": 9
+                        },
+                        {
+                          "month": "Sep",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Oct",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Nov",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Dec",
+                          "delay_days": 3
+                        }
+                      ]
+                    },
+                    "seasonal_high_low": {
+                      "monthly_purchase_volume": [
+                        { "month": "January", "volume": 1000 },
+                        { "month": "February", "volume": 100 },
+                        { "month": "March", "volume": 100 },
+                        { "month": "April", "volume": 42000, "anomaly": true },
+                        { "month": "May", "volume": 100 },
+                        { "month": "June", "volume": 1800 }
+                      ],
+                      "suppliers_contributing_spike": [
+                        {
+                          "name": "Milk",
+                          "previous_month_volume": 5000,
+                          "current_month_volume": 200,
+                          "increase_percentage": 300
+                        },
+                        {
+                          "name": "Meat",
+                          "previous_month_volume": 400,
+                          "current_month_volume": 100,
+                          "increase_percentage": 200
+                        }
+                      ],
+                      "high_season": "Q1",
+                      "low_season": "Q2"
+                    },
+                   
+                    "incomplete_information": {
+                      "missing_data": []
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "India": {
+          "regions": {
+            "North": {
+              "suppliers": [
+                {
+                  "name": "Supplier 1",
+                  "procurement_KPIs": {
+                    "purchase_volume": {
+                      "value": 1000,
+                      "unit": "units"
+                    },
+                    "price_trends": {
+                      "average_price": 20,
+                      "currency": "USD"
+                    },
+                    "anomalies": [
+                      {
+                        "type": "fraud_detection",
+                        "description": "Irregular payment behavior"
+                      }
+                    ],
+                    "carbon_intensity": {
+                      "carbon_intensity_data": [
+                        {
+                          "month": "January",
+                          "carbon_intensity": 120,
+                          "percentage_decrease": 0.23
+                        },
+                        {
+                          "month": "February",
+                          "carbon_intensity": 15,
+                          "percentage_decrease": 1.17
+                        },
+                        {
+                          "month": "March",
+                          "carbon_intensity": 10,
+                          "percentage_decrease": 8.33
+                        },
+                        {
+                          "month": "April",
+                          "carbon_intensity": 10,
+                          "percentage_decrease": 12.5
+                        },
+                        {
+                          "month": "May",
+                          "carbon_intensity": 30,
+                          "percentage_decrease": 1.67
+                        },
+                        {
+                          "month": "June",
+                          "carbon_intensity": 35,
+                          "percentage_decrease": 20.83
+                        },
+                        {
+                          "month": "July",
+                          "carbon_intensity": 40,
+                          "percentage_decrease": 25.0
+                        },
+                        {
+                          "month": "August",
+                          "carbon_intensity": 85,
+                          "percentage_decrease": 9.17
+                        },
+                        {
+                          "month": "September",
+                          "carbon_intensity": 30,
+                          "percentage_decrease": 3.33
+                        },
+                        {
+                          "month": "October",
+                          "carbon_intensity": 75,
+                          "percentage_decrease": 3.5
+                        },
+                        {
+                          "month": "November",
+                          "carbon_intensity": 40,
+                          "percentage_decrease": 1.67
+                        },
+                        {
+                          "month": "December",
+                          "carbon_intensity": 65,
+                          "percentage_decrease": 45.83
+                        }
+                      ],
+                      "current_year": "2023",
+                      "unit": "kg CO2 per unit of output"
+                    },
+                    "emission_factors": {
+                      "value": 15,
+                      "unit": "kgCO2e"
+                    },
+                    "trends": {
+                      "monthly": [
+                        {
+                          "month": "Q1",
+                          "purchase_volume": 100,
+                          "average_price": 22
+                        },
+                        {
+                          "month": "Q2",
+                          "purchase_volume": 180,
+                          "average_price": 21
+                        },
+                        {
+                          "month": "Q3",
+                          "purchase_volume": 30,
+                          "average_price": 22
+                        },
+                        {
+                          "month": "Q4",
+                          "purchase_volume": 120,
+                          "average_price": 21
+                        }
+                      ]
+                    },
+                    "delivery_delay": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Feb",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Mar",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Apr",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "May",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Jun",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jul",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Aug",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Sep",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Oct",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Nov",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Dec",
+                          "delay_days": 0
+                        }
+                      ]
+                    },
+                    "seasonal_high_low": {
+                      "monthly_purchase_volume": [
+                        { "month": "January", "volume": 10000 },
+                        { "month": "February", "volume": 12000 },
+                        { "month": "March", "volume": 14000 },
+                        { "month": "April", "volume": 42000, "anomaly": true },
+                        { "month": "May", "volume": 16000 },
+                        { "month": "June", "volume": 18000 }
+                      ],
+                      "suppliers_contributing_spike": [
+                        {
+                          "name": "Milk",
+                          "previous_month_volume": 5000,
+                          "current_month_volume": 20000,
+                          "increase_percentage": 300
+                        },
+                        {
+                          "name": "Meat",
+                          "previous_month_volume": 4000,
+                          "current_month_volume": 12000,
+                          "increase_percentage": 200
+                        }
+                      ],
+                      "high_season": "Q1",
+                      "low_season": "Q2"
+                    },
+                    "duplicate_payment": {
+                      "payment_history": [
+                        {
+                          "month": "Jan",
+                          "amount": "$200"
+                        },
+                        {
+                          "month": "Feb",
+                          "amount": "$700"
+                        },
+                        {
+                          "month": "Mar",
+                          "amount": "$100",
+                          "amount2": "$6000"
+                        },
+                        {
+                          "month": "Apr",
+                          "amount": "$6000"
+                        },
+                        {
+                          "month": "May",
+                          "amount": "$1000",
+                          "amount2": "$6000"
+                        },
+                        {
+                          "month": "Jun",
+                          "amount": "$600"
+                        },
+                        {
+                          "month": "Jul",
+                          "amount": "$500",
+                          "amount2": "$6000"
+                        },
+                        {
+                          "month": "Aug",
+                          "amount": "$2000"
+                        },
+                        {
+                          "month": "Sep",
+                          "amount": "$3000",
+                          "amount2": "$200"
+                        },
+                        {
+                          "month": "Oct",
+                          "amount": "$1000",
+                          "amount2": "$8200"
+                        },
+                        {
+                          "month": "Nov",
+                          "amount": "$1000"
+                        },
+                        {
+                          "month": "Dec",
+                          "amount": "$5900"
+                        }
+                      ],
+                      "fraud_detected": true,
+                      "details": "Duplicate payments for same invoice"
+                    },
+                    "incomplete_information": {
+                      "missing_data": ["supplier_contact"]
+                    },
+                    "Price_trends": {
+                      "product": "Grains",
+                      "data": [
+                        {
+                          "month": "January",
+                          "average_price": 100,
+                          "percentage_increase": 0
+                        },
+                        {
+                          "month": "February",
+                          "average_price": 102,
+                          "percentage_increase": 2
+                        },
+                        {
+                          "month": "March",
+                          "average_price": 105,
+                          "percentage_increase": 5
+                        },
+                        {
+                          "month": "April",
+                          "average_price": 108,
+                          "percentage_increase": 8
+                        },
+                        {
+                          "month": "May",
+                          "average_price": 110,
+                          "percentage_increase": 10
+                        },
+                        {
+                          "month": "June",
+                          "average_price": 112,
+                          "percentage_increase": 12
+                        },
+                        {
+                          "month": "July",
+                          "average_price": 115,
+                          "percentage_increase": 15
+                        },
+                        {
+                          "month": "August",
+                          "average_price": 117,
+                          "percentage_increase": 17
+                        },
+                        {
+                          "month": "September",
+                          "average_price": 120,
+                          "percentage_increase": 20
+                        },
+                        {
+                          "month": "October",
+                          "average_price": 122,
+                          "percentage_increase": 22
+                        },
+                        {
+                          "month": "November",
+                          "average_price": 125,
+                          "percentage_increase": 25
+                        },
+                        {
+                          "month": "December",
+                          "average_price": 130,
+                          "percentage_increase": 30
+                        }
+                      ],
+                      "summary": {
+                        "average_price_increase": 15,
+                        "unit": "percentage"
+                      }
+                    }
+                  }
+                },
+                {
+                  "name": "Supplier 2",
+                  "procurement_KPIs": {
+                    "purchase_volume": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "value": 900,
+                          "purchase_volume": 190,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Feb",
+                          "value": 200,
+                          "purchase_volume": 90,
+                          "average_price": 9
+                        },
+                        {
+                          "month": "Mar",
+                          "value": 300,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Apr",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "May",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Jun",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Jul",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Aug",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Sep",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Oct",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Nov",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "Dec",
+                          "value": 900,
+                          "unit": "units",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        }
+                      ]
+                    },
+
+                    "carbon_intensity": {
+                      "carbon_intensity_data": [
+                        {
+                          "month": "January",
+                          "carbon_intensity": 120,
+                          "percentage_decrease": 0
+                        },
+                        {
+                          "month": "February",
+                          "carbon_intensity": 115,
+                          "percentage_decrease": 4.17
+                        },
+                        {
+                          "month": "March",
+                          "carbon_intensity": 110,
+                          "percentage_decrease": 8.33
+                        },
+                        {
+                          "month": "April",
+                          "carbon_intensity": 105,
+                          "percentage_decrease": 12.5
+                        },
+                        {
+                          "month": "May",
+                          "carbon_intensity": 100,
+                          "percentage_decrease": 16.67
+                        },
+                        {
+                          "month": "June",
+                          "carbon_intensity": 95,
+                          "percentage_decrease": 20.83
+                        },
+                        {
+                          "month": "July",
+                          "carbon_intensity": 90,
+                          "percentage_decrease": 25.0
+                        },
+                        {
+                          "month": "August",
+                          "carbon_intensity": 85,
+                          "percentage_decrease": 29.17
+                        },
+                        {
+                          "month": "September",
+                          "carbon_intensity": 80,
+                          "percentage_decrease": 33.33
+                        },
+                        {
+                          "month": "October",
+                          "carbon_intensity": 75,
+                          "percentage_decrease": 37.5
+                        },
+                        {
+                          "month": "November",
+                          "carbon_intensity": 70,
+                          "percentage_decrease": 41.67
+                        },
+                        {
+                          "month": "December",
+                          "carbon_intensity": 65,
+                          "percentage_decrease": 45.83
+                        }
+                      ],
+                      "current_year": "2023",
+                      "unit": "kg CO2 per unit of output"
+                    },
+                    "emission_factors": {
+                      "value": 12,
+                      "unit": "kgCO2e"
+                    },
+                    "trends": {
+                      "monthly": [
+                        {
+                          "month": "January",
+                          "purchase_volume": 90,
+                          "average_price": 19
+                        },
+                        {
+                          "month": "February",
+                          "purchase_volume": 110,
+                          "average_price": 17
+                        }
+                      ]
+                    },
+                    "delivery_delay": {
+                      "monthly": [
+                        {
+                          "month": "Jan",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Feb",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Mar",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Apr",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "May",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jun",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Jul",
+                          "delay_days": 2
+                        },
+                        {
+                          "month": "Aug",
+                          "delay_days": 1
+                        },
+                        {
+                          "month": "Sep",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Oct",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Nov",
+                          "delay_days": 0
+                        },
+                        {
+                          "month": "Dec",
+                          "delay_days": 3
+                        }
+                      ]
+                    },
+                    "seasonal_high_low": {
+                      "monthly_purchase_volume": [
+                        { "month": "January", "volume": 1000 },
+                        { "month": "February", "volume": 100 },
+                        { "month": "March", "volume": 100 },
+                        { "month": "April", "volume": 42000, "anomaly": true },
+                        { "month": "May", "volume": 100 },
+                        { "month": "June", "volume": 1800 }
+                      ],
+                      "suppliers_contributing_spike": [
+                        {
+                          "name": "Milk",
+                          "previous_month_volume": 5000,
+                          "current_month_volume": 200,
+                          "increase_percentage": 300
+                        },
+                        {
+                          "name": "Meat",
+                          "previous_month_volume": 400,
+                          "current_month_volume": 100,
+                          "increase_percentage": 200
+                        }
+                      ],
+                      "high_season": "Q1",
+                      "low_season": "Q2"
+                    },
+                   
+                    "incomplete_information": {
+                      "missing_data": []
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
+    }
+  },
+
+  "heatMap": {
+    "anomalies": [
+      {
+        "year": 2024,
+        "country": "USA",
+        "data": {
+          "delivery_delay": 120,
+          "unexpected_purchase_value": 85,
+          "duplicate_payment": 40,
+          "sum_duplicate_payment": 200,
+          "loss_incurred": 5000,
+          "purchase_values": {
+            "high": 1000,
+            "low": 50
+          }
+        }
+      },
+      {
+        "year": 2024,
+        "country": "Germany",
+        "data": {
+          "delivery_delay": 95,
+          "unexpected_purchase_value": 78,
+          "duplicate_payment": 35,
+          "sum_duplicate_payment": 180,
+          "loss_incurred": 4500,
+          "purchase_values": {
+            "high": 950,
+            "low": 45
+          }
+        }
+      },
+      {
+        "year": 2023,
+        "country": "India",
+        "data": {
+          "delivery_delay": 140,
+          "unexpected_purchase_value": 92,
+          "duplicate_payment": 50,
+          "sum_duplicate_payment": 250,
+          "loss_incurred": 6000,
+          "purchase_values": {
+            "high": 1100,
+            "low": 60
+          }
+        }
+      },
+      {
+        "year": 2023,
+        "country": "UK",
+        "data": {
+          "delivery_delay": 88,
+          "unexpected_purchase_value": 70,
+          "duplicate_payment": 30,
+          "sum_duplicate_payment": 150,
+          "loss_incurred": 4000,
+          "purchase_values": {
+            "high": 900,
+            "low": 40
+          }
+        }
+      },
+      {
+        "year": 2022,
+        "country": "Canada",
+        "data": {
+          "delivery_delay": 110,
+          "unexpected_purchase_value": 65,
+          "duplicate_payment": 25,
+          "sum_duplicate_payment": 130,
+          "loss_incurred": 3500,
+          "purchase_values": {
+            "high": 850,
+            "low": 35
+          }
+        }
+      },
+      {
+        "year": 2022,
+        "country": "Australia",
+        "data": {
+          "delivery_delay": 98,
+          "unexpected_purchase_value": 60,
+          "duplicate_payment": 20,
+          "sum_duplicate_payment": 120,
+          "loss_incurred": 3000,
+          "purchase_values": {
+            "high": 800,
+            "low": 30
+          }
+        }
+      },
+      {
+        "year": 2021,
+        "country": "France",
+        "data": {
+          "delivery_delay": 130,
+          "unexpected_purchase_value": 75,
+          "duplicate_payment": 45,
+          "sum_duplicate_payment": 220,
+          "loss_incurred": 5500,
+          "purchase_values": {
+            "high": 1050,
+            "low": 55
+          }
+        }
+      },
+      {
+        "year": 2021,
+        "country": "Brazil",
+        "data": {
+          "delivery_delay": 105,
+          "unexpected_purchase_value": 67,
+          "duplicate_payment": 22,
+          "sum_duplicate_payment": 110,
+          "loss_incurred": 3200,
+          "purchase_values": {
+            "high": 820,
+            "low": 32
+          }
+        }
+      },
+      {
+        "year": 2020,
+        "country": "Japan",
+        "data": {
+          "delivery_delay": 125,
+          "unexpected_purchase_value": 80,
+          "duplicate_payment": 38,
+          "sum_duplicate_payment": 190,
+          "loss_incurred": 4800,
+          "purchase_values": {
+            "high": 980,
+            "low": 48
+          }
+        }
+      },
+      {
+        "year": 2020,
+        "country": "South Africa",
+        "data": {
+          "delivery_delay": 90,
+          "unexpected_purchase_value": 55,
+          "duplicate_payment": 18,
+          "sum_duplicate_payment": 100,
+          "loss_incurred": 2800,
+          "purchase_values": {
+            "high": 750,
+            "low": 28
+          }
+        }
+      }
+    ]
+  }
+}
