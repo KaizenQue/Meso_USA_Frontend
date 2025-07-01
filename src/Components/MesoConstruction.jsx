@@ -206,11 +206,19 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
   const [isSpeaking, setIsSpeaking] = useState(false);
 
   const generateCaptcha = () => {
+<<<<<<< HEAD
+=======
+    // Stop any ongoing speech when generating new CAPTCHA
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
     if (isSpeaking) {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
     }
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
     let offsets = [];
@@ -225,6 +233,10 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     onCaptchaChange(false);
   };
 
+<<<<<<< HEAD
+=======
+  // Generate CAPTCHA immediately when component mounts
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
   useEffect(() => {
     generateCaptcha();
   }, []);
@@ -232,26 +244,49 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
   useEffect(() => {
     const timer = setInterval(() => {
       generateCaptcha();
+<<<<<<< HEAD
     }, 60000);
 
     return () => {
       clearInterval(timer);
+=======
+    }, 60000); 
+
+    return () => {
+      clearInterval(timer);
+      // Stop any ongoing speech when component unmounts
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
       if (isSpeaking) {
         window.speechSynthesis.cancel();
       }
     };
+<<<<<<< HEAD
   }, [isSpeaking]);
 
   const speakCaptcha = () => {
     if ('speechSynthesis' in window) {
+=======
+  }, [isSpeaking]); 
+
+  const speakCaptcha = () => {
+    if ('speechSynthesis' in window) {
+      // Stop any ongoing speech before starting new one
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
       window.speechSynthesis.cancel();
       setIsSpeaking(true);
 
       const voices = window.speechSynthesis.getVoices();
+<<<<<<< HEAD
       const maleUsVoice = voices.find(voice =>
         voice.lang === 'en-US' &&
         voice.name.toLowerCase().includes('david')
       ) || voices.find(voice =>
+=======
+      const maleUsVoice = voices.find(voice => 
+        voice.lang === 'en-US' && 
+        voice.name.toLowerCase().includes('david')
+      ) || voices.find(voice => 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
         voice.lang === 'en-US'
       );
 
@@ -260,11 +295,19 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
         if (currentIndex < captchaText.length) {
           const char = captchaText[currentIndex];
           const utterance = new SpeechSynthesisUtterance(char);
+<<<<<<< HEAD
           utterance.rate = 0.5;
           utterance.pitch = 0.9;
           utterance.volume = 1.0;
           utterance.lang = 'en-US';
 
+=======
+          utterance.rate = 0.5; 
+          utterance.pitch = 0.9; 
+          utterance.volume = 1.0; 
+          utterance.lang = 'en-US';
+          
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
           if (maleUsVoice) {
             utterance.voice = maleUsVoice;
           }
@@ -1265,7 +1308,11 @@ export default function MesoConstruction() {
                           {errors.humanVerification}
                         </div>
                       )}
+<<<<<<< HEAD
 
+=======
+                      
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                     </div>
 
                     <div className="text-left sm:text-left">

@@ -22,8 +22,9 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     const [audioEnabled, setAudioEnabled] = useState(false);
     const [charOffsets, setCharOffsets] = useState([]);
     const [isSpeaking, setIsSpeaking] = useState(false);
-
+  
     const generateCaptcha = () => {
+<<<<<<< HEAD
 
         if (isSpeaking) {
             window.speechSynthesis.cancel();
@@ -42,134 +43,129 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
         setUserInput('');
         setIsValid(false);
         onCaptchaChange(false);
+=======
+      // Stop any ongoing speech when generating new CAPTCHA
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        setIsSpeaking(false);
+      }
+      
+      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+      let result = '';
+      let offsets = [];
+      for (let i = 0; i < 6; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+        offsets.push((Math.random() * 10 - 5).toFixed(2));
+      }
+      setCaptchaText(result);
+      setCharOffsets(offsets);
+      setUserInput('');
+      setIsValid(false);
+      onCaptchaChange(false);
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
     };
-
+  
     // Generate CAPTCHA immediately when component mounts
     useEffect(() => {
-        generateCaptcha();
+      generateCaptcha();
     }, []);
-
+  
     useEffect(() => {
-        const timer = setInterval(() => {
-            generateCaptcha();
-        }, 60000);
-
-        return () => {
-            clearInterval(timer);
-            // Stop any ongoing speech when component unmounts
-            if (isSpeaking) {
-                window.speechSynthesis.cancel();
-            }
-        };
-    }, [isSpeaking]);
-
-    const speakCaptcha = () => {
-        if ('speechSynthesis' in window) {
-            // Stop any ongoing speech before starting new one
-            window.speechSynthesis.cancel();
-            setIsSpeaking(true);
-
-            const voices = window.speechSynthesis.getVoices();
-            const maleUsVoice = voices.find(voice =>
-                voice.lang === 'en-US' &&
-                voice.name.toLowerCase().includes('david')
-            ) || voices.find(voice =>
-                voice.lang === 'en-US'
-            );
-
-            let currentIndex = 0;
-            const speakNextChar = () => {
-                if (currentIndex < captchaText.length) {
-                    const char = captchaText[currentIndex];
-                    const utterance = new SpeechSynthesisUtterance(char);
-                    utterance.rate = 0.5;
-                    utterance.pitch = 0.9;
-                    utterance.volume = 1.0;
-                    utterance.lang = 'en-US';
-
-                    if (maleUsVoice) {
-                        utterance.voice = maleUsVoice;
-                    }
-
-                    utterance.onend = () => {
-                        currentIndex++;
-                        speakNextChar();
-                    };
-
-                    window.speechSynthesis.speak(utterance);
-                } else {
-                    setIsSpeaking(false);
-                }
-            };
-
-            speakNextChar();
+      const timer = setInterval(() => {
+        generateCaptcha();
+      }, 60000); 
+  
+      return () => {
+        clearInterval(timer);
+        // Stop any ongoing speech when component unmounts
+        if (isSpeaking) {
+          window.speechSynthesis.cancel();
         }
+      };
+    }, [isSpeaking]); 
+  
+    const speakCaptcha = () => {
+      if ('speechSynthesis' in window) {
+        // Stop any ongoing speech before starting new one
+        window.speechSynthesis.cancel();
+        setIsSpeaking(true);
+  
+        const voices = window.speechSynthesis.getVoices();
+        const maleUsVoice = voices.find(voice => 
+          voice.lang === 'en-US' && 
+          voice.name.toLowerCase().includes('david')
+        ) || voices.find(voice => 
+          voice.lang === 'en-US'
+        );
+  
+        let currentIndex = 0;
+        const speakNextChar = () => {
+          if (currentIndex < captchaText.length) {
+            const char = captchaText[currentIndex];
+            const utterance = new SpeechSynthesisUtterance(char);
+            utterance.rate = 0.5; 
+            utterance.pitch = 0.9; 
+            utterance.volume = 1.0; 
+            utterance.lang = 'en-US';
+            
+            if (maleUsVoice) {
+              utterance.voice = maleUsVoice;
+            }
+  
+            utterance.onend = () => {
+              currentIndex++;
+              speakNextChar();
+            };
+  
+            window.speechSynthesis.speak(utterance);
+          } else {
+            setIsSpeaking(false);
+          }
+        };
+  
+        speakNextChar();
+      }
     };
-
+  
     const handleInputChange = (e) => {
-        const value = e.target.value;
-        setUserInput(value);
-        const valid = value === captchaText;
-        setIsValid(valid);
-        onCaptchaChange(valid);
+      const value = e.target.value;
+      setUserInput(value);
+      const valid = value === captchaText;
+      setIsValid(valid);
+      onCaptchaChange(valid);
     };
-
+  
     const handleAudioToggle = (e) => {
-        setAudioEnabled(e.target.checked);
+      setAudioEnabled(e.target.checked);
     };
-
+  
     return (
-        <div className="mt-4">
-            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-                <div className="bg-gray-100 p-3 rounded font-mono text-lg tracking-wider select-none relative captcha-text-container">
-                    {captchaText.split('').map((char, index) => (
-                        <span
-                            key={index}
-                            style={{ transform: `translateY(${charOffsets[index]}px)`, display: 'inline-block' }}
-                        >
-                            {char}
-                        </span>
-                    ))}
-                </div>
-                <div className="flex gap-2 items-center justify-center sm:justify-start">
-                    <Button
-                        variant="outlined"
-                        size="small"
-                        onClick={generateCaptcha}
-                        className="text-gray-600 p-2 min-w-0"
-                        title="Refresh CAPTCHA"
-                    >
-                        ↻
-                    </Button>
-                    {audioEnabled && (
-                        <Button
-                            variant="outlined"
-                            size="small"
-                            onClick={speakCaptcha}
-                            className="text-gray-600 p-2 min-w-0"
-                            title="Listen to CAPTCHA"
-                        >
-                            🔊
-                        </Button>
-                    )}
-                </div>
-            </div>
-            <div className="flex items-center mt-2">
-                <input
-                    type="checkbox"
-                    id="enableAudio"
-                    checked={audioEnabled}
-                    onChange={handleAudioToggle}
-                    className="mr-2"
-                />
-                <label htmlFor="enableAudio" className="text-sm text-gray-700">Enable Audio</label>
-            </div>
-            <TextField
-                fullWidth
-                label="Enter CAPTCHA"
-                value={userInput}
-                onChange={handleInputChange}
+      <div className="mt-4">
+        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+          <div className="bg-gray-100 p-3 rounded font-mono text-lg tracking-wider select-none relative captcha-text-container">
+            {captchaText.split('').map((char, index) => (
+              <span
+                key={index}
+                style={{ transform: `translateY(${charOffsets[index]}px)`, display: 'inline-block' }}
+              >
+                {char}
+              </span>
+            ))}
+          </div>
+          <div className="flex gap-2 items-center justify-center sm:justify-start">
+            <Button
+              variant="outlined"
+              size="small"
+              onClick={generateCaptcha}
+              className="text-gray-600 p-2 min-w-0"
+              title="Refresh CAPTCHA"
+            >
+              ↻
+            </Button>
+            {audioEnabled && (
+              <Button
                 variant="outlined"
+<<<<<<< HEAD
                 margin="normal"
                 error={userInput !== '' && !isValid}
                 helperText={userInput !== '' && !isValid ? 'CAPTCHA does not match' : ''}
@@ -193,9 +189,64 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
             background-position: 0 50%;
           }
         `}</style>
+=======
+                size="small"
+                onClick={speakCaptcha}
+                className="text-gray-600 p-2 min-w-0"
+                title="Listen to CAPTCHA"
+              >
+                🔊
+              </Button>
+            )}
+          </div>
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
         </div>
+        <div className="flex items-center mt-2">
+          <input
+            type="checkbox"
+            id="enableAudio"
+            checked={audioEnabled}
+            onChange={handleAudioToggle}
+            className="mr-2"
+          />
+          <label htmlFor="enableAudio" className="text-sm text-gray-700">Enable Audio</label>
+        </div>
+        <TextField
+          fullWidth
+          label="Enter CAPTCHA"
+          value={userInput}
+          onChange={handleInputChange}
+          variant="outlined"
+          margin="normal"
+          error={userInput !== '' && !isValid}
+          helperText={userInput !== '' && !isValid ? 'CAPTCHA does not match' : ''}
+          InputProps={{
+            className: "text-gray-800",
+          }}
+          InputLabelProps={{
+            className: "text-gray-600",
+          }}
+        />
+        <style jsx>{`
+          .captcha-text-container {
+            background-image: repeating-linear-gradient(
+              0deg,
+              #ccc,
+              #ccc 1px,
+              transparent 1px,
+              transparent 5px
+            );
+            background-size: 100% 10px;
+            background-position: 0 50%;
+          }
+        `}</style>
+      </div>
     );
+<<<<<<< HEAD
 };
+=======
+  };
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
 
 const MesotheliomaLandingPageNew3 = () => {
     const [formData, setFormData] = useState({
@@ -436,8 +487,13 @@ const MesotheliomaLandingPageNew3 = () => {
                     />
                 </div>
                 <div className="relative z-10 flex h-full flex-col p-6 sm:p-8 md:p-12 lg:p-16">
+<<<<<<< HEAD
                     {/* <div className="rounded-lg bg-purple-700 px-3 py-1.5 sm:px-4 sm:py-2 text-white w-16 sm:w-20 text-center text-sm sm:text-base mb-8">LOGO</div> */}
                     <div className="py-2 sm:px-6 sm:py-3 text-white w-46 sm:w-58 text-left text-sm sm:text-base mb-8">
+=======
+          {/* <div className="rounded-lg bg-purple-700 px-3 py-1.5 sm:px-4 sm:py-2 text-white w-16 sm:w-20 text-center text-sm sm:text-base mb-8">LOGO</div> */}
+          <div className="py-2 sm:px-6 sm:py-3 text-white w-46 sm:w-58 text-left text-sm sm:text-base mb-8">
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                         <a href="/">
                             <img
                                 src={logo}
@@ -452,7 +508,11 @@ const MesotheliomaLandingPageNew3 = () => {
                             Auto Mechanics Diagnosed with Mesothelioma
                         </h1>
                         <p className="max-w-xl text-sm sm:text-base text-gray-200">
+<<<<<<< HEAD
                             Diagnosed with mesothelioma after years in auto repair? You may have been exposed to asbestos through brake pads, gaskets, and clutches. Our legal team can help you confirm the risk and fight for compensation.
+=======
+                        Diagnosed with mesothelioma after years in auto repair? You may have been exposed to asbestos through brake pads, gaskets, and clutches. Our legal team can help you confirm the risk and fight for compensation. 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                         </p>
                     </div>
                 </div>

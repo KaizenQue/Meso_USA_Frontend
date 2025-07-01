@@ -458,7 +458,11 @@ const MesotheliomaLandingPageNew = () => {
               Manufacturing Workers Diagnosed with Mesothelioma
             </h1>
             <p className="max-w-xl text-sm sm:text-base text-gray-200 md:max-w-[93%]">
+<<<<<<< HEAD
               If you worked in heavy industry and have mesothelioma, asbestos in machinery, piping, and insulation may be the cause. We're here to help you claim the justice you deserve.
+=======
+            If you worked in heavy industry and have mesothelioma, asbestos in machinery, piping, and insulation may be the cause. We're here to help you claim the justice you deserve.
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
             </p>
           </div>
         </div>

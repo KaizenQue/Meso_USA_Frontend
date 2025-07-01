@@ -159,9 +159,15 @@ export default function VoiceNoteForm() {
                     className="w-full px-3 py-2 border rounded-md"
                   />
                 </div>
+<<<<<<< HEAD
                 <button
                   className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
                   onClick={verifyPhone}
+=======
+                <button 
+                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
+                  onClick={verifyPhone} 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                   disabled={isLoading || !phoneNumber}
                 >
                   {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin inline" /> : "Verify Phone Number"}
@@ -190,9 +196,15 @@ export default function VoiceNoteForm() {
                   />
                   <p className="text-xs text-gray-500">Use 1234 for testing</p>
                 </div>
+<<<<<<< HEAD
                 <button
                   className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
                   onClick={verifyPhoneOtp}
+=======
+                <button 
+                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
+                  onClick={verifyPhoneOtp} 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                   disabled={isLoading || phoneOtp !== "1234"}
                 >
                   {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin inline" /> : "Verify OTP"}
@@ -220,9 +232,15 @@ export default function VoiceNoteForm() {
                     className="w-full px-3 py-2 border rounded-md"
                   />
                 </div>
+<<<<<<< HEAD
                 <button
                   className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
                   onClick={verifyEmail}
+=======
+                <button 
+                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
+                  onClick={verifyEmail} 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                   disabled={isLoading || !email}
                 >
                   {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin inline" /> : "Verify Email"}
@@ -251,9 +269,15 @@ export default function VoiceNoteForm() {
                   />
                   <p className="text-xs text-gray-500">Use 1234 for testing</p>
                 </div>
+<<<<<<< HEAD
                 <button
                   className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
                   onClick={verifyEmailOtp}
+=======
+                <button 
+                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
+                  onClick={verifyEmailOtp} 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                   disabled={isLoading || emailOtp !== "1234"}
                 >
                   {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin inline" /> : "Verify OTP"}
@@ -284,10 +308,17 @@ export default function VoiceNoteForm() {
                   </div>
                   <div className="space-y-2">
                     <label htmlFor="dob" className="block text-sm font-medium">Date of Birth</label>
+<<<<<<< HEAD
                     <input
                       id="dob"
                       type="date"
                       value={dob}
+=======
+                    <input 
+                      id="dob" 
+                      type="date" 
+                      value={dob} 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                       onChange={(e) => setDob(e.target.value)}
                       className="w-full px-3 py-2 border rounded-md"
                     />
@@ -299,8 +330,14 @@ export default function VoiceNoteForm() {
                   <div className="flex flex-col items-center space-y-4">
                     <motion.div
                       whileTap={{ scale: 0.95 }}
+<<<<<<< HEAD
                       className={`w-16 h-16 rounded-full flex items-center justify-center cursor-pointer transition-colors ${isRecording ? "bg-red-500 hover:bg-red-600" : "bg-purple-500 hover:bg-purple-600"
                         }`}
+=======
+                      className={`w-16 h-16 rounded-full flex items-center justify-center cursor-pointer transition-colors ${
+                        isRecording ? "bg-red-500 hover:bg-red-600" : "bg-purple-500 hover:bg-purple-600"
+                      }`}
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                       onClick={isRecording ? stopRecording : startRecording}
                     >
                       <Mic className="h-8 w-8 text-white" />
@@ -318,7 +355,11 @@ export default function VoiceNoteForm() {
                     >
                       <div className="flex items-center justify-between">
                         <p className="text-sm font-medium">Voice Preview</p>
+<<<<<<< HEAD
                         <button
+=======
+                        <button 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                           className="p-2 hover:bg-gray-200 rounded-full"
                           onClick={togglePlayback}
                         >
@@ -335,9 +376,15 @@ export default function VoiceNoteForm() {
                   )}
                 </div>
 
+<<<<<<< HEAD
                 <button
                   className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
                   onClick={handleSubmit}
+=======
+                <button 
+                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
+                  onClick={handleSubmit} 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                   disabled={!name || !dob}
                 >
                   Complete Verification

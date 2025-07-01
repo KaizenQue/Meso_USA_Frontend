@@ -293,7 +293,11 @@ function App() {
       path: '/mesothelioma-claim-automechanics-workers-cc7',
       element: <MesotheliomaLandingPageNew9 />,
     },
+<<<<<<< HEAD
   
+=======
+    //
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
     {
       path: '/mesothelioma-claims-us-navy-veterans',
       element: <MesotheliomaLandingPageLatest1 />,
@@ -370,6 +374,10 @@ function App() {
       path: '/mesothelioma-construction-worker-lawsuit',
       element: <MesotheliomaLandingPageLatest19 />,
     },
+<<<<<<< HEAD
+=======
+    //
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
     {
       path: '/mesothelioma-cb1',
       element: <ChatInterface />,
@@ -389,7 +397,20 @@ function App() {
     {
       path:'/map',
       element: <Map/>
+<<<<<<< HEAD
     }
+=======
+    },
+    
+    // {
+    //   path: '/mesothelioma-cb4',
+    //   element: <ChatInterface4 />,
+    // },
+    // {
+    //   path: '/mesothelioma-cb5',
+    //   element: <ChatInterface5 />,
+    // },
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
   ]);
 
 

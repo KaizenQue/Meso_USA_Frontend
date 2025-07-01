@@ -202,6 +202,10 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
   const [isSpeaking, setIsSpeaking] = useState(false);
 
   const generateCaptcha = () => {
+<<<<<<< HEAD
+=======
+    // Stop any ongoing speech when generating new CAPTCHA
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
     if (isSpeaking) {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
@@ -221,6 +225,10 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     onCaptchaChange(false);
   };
 
+<<<<<<< HEAD
+=======
+  // Generate CAPTCHA immediately when component mounts
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
   useEffect(() => {
     generateCaptcha();
   }, []);
@@ -232,6 +240,10 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
 
     return () => {
       clearInterval(timer);
+<<<<<<< HEAD
+=======
+      // Stop any ongoing speech when component unmounts
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
       if (isSpeaking) {
         window.speechSynthesis.cancel();
       }
@@ -240,6 +252,10 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
 
   const speakCaptcha = () => {
     if ('speechSynthesis' in window) {
+<<<<<<< HEAD
+=======
+      // Stop any ongoing speech before starting new one
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
       window.speechSynthesis.cancel();
       setIsSpeaking(true);
 

@@ -22,13 +22,21 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
   const [audioEnabled, setAudioEnabled] = useState(false);
   const [charOffsets, setCharOffsets] = useState([]);
   const [isSpeaking, setIsSpeaking] = useState(false);
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
   const generateCaptcha = () => {
     if (isSpeaking) {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
     }
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
     const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     let result = '';
     let offsets = [];
@@ -42,16 +50,28 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     setIsValid(false);
     onCaptchaChange(false);
   };
+<<<<<<< HEAD
 
   useEffect(() => {
     generateCaptcha();
   }, []);
 
+=======
+ 
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
+ 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
   useEffect(() => {
     const timer = setInterval(() => {
       generateCaptcha();
     }, 60000);
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
     return () => {
       clearInterval(timer);
       if (isSpeaking) {
@@ -59,12 +79,20 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
       }
     };
   }, [isSpeaking]);
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
   const speakCaptcha = () => {
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
       setIsSpeaking(true);
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
       const voices = window.speechSynthesis.getVoices();
       const maleUsVoice = voices.find(voice =>
         voice.lang === 'en-US' &&
@@ -72,7 +100,11 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
       ) || voices.find(voice =>
         voice.lang === 'en-US'
       );
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
       let currentIndex = 0;
       const speakNextChar = () => {
         if (currentIndex < captchaText.length) {
@@ -82,26 +114,46 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
           utterance.pitch = 0.9;
           utterance.volume = 1.0;
           utterance.lang = 'en-US';
+<<<<<<< HEAD
 
           if (maleUsVoice) {
             utterance.voice = maleUsVoice;
           }
 
+=======
+         
+          if (maleUsVoice) {
+            utterance.voice = maleUsVoice;
+          }
+ 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
           utterance.onend = () => {
             currentIndex++;
             speakNextChar();
           };
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
           window.speechSynthesis.speak(utterance);
         } else {
           setIsSpeaking(false);
         }
       };
+<<<<<<< HEAD
 
       speakNextChar();
     }
   };
 
+=======
+ 
+      speakNextChar();
+    }
+  };
+ 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
   const handleInputChange = (e) => {
     const value = e.target.value;
     setUserInput(value);
@@ -109,11 +161,19 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     setIsValid(valid);
     onCaptchaChange(valid);
   };
+<<<<<<< HEAD
 
   const handleAudioToggle = (e) => {
     setAudioEnabled(e.target.checked);
   };
 
+=======
+ 
+  const handleAudioToggle = (e) => {
+    setAudioEnabled(e.target.checked);
+  };
+ 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
   return (
     <div className="mt-4">
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
@@ -121,8 +181,13 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
           {captchaText.split('').map((char, index) => (
             <span
               key={index}
+<<<<<<< HEAD
               style={{
                 transform: `translateY(${charOffsets[index]}px)`,
+=======
+              style={{ 
+                transform: `translateY(${charOffsets[index]}px)`, 
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                 display: 'inline-block',
                 margin: '0 4px',
                 color: '#4B2C5E',
@@ -370,11 +435,19 @@ const MesotheliomaLandingPageNew9 = () => {
               YOU DESERVE JUSTICE
             </h2>
             <h1 className="text-2xl sm:text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+<<<<<<< HEAD
               Auto Mechanics Diagnosed with Mesothelioma
 
             </h1>
             <p className="max-w-xl text-sm sm:text-base text-gray-200 md:max-w-[93%]">
               Diagnosed with mesothelioma after years in auto repair? You may have been exposed to asbestos through brake pads, gaskets, and clutches. Our legal team can help you confirm the risk and fight for compensation.
+=======
+            Auto Mechanics Diagnosed with Mesothelioma
+
+            </h1>
+            <p className="max-w-xl text-sm sm:text-base text-gray-200 md:max-w-[93%]">
+            Diagnosed with mesothelioma after years in auto repair? You may have been exposed to asbestos through brake pads, gaskets, and clutches. Our legal team can help you confirm the risk and fight for compensation.
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
             </p>
           </div>
         </div>
@@ -497,6 +570,7 @@ const MesotheliomaLandingPageNew9 = () => {
                   </div>
                 </div> */}
                 <div >
+<<<<<<< HEAD
 
 
                   <div className="text-xs sm:text-sm font-['Helvetica'] text-gray-700 flex items-start gap-3">
@@ -535,6 +609,46 @@ const MesotheliomaLandingPageNew9 = () => {
                     </span>
                   </div>
                 </div>
+=======
+ 
+ 
+ <div className="text-xs sm:text-sm font-['Helvetica'] text-gray-700 flex items-start gap-3">
+     <input
+         type="checkbox"
+         name="privacyPolicy"
+         checked={formData.privacyPolicy}
+         onChange={handleChange}
+         className="mt-1 w-6 h-6 min-w-[24px] min-h-[24px] flex-shrink-0" // Adjusted size
+     />
+     <span className="block" data-tf-element-role="consent-opt-in">
+         I agree to the{" "}
+         <a
+             href="/PrivacyPolicy"
+             className="underline text-[#4B2C5E] hover:text-[#C49A6C]"
+         >
+             privacy policy
+         </a>{" "}
+         and{" "}
+         <a
+             href="/Disclaimer"
+             className="underline text-[#4B2C5E] hover:text-[#C49A6C]"
+         >
+             disclaimer
+         </a>
+         &nbsp; and give my express written consent,
+         affiliates and/or lawyer to contact you at the
+         number provided above, even if this number is a
+         wireless number or if I am presently listed on a Do
+         Not Call list. I understand that I may be contacted
+         by telephone, email, text message or mail regarding
+         case options and that I may be called using
+         automatic dialing equipment. Message and data rates
+         may apply. My consent does not require purchase.
+         This is Legal advertising.
+     </span>
+ </div>
+</div>
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
 
                 <CustomCaptcha
                   onCaptchaChange={(valid) => {

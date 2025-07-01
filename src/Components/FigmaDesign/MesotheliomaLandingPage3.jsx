@@ -41,7 +41,11 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
   const [isSpeaking, setIsSpeaking] = useState(false);
 
   const generateCaptcha = () => {
+<<<<<<< HEAD
     
+=======
+    // Stop any ongoing speech when generating new CAPTCHA
+>>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
     if (isSpeaking) {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
