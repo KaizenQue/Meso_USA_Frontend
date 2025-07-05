@@ -16,11 +16,7 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     const [isSpeaking, setIsSpeaking] = useState(false);
 
     const generateCaptcha = () => {
-<<<<<<< HEAD
 
-=======
-        // Stop any ongoing speech when generating new CAPTCHA
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
         if (isSpeaking) {
             window.speechSynthesis.cancel();
             setIsSpeaking(false);
@@ -59,33 +55,34 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
         };
     }, [isSpeaking]);
 
-    const speakCaptcha = () => {
+   const speakCaptcha = () => {
         if ('speechSynthesis' in window) {
-            // Stop any ongoing speech before starting new one
+            // Stop any ongoing speech before starting a new one
             window.speechSynthesis.cancel();
             setIsSpeaking(true);
 
+            // Load voices
             const voices = window.speechSynthesis.getVoices();
-            const maleUsVoice = voices.find(voice =>
-                voice.lang === 'en-US' &&
-                voice.name.toLowerCase().includes('david')
-            ) || voices.find(voice =>
-                voice.lang === 'en-US'
-            );
+
+            // Try to find a female voice
+            const femaleVoice = voices.find(voice =>
+                voice.name.toLowerCase().includes('female') ||
+                voice.name.toLowerCase().includes('woman') ||
+                voice.name.toLowerCase().includes('zira') || // Windows
+                voice.name.toLowerCase().includes('samantha') // macOS
+            ) || voices.find(voice => voice.lang === 'en-US');
 
             let currentIndex = 0;
+
             const speakNextChar = () => {
                 if (currentIndex < captchaText.length) {
                     const char = captchaText[currentIndex];
                     const utterance = new SpeechSynthesisUtterance(char);
+                    utterance.voice = femaleVoice;
                     utterance.rate = 0.5;
-                    utterance.pitch = 0.9;
+                    utterance.pitch = 1.2;
                     utterance.volume = 1.0;
                     utterance.lang = 'en-US';
-
-                    if (maleUsVoice) {
-                        utterance.voice = maleUsVoice;
-                    }
 
                     utterance.onend = () => {
                         currentIndex++;
@@ -101,6 +98,7 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
             speakNextChar();
         }
     };
+
 
     const handleInputChange = (e) => {
         const value = e.target.value;
@@ -228,11 +226,7 @@ export default function SokoRef() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
         // Validate form fields
         if (!formData.name || !formData.email || !formData.phone) {
             setErrors(prev => ({
@@ -534,7 +528,6 @@ export default function SokoRef() {
                                                             Full Name
                                                         </label>
                                                         <div className="relative">
-<<<<<<< HEAD
                                                             <input
                                                                 type="hidden"
                                                                 id="xxTrustedFormCertUrl"
@@ -553,26 +546,6 @@ export default function SokoRef() {
                                                                 name="xxTrustedFormPingUrl"
                                                                 value={pingUrl}
                                                             />
-=======
-                                                        <input
-                                                type="hidden"
-                                                id="xxTrustedFormCertUrl"
-                                                name="xxTrustedFormCertUrl"
-                                                value={certId}
-                                            />
-                                            <input
-                                                type="hidden"
-                                                id="xxTrustedFormCertToken"
-                                                name="xxTrustedFormCertToken"
-                                                value={tokenUrl}
-                                            />
-                                            <input
-                                                type="hidden"
-                                                id="xxTrustedFormPingUrl"
-                                                name="xxTrustedFormPingUrl"
-                                                value={pingUrl}
-                                            />
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                                                             <input
                                                                 id="name"
                                                                 name="name"
@@ -630,7 +603,6 @@ export default function SokoRef() {
                                                         }}
                                                     />
                                                     <div className="flex items-start space-x-2 mt-4 mb-4">
-<<<<<<< HEAD
                                                         <input
                                                             type="checkbox"
                                                             name="privacyPolicy"
@@ -670,47 +642,6 @@ export default function SokoRef() {
                                                             </span>
                                                         </div>
                                                     </div>
-=======
-                                                <input
-                                                    type="checkbox"
-                                                    name="privacyPolicy"
-                                                    checked={formData.privacyPolicy}
-                                                    onChange={handleChange}
-                                                    className="mt-1"
-                                                />
-                                                <div className="text-xs sm:text-sm font-['Helvetica'] text-gray-700">
-                                                    <span
-                                                        className="block"
-                                                        data-tf-element-role="consent-opt-in"
-                                                    >
-                                                        I agree to the{" "}
-                                                        <a
-                                                            href="/PrivacyPolicy"
-                                                            className="underline text-[#4B2C5E] hover:text-[#C49A6C]"
-                                                        >
-                                                            privacy policy
-                                                        </a>{" "}
-                                                        and{" "}
-                                                        <a
-                                                            href="/Disclaimer"
-                                                            className="underline text-[#4B2C5E] hover:text-[#C49A6C]"
-                                                        >
-                                                            disclaimer
-                                                        </a>
-                                                        &nbsp; and give my express written consent,
-                                                        affiliates and/or lawyer to contact you at the
-                                                        number provided above, even if this number is a
-                                                        wireless number or if I am presently listed on a Do
-                                                        Not Call list. I understand that I may be contacted
-                                                        by telephone, email, text message or mail regarding
-                                                        case options and that I may be called using
-                                                        automatic dialing equipment. Message and data rates
-                                                        may apply. My consent does not require purchase.
-                                                        This is Legal advertising.
-                                                    </span>
-                                                </div>
-                                            </div>
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                                                 </div>
 
                                                 <button

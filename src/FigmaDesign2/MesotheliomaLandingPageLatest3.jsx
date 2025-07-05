@@ -14,11 +14,7 @@ import ExitPopup from './ExitPopup';
 import { sendLandingPageFormEmail } from '../utils/emailService';
 import useDynamicPhoneNumber from '../hooks/useDynamicPhoneNumber';
 import CallNow from '../assets/CallNowGif.gif';
-<<<<<<< HEAD
 import AudioRecorders from "../Components/AudioRecorders";
-import Practice from "../Components/Practice";
-=======
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
 
 const CustomCaptcha = ({ onCaptchaChange }) => {
     const [captchaText, setCaptchaText] = useState('');
@@ -27,7 +23,6 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     const [audioEnabled, setAudioEnabled] = useState(false);
     const [charOffsets, setCharOffsets] = useState([]);
     const [isSpeaking, setIsSpeaking] = useState(false);
-<<<<<<< HEAD
 
     const generateCaptcha = () => {
 
@@ -71,31 +66,32 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
 
     const speakCaptcha = () => {
         if ('speechSynthesis' in window) {
-            // Stop any ongoing speech before starting new one
+            // Stop any ongoing speech before starting a new one
             window.speechSynthesis.cancel();
             setIsSpeaking(true);
 
+            // Load voices
             const voices = window.speechSynthesis.getVoices();
-            const maleUsVoice = voices.find(voice =>
-                voice.lang === 'en-US' &&
-                voice.name.toLowerCase().includes('david')
-            ) || voices.find(voice =>
-                voice.lang === 'en-US'
-            );
+
+            // Try to find a female voice
+            const femaleVoice = voices.find(voice =>
+                voice.name.toLowerCase().includes('female') ||
+                voice.name.toLowerCase().includes('woman') ||
+                voice.name.toLowerCase().includes('zira') || // Windows
+                voice.name.toLowerCase().includes('samantha') // macOS
+            ) || voices.find(voice => voice.lang === 'en-US');
 
             let currentIndex = 0;
+
             const speakNextChar = () => {
                 if (currentIndex < captchaText.length) {
                     const char = captchaText[currentIndex];
                     const utterance = new SpeechSynthesisUtterance(char);
+                    utterance.voice = femaleVoice;
                     utterance.rate = 0.5;
-                    utterance.pitch = 0.9;
+                    utterance.pitch = 1.2;
                     utterance.volume = 1.0;
                     utterance.lang = 'en-US';
-
-                    if (maleUsVoice) {
-                        utterance.voice = maleUsVoice;
-                    }
 
                     utterance.onend = () => {
                         currentIndex++;
@@ -111,6 +107,8 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
             speakNextChar();
         }
     };
+
+
 
     const handleInputChange = (e) => {
         const value = e.target.value;
@@ -187,167 +185,6 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
                 }}
             />
             <style jsx>{`
-=======
-  
-    const generateCaptcha = () => {
-      // Stop any ongoing speech when generating new CAPTCHA
-      if (isSpeaking) {
-        window.speechSynthesis.cancel();
-        setIsSpeaking(false);
-      }
-      
-      const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-      let result = '';
-      let offsets = [];
-      for (let i = 0; i < 6; i++) {
-        result += chars.charAt(Math.floor(Math.random() * chars.length));
-        offsets.push((Math.random() * 10 - 5).toFixed(2));
-      }
-      setCaptchaText(result);
-      setCharOffsets(offsets);
-      setUserInput('');
-      setIsValid(false);
-      onCaptchaChange(false);
-    };
-  
-    // Generate CAPTCHA immediately when component mounts
-    useEffect(() => {
-      generateCaptcha();
-    }, []);
-  
-    useEffect(() => {
-      const timer = setInterval(() => {
-        generateCaptcha();
-      }, 60000); 
-  
-      return () => {
-        clearInterval(timer);
-        // Stop any ongoing speech when component unmounts
-        if (isSpeaking) {
-          window.speechSynthesis.cancel();
-        }
-      };
-    }, [isSpeaking]); 
-  
-    const speakCaptcha = () => {
-      if ('speechSynthesis' in window) {
-        // Stop any ongoing speech before starting new one
-        window.speechSynthesis.cancel();
-        setIsSpeaking(true);
-  
-        const voices = window.speechSynthesis.getVoices();
-        const maleUsVoice = voices.find(voice => 
-          voice.lang === 'en-US' && 
-          voice.name.toLowerCase().includes('david')
-        ) || voices.find(voice => 
-          voice.lang === 'en-US'
-        );
-  
-        let currentIndex = 0;
-        const speakNextChar = () => {
-          if (currentIndex < captchaText.length) {
-            const char = captchaText[currentIndex];
-            const utterance = new SpeechSynthesisUtterance(char);
-            utterance.rate = 0.5; 
-            utterance.pitch = 0.9; 
-            utterance.volume = 1.0; 
-            utterance.lang = 'en-US';
-            
-            if (maleUsVoice) {
-              utterance.voice = maleUsVoice;
-            }
-  
-            utterance.onend = () => {
-              currentIndex++;
-              speakNextChar();
-            };
-  
-            window.speechSynthesis.speak(utterance);
-          } else {
-            setIsSpeaking(false);
-          }
-        };
-  
-        speakNextChar();
-      }
-    };
-  
-    const handleInputChange = (e) => {
-      const value = e.target.value;
-      setUserInput(value);
-      const valid = value === captchaText;
-      setIsValid(valid);
-      onCaptchaChange(valid);
-    };
-  
-    const handleAudioToggle = (e) => {
-      setAudioEnabled(e.target.checked);
-    };
-  
-    return (
-      <div className="mt-4">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-          <div className="bg-gray-100 p-3 rounded font-mono text-lg tracking-wider select-none relative captcha-text-container">
-            {captchaText.split('').map((char, index) => (
-              <span
-                key={index}
-                style={{ transform: `translateY(${charOffsets[index]}px)`, display: 'inline-block' }}
-              >
-                {char}
-              </span>
-            ))}
-          </div>
-          <div className="flex gap-2 items-center justify-center sm:justify-start">
-            <Button
-              variant="outlined"
-              size="small"
-              onClick={generateCaptcha}
-              className="text-gray-600 p-2 min-w-0"
-              title="Refresh CAPTCHA"
-            >
-              ↻
-            </Button>
-            {audioEnabled && (
-              <Button
-                variant="outlined"
-                size="small"
-                onClick={speakCaptcha}
-                className="text-gray-600 p-2 min-w-0"
-                title="Listen to CAPTCHA"
-              >
-                🔊
-              </Button>
-            )}
-          </div>
-        </div>
-        <div className="flex items-center mt-2">
-          <input
-            type="checkbox"
-            id="enableAudio"
-            checked={audioEnabled}
-            onChange={handleAudioToggle}
-            className="mr-2"
-          />
-          <label htmlFor="enableAudio" className="text-sm text-gray-700">Enable Audio</label>
-        </div>
-        <TextField
-          fullWidth
-          label="Enter CAPTCHA"
-          value={userInput}
-          onChange={handleInputChange}
-          variant="outlined"
-          margin="normal"
-          error={userInput !== '' && !isValid}
-          helperText={userInput !== '' && !isValid ? 'CAPTCHA does not match' : ''}
-          InputProps={{
-            className: "text-gray-800",
-          }}
-          InputLabelProps={{
-            className: "text-gray-600",
-          }}
-        />
-        <style jsx>{`
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
           .captcha-text-container {
             background-image: repeating-linear-gradient(
               0deg,
@@ -360,15 +197,9 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
             background-position: 0 50%;
           }
         `}</style>
-<<<<<<< HEAD
         </div>
     );
 };
-=======
-      </div>
-    );
-  };
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
 
 const MesotheliomaLandingPageLatest3 = () => {
     const [formData, setFormData] = useState({
@@ -413,26 +244,16 @@ const MesotheliomaLandingPageLatest3 = () => {
                             "xxTrustedFormPingUrl"
                         ].value;
 
-<<<<<<< HEAD
                     // console.log("cert_id:", certIdVar);
                     // console.log("pingUrl:", pingUrlVar);
                     // console.log("tokenUrl:", tokenUrlVar);
-=======
-                    console.log("cert_id:", certIdVar);
-                    console.log("pingUrl:", pingUrlVar);
-                    console.log("tokenUrl:", tokenUrlVar);
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
 
                     setCertId(certIdVar);
                     setPingUrl(pingUrlVar);
                     setTokenUrl(tokenUrlVar);
 
                     if (certUrl) {
-<<<<<<< HEAD
                         // console.log("TrustedForm Cert URL:", certUrl);
-=======
-                        console.log("TrustedForm Cert URL:", certUrl);
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                         fetchCertData(certUrl); // Fetch the certificate data
                     }
                 }
@@ -451,15 +272,9 @@ const MesotheliomaLandingPageLatest3 = () => {
         try {
             const response = await fetch(certUrl);
             const data = await response.json();
-<<<<<<< HEAD
             // console.log("TrustedForm Cert Data:", data);
         } catch (error) {
             // console.error("Error fetching TrustedForm cert:", error);
-=======
-            console.log("TrustedForm Cert Data:", data);
-        } catch (error) {
-            console.error("Error fetching TrustedForm cert:", error);
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
         }
     };
 
@@ -585,9 +400,7 @@ const MesotheliomaLandingPageLatest3 = () => {
                 [name]: checked
             }));
         } else if (name === 'phone') {
-            // Remove any non-digit characters
             const numericValue = value.replace(/\D/g, '');
-            // Limit to 10 digits
             const limitedValue = numericValue.slice(0, 10);
             setFormData(prev => ({
                 ...prev,
@@ -600,7 +413,6 @@ const MesotheliomaLandingPageLatest3 = () => {
             }));
         }
 
-        // Clear error when user starts typing
         if (errors[name]) {
             setErrors(prev => ({
                 ...prev,
@@ -612,8 +424,6 @@ const MesotheliomaLandingPageLatest3 = () => {
     return (
         <div className="flex min-h-screen flex-col">
             {showExitPopup && <ExitPopup onClose={handleClosePopup} />}
-
-            {/* Top Section - Background Image & Overlay Content */}
             <div className="relative min-h-[100vh] md:h-[70vh]">
                 <div className="absolute inset-0 bg-black/50">
                     <div
@@ -625,12 +435,7 @@ const MesotheliomaLandingPageLatest3 = () => {
                     />
                 </div>
                 <div className="relative z-10 flex h-full flex-col p-6 sm:p-8 md:p-12 lg:p-16">
-<<<<<<< HEAD
                     <div className="py-2 sm:px-6 sm:py-3 text-white w-46 sm:w-58 text-left text-sm sm:text-base mb-8">
-=======
-          {/* <div className="rounded-lg bg-purple-700 px-3 py-1.5 sm:px-4 sm:py-2 text-white w-16 sm:w-20 text-center text-sm sm:text-base mb-8">LOGO</div> */}
-          <div className="py-2 sm:px-6 sm:py-3 text-white w-46 sm:w-58 text-left text-sm sm:text-base mb-8">
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                         <a href="/">
                             <img
                                 src={logo}
@@ -642,25 +447,14 @@ const MesotheliomaLandingPageLatest3 = () => {
                     <div className="space-y-4 sm:space-y-6 md:max-w-[55%] pt-24 md:pt-0 md:mt-32">
                         <h2 className="text-lg sm:text-xl font-bold text-white md:text-2xl">YOU DESERVE JUSTICE</h2>
                         <h1 className="text-2xl sm:text-3xl font-bold text-white md:text-4xl lg:text-5xl">
-<<<<<<< HEAD
                             Navy Veterans and Shipyard Workers Diagnosed with Mesothelioma
                         </h1>
                         <p className="max-w-xl text-sm sm:text-base text-gray-200">
                             Many Navy veterans and shipyard workers were exposed to asbestos in engine rooms, boiler rooms, and insulation systems. If you’ve been diagnosed with mesothelioma, you may be entitled to compensation - without affecting your VA benefits.
-=======
-                        Navy Veterans and Shipyard Workers Diagnosed with Mesothelioma
-                        </h1>
-                        <p className="max-w-xl text-sm sm:text-base text-gray-200">
-                        Many Navy veterans and shipyard workers were exposed to asbestos in engine rooms, boiler rooms, and insulation systems. If you’ve been diagnosed with mesothelioma, you may be entitled to compensation - without affecting your VA benefits.
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                         </p>
                     </div>
                 </div>
 
-<<<<<<< HEAD
-=======
-                {/* Form Panel - Overlapping */}
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                 <div className="relative md:absolute md:right-0 md:top-[8%] w-full md:w-2/5 z-20 mt-8 mb-8 md:mt-0">
                     <div className="bg-white rounded-lg shadow-lg mx-6 sm:mx-8 md:mx-12 lg:mx-16">
                         <div className="p-6 sm:p-8 relative overflow-hidden">
@@ -854,11 +648,7 @@ const MesotheliomaLandingPageLatest3 = () => {
                                                         and{" "}
                                                         <a
                                                             href="/Disclaimer"
-<<<<<<< HEAD
                                                             className="underline text-[#4B2C5E] hover:text-[#7f572c]"
-=======
-                                                            className="underline text-[#4B2C5E] hover:text-[#C49A6C]"
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                                                         >
                                                             disclaimer
                                                         </a>
@@ -905,10 +695,7 @@ const MesotheliomaLandingPageLatest3 = () => {
                                                 <p className="text-red-500 text-sm mt-1 mb-4">{errors.humanVerification}</p>
                                             )}
 
-<<<<<<< HEAD
                                             <AudioRecorders />
-=======
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                                             <button
                                                 type="submit"
                                                 disabled={isSubmitting}
@@ -921,11 +708,7 @@ const MesotheliomaLandingPageLatest3 = () => {
                                                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                                         </svg>
-<<<<<<< HEAD
                                                         Submittings...
-=======
-                                                        Submitting...
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                                                     </div>
                                                 ) : (
                                                     'Continue To Connect'
@@ -940,24 +723,15 @@ const MesotheliomaLandingPageLatest3 = () => {
                 </div>
             </div>
 
-            {/* Bottom Section */}
             <div className="flex flex-col md:flex-row flex-1">
-                {/* Left Section - Risk Information */}
                 <div className="relative bg-[#4B2C5E] p-6 sm:p-8 md:p-12 lg:p-16 md:w-3/5">
                     <div className="space-y-6 sm:space-y-8">
                         <div>
                             <h3 className="text-lg sm:text-xl font-bold text-white md:text-2xl">
-<<<<<<< HEAD
                                 Shipyard and Navy Roles with High Asbestos Risk
                             </h3>
                             <p className="mt-3 text-sm sm:text-base text-gray-200">
                                 Diagnosed with mesothelioma after service or shipyard work? Our legal team can help investigate your exposure history and build your claim with confidence.
-=======
-                            Shipyard and Navy Roles with High Asbestos Risk 
-                            </h3>
-                            <p className="mt-3 text-sm sm:text-base text-gray-200">
-                            Diagnosed with mesothelioma after service or shipyard work? Our legal team can help investigate your exposure history and build your claim with confidence. 
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                             </p>
                         </div>
                         <div className="flex flex-row flex-wrap gap-4 sm:gap-6">
@@ -984,17 +758,9 @@ const MesotheliomaLandingPageLatest3 = () => {
                     </div>
                 </div>
 
-<<<<<<< HEAD
                 <div className="relative w-full md:w-2/5 bg-[#4B2C5E]">
                 </div>
             </div>
-            {/* <Practice /> */}
-=======
-                {/* Right Section - Empty space for form overlap */}
-                <div className="relative w-full md:w-2/5 bg-[#4B2C5E]">
-                </div>
-            </div>
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
         </div>
     );
 }

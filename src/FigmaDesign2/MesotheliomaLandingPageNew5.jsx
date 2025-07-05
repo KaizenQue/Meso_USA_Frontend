@@ -61,32 +61,34 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
         };
     }, [isSpeaking]);
 
-    const speakCaptcha = () => {
+   const speakCaptcha = () => {
         if ('speechSynthesis' in window) {
+            // Stop any ongoing speech before starting a new one
             window.speechSynthesis.cancel();
             setIsSpeaking(true);
 
+            // Load voices
             const voices = window.speechSynthesis.getVoices();
-            const maleUsVoice = voices.find(voice =>
-                voice.lang === 'en-US' &&
-                voice.name.toLowerCase().includes('david')
-            ) || voices.find(voice =>
-                voice.lang === 'en-US'
-            );
+
+            // Try to find a female voice
+            const femaleVoice = voices.find(voice =>
+                voice.name.toLowerCase().includes('female') ||
+                voice.name.toLowerCase().includes('woman') ||
+                voice.name.toLowerCase().includes('zira') || // Windows
+                voice.name.toLowerCase().includes('samantha') // macOS
+            ) || voices.find(voice => voice.lang === 'en-US');
 
             let currentIndex = 0;
+
             const speakNextChar = () => {
                 if (currentIndex < captchaText.length) {
                     const char = captchaText[currentIndex];
                     const utterance = new SpeechSynthesisUtterance(char);
+                    utterance.voice = femaleVoice;
                     utterance.rate = 0.5;
-                    utterance.pitch = 0.9;
+                    utterance.pitch = 1.2;
                     utterance.volume = 1.0;
                     utterance.lang = 'en-US';
-
-                    if (maleUsVoice) {
-                        utterance.voice = maleUsVoice;
-                    }
 
                     utterance.onend = () => {
                         currentIndex++;
@@ -102,6 +104,7 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
             speakNextChar();
         }
     };
+
 
     const handleInputChange = (e) => {
         const value = e.target.value;

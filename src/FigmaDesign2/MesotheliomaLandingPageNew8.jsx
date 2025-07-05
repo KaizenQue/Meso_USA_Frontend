@@ -17,7 +17,6 @@ import CallNow from "../assets/CallNowGif.gif";
 import { Button, TextField } from "@mui/material";
 
 const CustomCaptcha = ({ onCaptchaChange }) => {
-<<<<<<< HEAD
   const [captchaText, setCaptchaText] = useState('');
   const [userInput, setUserInput] = useState('');
   const [isValid, setIsValid] = useState(false);
@@ -63,46 +62,49 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
   }, [isSpeaking]);
 
   const speakCaptcha = () => {
-    if ('speechSynthesis' in window) {
-      window.speechSynthesis.cancel();
-      setIsSpeaking(true);
+        if ('speechSynthesis' in window) {
+            // Stop any ongoing speech before starting a new one
+            window.speechSynthesis.cancel();
+            setIsSpeaking(true);
 
-      const voices = window.speechSynthesis.getVoices();
-      const maleUsVoice = voices.find(voice =>
-        voice.lang === 'en-US' &&
-        voice.name.toLowerCase().includes('david')
-      ) || voices.find(voice =>
-        voice.lang === 'en-US'
-      );
+            // Load voices
+            const voices = window.speechSynthesis.getVoices();
 
-      let currentIndex = 0;
-      const speakNextChar = () => {
-        if (currentIndex < captchaText.length) {
-          const char = captchaText[currentIndex];
-          const utterance = new SpeechSynthesisUtterance(char);
-          utterance.rate = 0.5;
-          utterance.pitch = 0.9;
-          utterance.volume = 1.0;
-          utterance.lang = 'en-US';
+            // Try to find a female voice
+            const femaleVoice = voices.find(voice =>
+                voice.name.toLowerCase().includes('female') ||
+                voice.name.toLowerCase().includes('woman') ||
+                voice.name.toLowerCase().includes('zira') || // Windows
+                voice.name.toLowerCase().includes('samantha') // macOS
+            ) || voices.find(voice => voice.lang === 'en-US');
 
-          if (maleUsVoice) {
-            utterance.voice = maleUsVoice;
-          }
+            let currentIndex = 0;
 
-          utterance.onend = () => {
-            currentIndex++;
+            const speakNextChar = () => {
+                if (currentIndex < captchaText.length) {
+                    const char = captchaText[currentIndex];
+                    const utterance = new SpeechSynthesisUtterance(char);
+                    utterance.voice = femaleVoice;
+                    utterance.rate = 0.5;
+                    utterance.pitch = 1.2;
+                    utterance.volume = 1.0;
+                    utterance.lang = 'en-US';
+
+                    utterance.onend = () => {
+                        currentIndex++;
+                        speakNextChar();
+                    };
+
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    setIsSpeaking(false);
+                }
+            };
+
             speakNextChar();
-          };
-
-          window.speechSynthesis.speak(utterance);
-        } else {
-          setIsSpeaking(false);
         }
-      };
+    };
 
-      speakNextChar();
-    }
-  };
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -185,175 +187,6 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
         }}
       />
       <style jsx>{`
-=======
-    const [captchaText, setCaptchaText] = useState('');
-    const [userInput, setUserInput] = useState('');
-    const [isValid, setIsValid] = useState(false);
-    const [audioEnabled, setAudioEnabled] = useState(false);
-    const [charOffsets, setCharOffsets] = useState([]);
-    const [isSpeaking, setIsSpeaking] = useState(false);
-   
-    const generateCaptcha = () => {
-      if (isSpeaking) {
-        window.speechSynthesis.cancel();
-        setIsSpeaking(false);
-      }
-     
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-      let result = '';
-      let offsets = [];
-      for (let i = 0; i < 6; i++) {
-        result += chars.charAt(Math.floor(Math.random() * chars.length));
-      offsets.push((Math.random() * 6 - 3).toFixed(2));
-      }
-      setCaptchaText(result);
-      setCharOffsets(offsets);
-      setUserInput('');
-      setIsValid(false);
-      onCaptchaChange(false);
-    };
-   
-    useEffect(() => {
-      generateCaptcha();
-    }, []);
-   
-    useEffect(() => {
-      const timer = setInterval(() => {
-        generateCaptcha();
-      }, 60000);
-   
-      return () => {
-        clearInterval(timer);
-        if (isSpeaking) {
-          window.speechSynthesis.cancel();
-        }
-      };
-    }, [isSpeaking]);
-   
-    const speakCaptcha = () => {
-      if ('speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-        setIsSpeaking(true);
-   
-        const voices = window.speechSynthesis.getVoices();
-        const maleUsVoice = voices.find(voice =>
-          voice.lang === 'en-US' &&
-          voice.name.toLowerCase().includes('david')
-        ) || voices.find(voice =>
-          voice.lang === 'en-US'
-        );
-   
-        let currentIndex = 0;
-        const speakNextChar = () => {
-          if (currentIndex < captchaText.length) {
-            const char = captchaText[currentIndex];
-            const utterance = new SpeechSynthesisUtterance(char);
-            utterance.rate = 0.5;
-            utterance.pitch = 0.9;
-            utterance.volume = 1.0;
-            utterance.lang = 'en-US';
-           
-            if (maleUsVoice) {
-              utterance.voice = maleUsVoice;
-            }
-   
-            utterance.onend = () => {
-              currentIndex++;
-              speakNextChar();
-            };
-   
-            window.speechSynthesis.speak(utterance);
-          } else {
-            setIsSpeaking(false);
-          }
-        };
-   
-        speakNextChar();
-      }
-    };
-   
-    const handleInputChange = (e) => {
-      const value = e.target.value;
-      setUserInput(value);
-      const valid = value === captchaText;
-      setIsValid(valid);
-      onCaptchaChange(valid);
-    };
-   
-    const handleAudioToggle = (e) => {
-      setAudioEnabled(e.target.checked);
-    };
-   
-    return (
-      <div className="mt-4">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-          <div className="bg-white p-4 rounded font-mono text-2xl tracking-widest select-none relative captcha-text-container border-2 border-gray-200">
-            {captchaText.split('').map((char, index) => (
-              <span
-                key={index}
-                style={{ 
-                  transform: `translateY(${charOffsets[index]}px)`, 
-                  display: 'inline-block',
-                  margin: '0 4px',
-                  color: '#4B2C5E',
-                  fontWeight: 'bold'
-                }}
-              >
-                {char}
-              </span>
-            ))}
-          </div>
-          <div className="flex gap-2 items-center justify-center sm:justify-start">
-            <Button
-              variant="outlined"
-              size="large"
-              onClick={generateCaptcha}
-              className="text-gray-600 p-3 min-w-0 text-xl"
-              title="Refresh CAPTCHA"
-            >
-              ↻
-            </Button>
-            {audioEnabled && (
-              <Button
-                variant="outlined"
-                size="large"
-                onClick={speakCaptcha}
-                className="text-gray-600 p-3 min-w-0 text-xl"
-                title="Listen to CAPTCHA"
-              >
-                🔊
-              </Button>
-            )}
-          </div>
-        </div>
-        <div className="flex items-center mt-2">
-          <input
-            type="checkbox"
-            id="enableAudio"
-            checked={audioEnabled}
-            onChange={handleAudioToggle}
-            className="mr-2 w-4 h-4"
-          />
-          <label htmlFor="enableAudio" className="text-base text-gray-700">Enable Audio</label>
-        </div>
-        <TextField
-          fullWidth
-          label="Enter CAPTCHA"
-          value={userInput}
-          onChange={handleInputChange}
-          variant="outlined"
-          margin="normal"
-          error={userInput !== '' && !isValid}
-          helperText={userInput !== '' && !isValid ? 'CAPTCHA does not match' : ''}
-          InputProps={{
-            className: "text-gray-800 text-lg",
-          }}
-          InputLabelProps={{
-            className: "text-gray-600 text-base",
-          }}
-        />
-        <style jsx>{`
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
           .captcha-text-container {
             background-image: repeating-linear-gradient(
               0deg,
@@ -367,15 +200,9 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
             letter-spacing: 0.5em;
           }
         `}</style>
-<<<<<<< HEAD
     </div>
   );
 };
-=======
-      </div>
-    );
-  };
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
 
 const MesotheliomaLandingPageNew8 = () => {
   const [token, setToken] = useState('');
@@ -694,11 +521,7 @@ const MesotheliomaLandingPageNew8 = () => {
                     }));
                   }}
                 />
-<<<<<<< HEAD
 
-=======
-                
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                 <div
                   class="cf-turnstile"
                   data-sitekey="0x4AAAAAABfAlFRdUfzeAp3-"
@@ -708,11 +531,7 @@ const MesotheliomaLandingPageNew8 = () => {
                   type="submit"
                   disabled={isSubmitting}
                   className={`w-full bg-[#C49A6C] hover:bg-amber-800 text-white py-3 px-4 rounded-md transition-colors duration-200 text-sm sm:text-base ${isSubmitting ? "opacity-70 cursor-not-allowed" : ""
-<<<<<<< HEAD
                     }`}
-=======
-                  }`}
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                 >
                   {isSubmitting ? (
                     <div className="flex items-center justify-center">
@@ -778,11 +597,7 @@ const MesotheliomaLandingPageNew8 = () => {
                     <img
                       src={
                         [ImgSvg1, ImgSvg2, ImgSvg3, ImgSvg4, ImgSvg5, ImgSvg6][
-<<<<<<< HEAD
                         index
-=======
-                          index
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                         ]
                       }
                       alt={`${role} icon`}

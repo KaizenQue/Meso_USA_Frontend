@@ -46,20 +46,12 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
   const [isSpeaking, setIsSpeaking] = useState(false);
 
   const generateCaptcha = () => {
-<<<<<<< HEAD
 
-=======
-    // Stop any ongoing speech when generating new CAPTCHA
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
     if (isSpeaking) {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
     }
-<<<<<<< HEAD
 
-=======
-    
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
     let offsets = [];
@@ -82,11 +74,7 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
   useEffect(() => {
     const timer = setInterval(() => {
       generateCaptcha();
-<<<<<<< HEAD
     }, 60000);
-=======
-    }, 60000); 
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
 
     return () => {
       clearInterval(timer);
@@ -95,69 +83,52 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
         window.speechSynthesis.cancel();
       }
     };
-<<<<<<< HEAD
   }, [isSpeaking]);
-=======
-  }, [isSpeaking]); 
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
 
   const speakCaptcha = () => {
-    if ('speechSynthesis' in window) {
-      // Stop any ongoing speech before starting new one
-      window.speechSynthesis.cancel();
-      setIsSpeaking(true);
+        if ('speechSynthesis' in window) {
+            // Stop any ongoing speech before starting a new one
+            window.speechSynthesis.cancel();
+            setIsSpeaking(true);
 
-      const voices = window.speechSynthesis.getVoices();
-<<<<<<< HEAD
-      const maleUsVoice = voices.find(voice =>
-        voice.lang === 'en-US' &&
-        voice.name.toLowerCase().includes('david')
-      ) || voices.find(voice =>
-=======
-      const maleUsVoice = voices.find(voice => 
-        voice.lang === 'en-US' && 
-        voice.name.toLowerCase().includes('david')
-      ) || voices.find(voice => 
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
-        voice.lang === 'en-US'
-      );
+            // Load voices
+            const voices = window.speechSynthesis.getVoices();
 
-      let currentIndex = 0;
-      const speakNextChar = () => {
-        if (currentIndex < captchaText.length) {
-          const char = captchaText[currentIndex];
-          const utterance = new SpeechSynthesisUtterance(char);
-<<<<<<< HEAD
-          utterance.rate = 0.5;
-          utterance.pitch = 0.9;
-          utterance.volume = 1.0;
-          utterance.lang = 'en-US';
+            // Try to find a female voice
+            const femaleVoice = voices.find(voice =>
+                voice.name.toLowerCase().includes('female') ||
+                voice.name.toLowerCase().includes('woman') ||
+                voice.name.toLowerCase().includes('zira') || // Windows
+                voice.name.toLowerCase().includes('samantha') // macOS
+            ) || voices.find(voice => voice.lang === 'en-US');
 
-=======
-          utterance.rate = 0.5; 
-          utterance.pitch = 0.9; 
-          utterance.volume = 1.0; 
-          utterance.lang = 'en-US';
-          
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
-          if (maleUsVoice) {
-            utterance.voice = maleUsVoice;
-          }
+            let currentIndex = 0;
 
-          utterance.onend = () => {
-            currentIndex++;
+            const speakNextChar = () => {
+                if (currentIndex < captchaText.length) {
+                    const char = captchaText[currentIndex];
+                    const utterance = new SpeechSynthesisUtterance(char);
+                    utterance.voice = femaleVoice;
+                    utterance.rate = 0.5;
+                    utterance.pitch = 1.2;
+                    utterance.volume = 1.0;
+                    utterance.lang = 'en-US';
+
+                    utterance.onend = () => {
+                        currentIndex++;
+                        speakNextChar();
+                    };
+
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    setIsSpeaking(false);
+                }
+            };
+
             speakNextChar();
-          };
-
-          window.speechSynthesis.speak(utterance);
-        } else {
-          setIsSpeaking(false);
         }
-      };
+    };
 
-      speakNextChar();
-    }
-  };
 
   const handleInputChange = (e) => {
     const value = e.target.value;

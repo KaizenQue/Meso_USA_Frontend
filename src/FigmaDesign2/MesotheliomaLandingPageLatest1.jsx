@@ -24,11 +24,7 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     const [isSpeaking, setIsSpeaking] = useState(false);
 
     const generateCaptcha = () => {
-<<<<<<< HEAD
 
-=======
-        // Stop any ongoing speech when generating new CAPTCHA
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
         if (isSpeaking) {
             window.speechSynthesis.cancel();
             setIsSpeaking(false);
@@ -69,31 +65,32 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
 
     const speakCaptcha = () => {
         if ('speechSynthesis' in window) {
-            // Stop any ongoing speech before starting new one
+            // Stop any ongoing speech before starting a new one
             window.speechSynthesis.cancel();
             setIsSpeaking(true);
 
+            // Load voices
             const voices = window.speechSynthesis.getVoices();
-            const maleUsVoice = voices.find(voice =>
-                voice.lang === 'en-US' &&
-                voice.name.toLowerCase().includes('david')
-            ) || voices.find(voice =>
-                voice.lang === 'en-US'
-            );
+
+            // Try to find a female voice
+            const femaleVoice = voices.find(voice =>
+                voice.name.toLowerCase().includes('female') ||
+                voice.name.toLowerCase().includes('woman') ||
+                voice.name.toLowerCase().includes('zira') || // Windows
+                voice.name.toLowerCase().includes('samantha') // macOS
+            ) || voices.find(voice => voice.lang === 'en-US');
 
             let currentIndex = 0;
+
             const speakNextChar = () => {
                 if (currentIndex < captchaText.length) {
                     const char = captchaText[currentIndex];
                     const utterance = new SpeechSynthesisUtterance(char);
+                    utterance.voice = femaleVoice;
                     utterance.rate = 0.5;
-                    utterance.pitch = 0.9;
+                    utterance.pitch = 1.2;
                     utterance.volume = 1.0;
                     utterance.lang = 'en-US';
-
-                    if (maleUsVoice) {
-                        utterance.voice = maleUsVoice;
-                    }
 
                     utterance.onend = () => {
                         currentIndex++;
@@ -109,6 +106,7 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
             speakNextChar();
         }
     };
+
 
     const handleInputChange = (e) => {
         const value = e.target.value;
@@ -456,11 +454,7 @@ const MesotheliomaLandingPageLatest1 = () => {
                             Construction Workers Diagnosed with Mesothelioma
                         </h1>
                         <p className="max-w-xl text-sm sm:text-base text-gray-200">
-<<<<<<< HEAD
                             If you spent years working in construction and were diagnosed with mesothelioma, there's a strong chance your illness came from asbestos exposure on job sites - from insulation, drywall, pipes, roofing, and cement. You weren't warned. But now, legal options exist. Let us help you fight for the compensation you deserve - with no upfront costs.
-=======
-                        If you spent years working in construction and were diagnosed with mesothelioma, there's a strong chance your illness came from asbestos exposure on job sites - from insulation, drywall, pipes, roofing, and cement. You weren't warned. But now, legal options exist. Let us help you fight for the compensation you deserve - with no upfront costs.
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                         </p>
                     </div>
                 </div>
@@ -740,19 +734,11 @@ const MesotheliomaLandingPageLatest1 = () => {
                     <div className="space-y-6 sm:space-y-8">
                         <div>
                             <h3 className="text-lg sm:text-xl font-bold text-white md:text-2xl">
-<<<<<<< HEAD
                                 Construction Roles with High Asbestos Risk
 
                             </h3>
                             <p className="mt-3 text-sm sm:text-base text-gray-200">
                                 Diagnosed with mesothelioma after construction work? You’re not alone. Our legal team can help you confirm exposure and start your claim with confidence.
-=======
-                            Construction Roles with High Asbestos Risk 
-
-                            </h3>
-                            <p className="mt-3 text-sm sm:text-base text-gray-200">
-                            Diagnosed with mesothelioma after construction work? You’re not alone. Our legal team can help you confirm exposure and start your claim with confidence. 
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                             </p>
                         </div>
                         <div className="flex flex-row flex-wrap gap-4 sm:gap-6">

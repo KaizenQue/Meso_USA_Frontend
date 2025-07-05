@@ -102,7 +102,7 @@ const menuItemStyle = {
 const ClaimOne = () => {
   const form = useRef();
 
-  
+  // US States data
   const usStates = [
     { value: "AL", label: "Alabama" },
     { value: "AK", label: "Alaska" },
@@ -162,7 +162,7 @@ const ClaimOne = () => {
     { value: "VI", label: "U.S. Virgin Islands" },
   ];
 
-  
+  // Exposure locations data
   const exposureLocations = [
     { value: "military", label: "Military Service" },
     { value: "shipyard", label: "Shipyard" },
@@ -205,8 +205,8 @@ const ClaimOne = () => {
   const [pingUrl, setPingUrl] = useState("");
   const [certId, setCertId] = useState("");
   const [tokenUrl, settokenUrl] = useState("");
-  
-  
+  // Handle input changes
+  // Handle input changes
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (name === "dateOfDiagnosis") {
@@ -510,7 +510,7 @@ const ClaimOne = () => {
 
         {/* Hero Section */}
         <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-12 mb-8 md:mb-16">
-          <div className="w-full md:w-[450px] flex-shrink-0">
+          <div className="w-full md:w-[230px] flex-shrink-0 ">
             <img
               src={ClaimFormImg}
               alt="Claim Form Illustration"
@@ -518,13 +518,13 @@ const ClaimOne = () => {
             />
           </div>
           <div className="flex-1 pt-4 md:pt-8 text-left">
-            <i className='font-["Georgia"] relative text-[40px] sm:text-[60px] md:text-[80px] lg:text-[80px] inline-block text-[#4b2c5e]'>
+            <i className='font-["Georgia"] relative text-[40px] sm:text-[60px] md:text-[40px] lg:text-[80px] inline-block text-[#4b2c5e]'>
               <span>{`You Don't Have to `}</span>
               <span className="text-[rgba(75,44,94,0.66)]">
                 Face This Alone{" "}
               </span>
-            </i>    
-            <div className='font-["Helvetica"] relative text-[18px] sm:text-[20px] md:text-[24px] text-[#4b2c5e] inline-block pb-[30px]'>{`If you, or a family member has been diagnosed with mesothelioma, don't hesitate to reach out. `}</div>
+            </i>
+            <div className='font-["Helvetica"] relative text-[18px] sm:text-[20px] md:text-[15px] text-[#4b2c5e] inline-block pb-[30px]'>{`If you, or a family member has been diagnosed with mesothelioma, don't hesitate to reach out. `}</div>
           </div>
         </div>
 
@@ -532,7 +532,7 @@ const ClaimOne = () => {
           item
           xs={12}
           md={6}
-          className="pl-6 pr-20 md:pr-40 md:pl-0 flex justify-end items-end"
+            className="pl-6 pr-20 md:pr-40 md:pl-0 flex justify-end items-end"
         >
           <motion.h1
             className="text-[#2E4A7D] font-georgia italic font-normal leading-tight text-left mx-auto px-4 xl:mt-32 lg:w-[1600px]"
@@ -541,7 +541,7 @@ const ClaimOne = () => {
               width: "100%",
               maxWidth: "948px",
               marginBottom: "0",
-              marginTop: "clamp(2rem, 8vw, 5rem)", // Responsive top margin
+              marginTop: "clamp(2rem, 8vw, 5rem)", // Responsive top margini
             }}
           >
             {/* Justice for Laborers Diagnosed with Mesothelioma */}
@@ -555,7 +555,7 @@ const ClaimOne = () => {
           >
             <Paper
               elevation={3}
-              className="w-full max-w-2xl md:-mt-16 2xl:-mt-32"
+              className="w-full max-w-2xl md:-mt-16 md:ml-[400px]  lg:ml-[30%] xl:ml-[-58%]  2xl:-mt-30"
               sx={{
                 backgroundColor: "rgba(255, 255, 255, 0.7)",
                 backdropFilter: "blur(10px)",
@@ -853,7 +853,6 @@ const ClaimOne = () => {
                         <MenuItem value="">Select diagnosis type</MenuItem>
                         <MenuItem value="mesothelioma">Mesothelioma</MenuItem>
                         <MenuItem value="lung_cancer">Lung Cancer</MenuItem>
-                        
                       </Select>
                       {errors.diagnosisType && (
                         <FormHelperText>{errors.diagnosisType}</FormHelperText>
@@ -1026,10 +1025,11 @@ const ClaimOne = () => {
             </Paper>
           </motion.div>
         </Grid>
-      </div>
+
+</div>
 
       <div className="block md:hidden bg-[#FAF3EC] font-georgia p-5">
-      <ToastContainer position="top-right" />
+        <ToastContainer position="top-right" />
 
         {/* Success Dialog */}
         <Dialog
@@ -1107,7 +1107,7 @@ const ClaimOne = () => {
               <span className="text-[rgba(75,44,94,0.66)]">
                 Face This Alone{" "}
               </span>
-            </i>    
+            </i>
             <div className='font-["Helvetica"] relative text-[18px] sm:text-[20px] md:text-[24px] text-[#4b2c5e] inline-block pb-[30px]'>{`If you, or a family member has been diagnosed with mesothelioma, don't hesitate to reach out. `}</div>
           </div>
         </div>
@@ -1391,7 +1391,6 @@ const ClaimOne = () => {
                     <MenuItem value="">Select diagnosis type</MenuItem>
                     <MenuItem value="mesothelioma">Mesothelioma</MenuItem>
                     <MenuItem value="lung_cancer">Lung Cancer</MenuItem>
-                    
                   </Select>
                   {errors.diagnosisType && (
                     <FormHelperText>{errors.diagnosisType}</FormHelperText>

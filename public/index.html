@@ -77,26 +77,14 @@
     src="https://api.trustedform.com/trustedform.js?field=xxTrustedFormCertUrl&l=454a35b802f3e7b63ffabb4efedb7c6ebe67886c&source=mySource"></script>
   <script>
     document.addEventListener("trustedform:load", function (event) {
-<<<<<<< HEAD
-=======
-      // Get the certificate URL from the form field
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
       const certUrl = document.querySelector(
         'input[name="xxTrustedFormCertUrl"]'
       ).value;
 
       if (certUrl) {
-<<<<<<< HEAD
         fetch(certUrl)
           .then((response) => response.json())
           .then((data) => {
-=======
-        // Fetch the certificate data
-        fetch(certUrl)
-          .then((response) => response.json())
-          .then((data) => {
-            // Display the response in the <pre> tag
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
             document.getElementById("responseData").textContent =
               JSON.stringify(data, null, 4);
             console.log(certUrl);

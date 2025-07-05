@@ -7,6 +7,7 @@ const AudioRecorders = () => {
   const [uploadStatus, setUploadStatus] = useState('');
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
+  const recordingTimeoutRef = useRef(null);
 
   useEffect(() => {
     return () => {
@@ -21,6 +22,8 @@ const AudioRecorders = () => {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       mediaRecorderRef.current = new MediaRecorder(stream);
 
+      audioChunksRef.current = [];
+
       mediaRecorderRef.current.ondataavailable = (event) => {
         audioChunksRef.current.push(event.data);
       };
@@ -30,23 +33,43 @@ const AudioRecorders = () => {
         const audioUrl = URL.createObjectURL(audioBlob);
         setAudioUrl(audioUrl);
         audioChunksRef.current = [];
+
+        // Clear timeout when stopped
+        if (recordingTimeoutRef.current) {
+          clearTimeout(recordingTimeoutRef.current);
+        }
       };
 
       mediaRecorderRef.current.start();
       setRecording(true);
+
+      // Automatically stop after 3 minutes (180,000 ms)
+      recordingTimeoutRef.current = setTimeout(() => {
+        stopRecording();
+      }, 180000);
+
     } catch (error) {
       console.error('Error accessing microphone:', error);
       alert('Could not access microphone. Please check permissions.');
     }
   };
 
+
   const stopRecording = () => {
     if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {
       mediaRecorderRef.current.stop();
       mediaRecorderRef.current.stream.getTracks().forEach(track => track.stop());
-      setRecording(false);
     }
+
+    // Clear timeout
+    if (recordingTimeoutRef.current) {
+      clearTimeout(recordingTimeoutRef.current);
+      recordingTimeoutRef.current = null;
+    }
+
+    setRecording(false);
   };
+
 
   const uploadAudio = async () => {
     if (!audioUrl) return;
@@ -147,7 +170,7 @@ const AudioRecorders = () => {
               </svg>
               Start Recording
             </>
-          )}    
+          )}
         </button>
       </div>
 

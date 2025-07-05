@@ -62,48 +62,50 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     };
   }, [isSpeaking]);
 
-  const speakCaptcha = () => {
-    if ('speechSynthesis' in window) {
-      // Stop any ongoing speech before starting new one
-      window.speechSynthesis.cancel();
-      setIsSpeaking(true);
+ const speakCaptcha = () => {
+        if ('speechSynthesis' in window) {
+            // Stop any ongoing speech before starting a new one
+            window.speechSynthesis.cancel();
+            setIsSpeaking(true);
 
-      const voices = window.speechSynthesis.getVoices();
-      const maleUsVoice = voices.find(voice =>
-        voice.lang === 'en-US' &&
-        voice.name.toLowerCase().includes('david')
-      ) || voices.find(voice =>
-        voice.lang === 'en-US'
-      );
+            // Load voices
+            const voices = window.speechSynthesis.getVoices();
 
-      let currentIndex = 0;
-      const speakNextChar = () => {
-        if (currentIndex < captchaText.length) {
-          const char = captchaText[currentIndex];
-          const utterance = new SpeechSynthesisUtterance(char);
-          utterance.rate = 0.5;
-          utterance.pitch = 0.9;
-          utterance.volume = 1.0;
-          utterance.lang = 'en-US';
+            // Try to find a female voice
+            const femaleVoice = voices.find(voice =>
+                voice.name.toLowerCase().includes('female') ||
+                voice.name.toLowerCase().includes('woman') ||
+                voice.name.toLowerCase().includes('zira') || // Windows
+                voice.name.toLowerCase().includes('samantha') // macOS
+            ) || voices.find(voice => voice.lang === 'en-US');
 
-          if (maleUsVoice) {
-            utterance.voice = maleUsVoice;
-          }
+            let currentIndex = 0;
 
-          utterance.onend = () => {
-            currentIndex++;
+            const speakNextChar = () => {
+                if (currentIndex < captchaText.length) {
+                    const char = captchaText[currentIndex];
+                    const utterance = new SpeechSynthesisUtterance(char);
+                    utterance.voice = femaleVoice;
+                    utterance.rate = 0.5;
+                    utterance.pitch = 1.2;
+                    utterance.volume = 1.0;
+                    utterance.lang = 'en-US';
+
+                    utterance.onend = () => {
+                        currentIndex++;
+                        speakNextChar();
+                    };
+
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    setIsSpeaking(false);
+                }
+            };
+
             speakNextChar();
-          };
-
-          window.speechSynthesis.speak(utterance);
-        } else {
-          setIsSpeaking(false);
         }
-      };
+    };
 
-      speakNextChar();
-    }
-  };
 
   const handleInputChange = (e) => {
     const value = e.target.value;
@@ -458,11 +460,7 @@ const MesotheliomaLandingPageNew = () => {
               Manufacturing Workers Diagnosed with Mesothelioma
             </h1>
             <p className="max-w-xl text-sm sm:text-base text-gray-200 md:max-w-[93%]">
-<<<<<<< HEAD
               If you worked in heavy industry and have mesothelioma, asbestos in machinery, piping, and insulation may be the cause. We're here to help you claim the justice you deserve.
-=======
-            If you worked in heavy industry and have mesothelioma, asbestos in machinery, piping, and insulation may be the cause. We're here to help you claim the justice you deserve.
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
             </p>
           </div>
         </div>

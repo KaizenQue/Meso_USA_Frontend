@@ -1,0 +1,124 @@
+.firstCard {
+    margin-top: 1%;
+    position: absolute;
+
+}
+
+.firstImg {
+    width: 86%;
+    height: auto;
+
+}
+
+.secondImg {
+    width: 100%;
+    height: auto;
+    margin-top: 47%;
+    z-index: -1;
+}
+
+.btn1 {
+    position: absolute;
+    z-index: 1;
+    margin: -1% 0 0 16%;
+
+}
+
+.button1 {
+    margin: 260% 0 0 0%;
+    display: inline-flex;
+    height: 71px;
+    padding: 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    color: #FAF3EC;
+    font-feature-settings: 'dlig' on;
+    font-family: Helvetica;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.btn2 {
+    position: absolute;
+    z-index: 1;
+    margin: -1% 0 0 41%;
+
+}
+
+.button2 {
+    margin: 300% 0 0 0%;
+    display: inline-flex;
+height: 71px;
+padding: 24px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+color: #FAF3EC;
+font-feature-settings: 'dlig' on;
+font-family: Helvetica;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+border-radius: 20px;
+background: #4B2C5E;
+}
+
+.btn3 {
+    position: absolute;
+    z-index: 1;
+    margin: -1% 0 0 66%;
+
+}
+
+.button3 {
+    margin: 234% 0 0 0%;
+    display: inline-flex;
+height: 71px;
+padding: 24px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+color: #FAF3EC;
+font-feature-settings: 'dlig' on;
+font-family: Helvetica;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+border-radius: 20px;
+background: #C49A6C;
+}
+
+.btn4 {
+    position: absolute;
+    z-index: 1;
+    margin: -1% 0 0 39%;
+
+}
+
+.button4 {
+    margin: 410% 0 0 0%;
+    display: inline-flex;
+height: 71px;
+padding: 24px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+flex-shrink: 0;
+color: #2E4A7D;
+font-feature-settings: 'dlig' on;
+font-family: Helvetica;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+border-radius: 20px;
+background: #FAF3EC;
+}

@@ -10,12 +10,12 @@ let initialLandingUrl = null;
 // Function to get the source URL
 const getSourceUrl = () => {
   if (typeof window === "undefined") return "Unknown";
-  
+
   // If we haven't stored the initial URL yet, store it
   if (!initialLandingUrl) {
     initialLandingUrl = window.location.href;
   }
-  
+
   return initialLandingUrl;
 };
 
@@ -182,7 +182,7 @@ export const sendNewsletterSubscription = async (email, pageSource = "") => {
 // Function to send construction form data
 export const sendConstructionFormEmail = async (formData, trustedFormData) => {
   console.log("formData", formData);
-  
+
   try {
     const ipAddress = await getIPAddress();
     const templateParams = {
@@ -269,6 +269,105 @@ export const sendLandingPageFormEmail = async (formData, trustedFormData) => {
     return { success: true, response };
   } catch (error) {
     console.error("Failed to send email:", error);
+    return { success: false, error };
+  }
+};
+
+export const sendMesotheliomaLandingPageEmail = async (formData, videoUrl = null) => {
+  try {
+    const ipAddress = await getIPAddress();
+    const templateParams = {
+      from_name: `${formData.firstName} ${formData.lastName}`,
+      from_email: "reachus@fightformesothelioma.com",
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      phone: formData.phone,
+      alternateNumber: formData.alternateNumber || "Not provided",
+      email: formData.email,
+      streetAddress: formData.streetAddress,
+      privacyPolicy: formData.privacyPolicy ? "Yes" : "No",
+      ip_address: ipAddress,
+      page_source: getSourceUrl(),
+      submission_date: new Date().toLocaleDateString(),
+      submission_time: new Date().toLocaleTimeString(),
+      user_agent: navigator.userAgent || "Not available",
+      subject: "New Mesothelioma Case Review - Video Recording Submission",
+      video_url: videoUrl || "Video URL not available",
+      video_filename: videoUrl ? videoUrl.split('/').pop() : `${formData.phone}.webm`
+    };
+
+    // Send admin notification
+    const response = await emailjs.send(
+      "service_9pv809e",
+      "template_ffy4uwe",
+      templateParams
+    );
+
+    // Send confirmation email to user if email is provided
+    if (formData.email) {
+      try {
+        await sendConfirmationEmail(
+          formData.email,
+          "mesothelioma case review",
+          formData
+        );
+      } catch (confirmationError) {
+        console.error("Failed to send confirmation email:", confirmationError);
+      }
+    }
+
+    return { success: true, response };
+  } catch (error) {
+    console.error("Failed to send mesothelioma landing page email:", error);
+    return { success: false, error };
+  }
+};
+
+
+export const sendMesotheliomaLandingPageEmailAudio = async (formData, videoUrl = null) => {
+  try {
+    const ipAddress = await getIPAddress();
+    const templateParams = {
+      from_name: `${formData.firstName} ${formData.lastName}`,
+      from_email: "reachus@fightformesothelioma.com",
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      phone: formData.phone,
+      alternateNumber: formData.alternateNumber || "Not provided",
+      email: formData.email,
+      streetAddress: formData.streetAddress,
+      privacyPolicy: formData.privacyPolicy ? "Yes" : "No",
+      ip_address: ipAddress,
+      page_source: getSourceUrl(),
+      submission_date: new Date().toLocaleDateString(),
+      submission_time: new Date().toLocaleTimeString(),
+      user_agent: navigator.userAgent || "Not available",
+      subject: "New Mesothelioma Case Review - Video Recording Submission",
+      video_url: videoUrl || "Video URL not available",
+      video_filename: videoUrl ? videoUrl.split('/').pop() : `${formData.phone}.webm`
+    };
+
+    const response = await emailjs.send(
+      "service_9pv809e",
+      "template_ffy4uwe",
+      templateParams
+    );
+
+    if (formData.email) {
+      try {
+        await sendConfirmationEmail(
+          formData.email,
+          "mesothelioma case review",
+          formData
+        );
+      } catch (confirmationError) {
+        console.error("Failed to send confirmation email:", confirmationError);
+      }
+    }
+
+    return { success: true, response };
+  } catch (error) {
+    console.error("Failed to send mesothelioma landing page email:", error);
     return { success: false, error };
   }
 };

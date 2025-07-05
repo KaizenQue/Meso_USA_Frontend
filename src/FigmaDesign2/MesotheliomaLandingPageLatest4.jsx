@@ -24,11 +24,7 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     const [isSpeaking, setIsSpeaking] = useState(false);
   
     const generateCaptcha = () => {
-<<<<<<< HEAD
       
-=======
-      // Stop any ongoing speech when generating new CAPTCHA
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
       if (isSpeaking) {
         window.speechSynthesis.cancel();
         setIsSpeaking(false);
@@ -48,10 +44,6 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
       onCaptchaChange(false);
     };
   
-<<<<<<< HEAD
-=======
-    // Generate CAPTCHA immediately when component mounts
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
     useEffect(() => {
       generateCaptcha();
     }, []);
@@ -63,10 +55,6 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
   
       return () => {
         clearInterval(timer);
-<<<<<<< HEAD
-=======
-        // Stop any ongoing speech when component unmounts
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
         if (isSpeaking) {
           window.speechSynthesis.cancel();
         }
@@ -74,50 +62,49 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     }, [isSpeaking]); 
   
     const speakCaptcha = () => {
-      if ('speechSynthesis' in window) {
-<<<<<<< HEAD
-=======
-        // Stop any ongoing speech before starting new one
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
-        window.speechSynthesis.cancel();
-        setIsSpeaking(true);
-  
-        const voices = window.speechSynthesis.getVoices();
-        const maleUsVoice = voices.find(voice => 
-          voice.lang === 'en-US' && 
-          voice.name.toLowerCase().includes('david')
-        ) || voices.find(voice => 
-          voice.lang === 'en-US'
-        );
-  
-        let currentIndex = 0;
-        const speakNextChar = () => {
-          if (currentIndex < captchaText.length) {
-            const char = captchaText[currentIndex];
-            const utterance = new SpeechSynthesisUtterance(char);
-            utterance.rate = 0.5; 
-            utterance.pitch = 0.9; 
-            utterance.volume = 1.0; 
-            utterance.lang = 'en-US';
-            
-            if (maleUsVoice) {
-              utterance.voice = maleUsVoice;
-            }
-  
-            utterance.onend = () => {
-              currentIndex++;
-              speakNextChar();
+        if ('speechSynthesis' in window) {
+            // Stop any ongoing speech before starting a new one
+            window.speechSynthesis.cancel();
+            setIsSpeaking(true);
+
+            // Load voices
+            const voices = window.speechSynthesis.getVoices();
+
+            // Try to find a female voice
+            const femaleVoice = voices.find(voice =>
+                voice.name.toLowerCase().includes('female') ||
+                voice.name.toLowerCase().includes('woman') ||
+                voice.name.toLowerCase().includes('zira') || // Windows
+                voice.name.toLowerCase().includes('samantha') // macOS
+            ) || voices.find(voice => voice.lang === 'en-US');
+
+            let currentIndex = 0;
+
+            const speakNextChar = () => {
+                if (currentIndex < captchaText.length) {
+                    const char = captchaText[currentIndex];
+                    const utterance = new SpeechSynthesisUtterance(char);
+                    utterance.voice = femaleVoice;
+                    utterance.rate = 0.5;
+                    utterance.pitch = 1.2;
+                    utterance.volume = 1.0;
+                    utterance.lang = 'en-US';
+
+                    utterance.onend = () => {
+                        currentIndex++;
+                        speakNextChar();
+                    };
+
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    setIsSpeaking(false);
+                }
             };
-  
-            window.speechSynthesis.speak(utterance);
-          } else {
-            setIsSpeaking(false);
-          }
-        };
-  
-        speakNextChar();
-      }
+
+            speakNextChar();
+        }
     };
+
   
     const handleInputChange = (e) => {
       const value = e.target.value;
@@ -237,10 +224,7 @@ const MesotheliomaLandingPageLatest4 = () => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showSuccessCard, setShowSuccessCard] = useState(false);
     const { phoneNumber, getCleanPhoneNumber } = useDynamicPhoneNumber();
-<<<<<<< HEAD
     
-=======
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
 
     useEffect(() => {
         const observer = new MutationObserver((mutations) => {
@@ -267,11 +251,7 @@ const MesotheliomaLandingPageLatest4 = () => {
 
                     if (certUrl) {
                         console.log("TrustedForm Cert URL:", certUrl);
-<<<<<<< HEAD
                         fetchCertData(certUrl); 
-=======
-                        fetchCertData(certUrl); // Fetch the certificate data
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
                     }
                 }
             });
@@ -306,10 +286,6 @@ const MesotheliomaLandingPageLatest4 = () => {
         };
         let isValid = true;
 
-<<<<<<< HEAD
-=======
-        // Name validation
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
         if (!formData.fullName.trim()) {
             tempErrors.fullName = 'Name is required';
             isValid = false;
@@ -318,10 +294,6 @@ const MesotheliomaLandingPageLatest4 = () => {
             isValid = false;
         }
 
-<<<<<<< HEAD
-=======
-        // Phone validation
->>>>>>> 51ac2381fbbfa4c181067de80a15e5af5df0aea5
         if (!formData.phone.trim()) {
             tempErrors.phone = 'Phone number is required';
             isValid = false;

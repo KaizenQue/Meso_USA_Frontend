@@ -10,7 +10,7 @@ import logo from '../../assets/Meso logo-01 1.png'
 const Navbar = () => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
-  const [phoneNumber, setPhoneNumber] = useState("(833) 588-0606");         
+  const [phoneNumber, setPhoneNumber] = useState("(888) 212-8149");         
 
   
   
@@ -31,7 +31,7 @@ const Navbar = () => {
       }
     };
 
-    fetchPhoneNumber();
+    // fetchPhoneNumber();
     
     return () => {
       document.body.classList.remove('pt-[73px]', 'md:pt-[73px]');
@@ -241,26 +241,27 @@ const Navbar = () => {
         </div>
       </div>
  
-      {/* Desktop Navbar */}
+         {/* Desktop Navbar */}
       <div className="hidden md:block fixed top-0 left-0 w-full bg-[#FAF3EC] z-[1000] shadow-[0_2px_10px_rgba(0,0,0,0.1)]">
-        <div className="flex items-center justify-between p-[20px] px-[50px] bg-[#FAF3EC] w-full">
-          <div className="flex flex-row items-center justify-between">
-            <div className="p-[8px] px-[15px] rounded-[4px] ml-24">
-              <a href="/"> 
+        <div className="flex items-center justify-between p-[15px] lg:p-[20px] px-[15px] sm:px-[25px] lg:px-[50px] bg-[#FAF3EC] w-full">
+          <div className="flex flex-row items-center justify-between min-w-0 flex-shrink">
+            <div className="p-[6px] lg:p-[8px] px-[10px] lg:px-[15px] rounded-[4px] ml-4 sm:ml-8 lg:ml-24">
+              <a href="/">
                 <img
                   src={logo}
                   alt="Mesotheliamo Logo"
-                  className="h-[auto] w-[150px]" 
+                  className="h-[auto] w-[100px] sm:w-[120px] lg:w-[150px]"
                 />
               </a>
             </div>
- 
-            <div className="flex gap-[40px] justify-center items-center ml-16">
+
+            <div className="flex gap-[15px] sm:gap-[25px] lg:gap-[40px] justify-center items-center ml-4 sm:ml-8 lg:ml-16 min-w-0">
               <NavLink
                 to="/"
-                style={{ textDecoration: 'none' }}
+                style={{ textDecoration: "none" }}
                 className={({ isActive }) =>
-                  `font-helvetica font-normal text-[24px] cursor-pointer ${isActive ? 'text-[#2E4A7D]' : 'text-[#4B2C5E]'
+                  `font-helvetica font-normal text-[18px] sm:text-[20px] lg:text-[24px] cursor-pointer whitespace-nowrap ${
+                    isActive ? "text-[#2E4A7D]" : "text-[#4B2C5E]"
                   }`
                 }
               >
@@ -268,20 +269,22 @@ const Navbar = () => {
               </NavLink>
               <NavLink
                 to="/MesothMainPage"
-                style={{ textDecoration: 'none' }}
+                style={{ textDecoration: "none" }}
                 className={({ isActive }) =>
-                  `font-helvetica font-normal text-[24px] cursor-pointer ${isActive ? 'text-[#2E4A7D]' : 'text-[#4B2C5E]'
+                  `font-helvetica font-normal text-[18px] sm:text-[20px] lg:text-[24px] cursor-pointer whitespace-nowrap ${
+                    isActive ? "text-[#2E4A7D]" : "text-[#4B2C5E]"
                   }`
                 }
               >
                 Mesothelioma
               </NavLink>
-              
+
               <NavLink
                 to="/AboutMain"
-                style={{ textDecoration: 'none' }}
+                style={{ textDecoration: "none" }}
                 className={({ isActive }) =>
-                  `font-helvetica font-normal text-[24px] cursor-pointer ${isActive ? 'text-[#2E4A7D]' : 'text-[#4B2C5E]'
+                  `font-helvetica font-normal text-[18px] sm:text-[20px] lg:text-[24px] cursor-pointer whitespace-nowrap ${
+                    isActive ? "text-[#2E4A7D]" : "text-[#4B2C5E]"
                   }`
                 }
               >
@@ -289,29 +292,40 @@ const Navbar = () => {
               </NavLink>
             </div>
           </div>
- 
-          <div className="flex flex-row items-center justify-between">
-            <div className="flex items-center gap-[15px]">
+
+          <div className="flex flex-row items-center justify-between min-w-0 flex-shrink-0">
+            <div className="hidden xl:flex items-center gap-[10px] lg:gap-[15px]">
               <div className="flex items-center justify-center">
                 <div
-                  className="w-[48px] h-[48px] rounded-full border-2 border-[#4B2C5E] flex items-center justify-center cursor-pointer"
+                  className="w-[40px] h-[40px] lg:w-[48px] lg:h-[48px] rounded-full border-2 border-[#4B2C5E] flex items-center justify-center cursor-pointer"
                   onClick={handlePhoneClick}
                 >
-                  <div className="relative w-[24px] h-[24px]">
-                    <img src={CallIcon} alt="Phone Icon" className="absolute top-0 left-0 w-full h-full" />
+                  <div className="relative w-[20px] h-[20px] lg:w-[24px] lg:h-[24px]">
+                    <img
+                      src={CallIcon}
+                      alt="Phone Icon"
+                      className="absolute top-0 left-0 w-full h-full"
+                    />
                   </div>
                 </div>
               </div>
               <div className="text-left">
-                <p className="font-helvetica font-normal text-[16px] text-[#4B2C5E] m-0 mb-[5px]">Call Us For Help</p>
-                <p className="font-helvetica font-bold text-[24px] text-[#4B2C5E] m-0">{phoneNumber}</p>
+                <p className="font-helvetica font-normal text-[14px] lg:text-[16px] text-[#4B2C5E] m-0 mb-[5px]">
+                  Call Us For Help
+                </p>
+                <p className="font-helvetica font-bold text-[20px] lg:text-[24px] text-[#4B2C5E] m-0">
+                  {phoneNumber}
+                </p>
               </div>
             </div>
+
             <div
-              className="bg-[#4B2C5E] rounded-[60px] p-[10px] px-[20px] cursor-pointer ml-[25px]"
-              onClick={() => navigate('/ClaimForm')}
+              className="bg-[#4B2C5E] rounded-[60px] p-[8px] lg:p-[10px] px-[15px] lg:px-[20px] cursor-pointer ml-[15px] xl:ml-[25px]"
+              onClick={() => navigate("/ClaimForm")}
             >
-              <span className="font-helvetica font-bold text-[20px] text-[#F5E7DA]">Claim Form</span>
+              <span className="font-helvetica font-bold text-[16px] sm:text-[18px] lg:text-[20px] text-[#F5E7DA] whitespace-nowrap">
+                Claim Form
+              </span>
             </div>
           </div>
         </div>
