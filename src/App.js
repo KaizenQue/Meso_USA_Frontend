@@ -87,7 +87,7 @@ import AudioLanderOne from './Components/AudioLanders/AudioLanderOne';
 import MesotheliomaLandingPageTest from './Components/FigmaDesign/MesotheliomaLandingPageTest';
 
 function App() {
-  
+
   const router = createBrowserRouter([
     {
       path: '/',
@@ -138,7 +138,7 @@ function App() {
       path: '/Womenandmesothelioma',
       element: <Womenandmesothelioma />,
     },
-    
+
     {
       path: '*',
       element: <h1>404 - Page Not Found</h1>,
@@ -295,7 +295,7 @@ function App() {
       path: '/mesothelioma-claim-automechanics-workers-cc7',
       element: <MesotheliomaLandingPageNew9 />,
     },
-  
+
     {
       path: '/mesothelioma-claims-us-navy-veterans',
       element: <MesotheliomaLandingPageLatest1 />,
@@ -309,7 +309,7 @@ function App() {
       element: <MesotheliomaLandingPageLatest3 />,
     },
     {
-      path: '/mesothelioma-claims-steel-plant-workers',   
+      path: '/mesothelioma-claims-steel-plant-workers',
       element: <MesotheliomaLandingPageLatest4 />,
     },
     {
@@ -385,19 +385,19 @@ function App() {
       element: <ChatInterface3 />,
     },
     {
-      path:'/SokoRef',
-      element: <SokoRef/>
+      path: '/SokoRef',
+      element: <SokoRef />
     },
     {
-      path:'/map',
-      element: <Map/>
+      path: '/map',
+      element: <Map />
     },
     {
-      path:'/AudioLanderOne',
+      path: '/AudioLanderOne',
       element: <AudioLanderOne />
     },
     {
-      path:'/MesotheliomaLandingPageTest',
+      path: '/MesotheliomaLandingPageTest',
       element: <MesotheliomaLandingPageTest />
     }
   ]);

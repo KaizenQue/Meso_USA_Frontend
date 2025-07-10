@@ -11,27 +11,7 @@ import useDynamicPhoneNumber from "../../hooks/useDynamicPhoneNumber";
 import {
   Button,
   TextField,
-  Paper,
-  Typography,
-  Box,
-  Container,
-  Grid,
-  Card,
-  CardContent,
-  MenuItem,
-  Select,
-  FormControl,
-  InputLabel,
-  FormHelperText,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  CircularProgress,
-  List,
-  ListItem,
-  ListItemIcon,
+  
 } from "@mui/material";
 
 const CustomCaptcha = ({ onCaptchaChange }) => {
@@ -63,7 +43,6 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     onCaptchaChange(false);
   };
 
-  // Generate CAPTCHA immediately when component mounts
   useEffect(() => {
     generateCaptcha();
   }, []);
@@ -75,7 +54,6 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
 
     return () => {
       clearInterval(timer);
-      // Stop any ongoing speech when component unmounts
       if (isSpeaking) {
         window.speechSynthesis.cancel();
       }

@@ -11,27 +11,7 @@ import useDynamicPhoneNumber from "../../hooks/useDynamicPhoneNumber";
 import {
   Button,
   TextField,
-  Paper,
-  Typography,
-  Box,
-  Container,
-  Grid,
-  Card,
-  CardContent,
-  MenuItem,
-  Select,
-  FormControl,
-  InputLabel,
-  FormHelperText,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  CircularProgress,
-  List,
-  ListItem,
-  ListItemIcon,
+  
 } from "@mui/material";
 
 const CustomCaptcha = ({ onCaptchaChange }) => {
@@ -43,12 +23,12 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
   const [isSpeaking, setIsSpeaking] = useState(false);
 
   const generateCaptcha = () => {
-    
+
     if (isSpeaking) {
       window.speechSynthesis.cancel();
       setIsSpeaking(false);
     }
-    
+
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
     let offsets = [];
@@ -63,7 +43,6 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
     onCaptchaChange(false);
   };
 
-  // Generate CAPTCHA immediately when component mounts
   useEffect(() => {
     generateCaptcha();
   }, []);
@@ -71,60 +50,54 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
   useEffect(() => {
     const timer = setInterval(() => {
       generateCaptcha();
-    }, 60000); 
+    }, 60000);
 
     return () => {
       clearInterval(timer);
-      // Stop any ongoing speech when component unmounts
       if (isSpeaking) {
         window.speechSynthesis.cancel();
       }
     };
-  }, [isSpeaking]); 
+  }, [isSpeaking]);
 
   const speakCaptcha = () => {
-        if ('speechSynthesis' in window) {
-            // Stop any ongoing speech before starting a new one
-            window.speechSynthesis.cancel();
-            setIsSpeaking(true);
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(true);
+      const voices = window.speechSynthesis.getVoices();
+      const femaleVoice = voices.find(voice =>
+        voice.name.toLowerCase().includes('female') ||
+        voice.name.toLowerCase().includes('woman') ||
+        voice.name.toLowerCase().includes('zira') || 
+        voice.name.toLowerCase().includes('samantha') 
+      ) || voices.find(voice => voice.lang === 'en-US');
 
-            // Load voices
-            const voices = window.speechSynthesis.getVoices();
+      let currentIndex = 0;
 
-            // Try to find a female voice
-            const femaleVoice = voices.find(voice =>
-                voice.name.toLowerCase().includes('female') ||
-                voice.name.toLowerCase().includes('woman') ||
-                voice.name.toLowerCase().includes('zira') || // Windows
-                voice.name.toLowerCase().includes('samantha') // macOS
-            ) || voices.find(voice => voice.lang === 'en-US');
+      const speakNextChar = () => {
+        if (currentIndex < captchaText.length) {
+          const char = captchaText[currentIndex];
+          const utterance = new SpeechSynthesisUtterance(char);
+          utterance.voice = femaleVoice;
+          utterance.rate = 0.5;
+          utterance.pitch = 1.2;
+          utterance.volume = 1.0;
+          utterance.lang = 'en-US';
 
-            let currentIndex = 0;
-
-            const speakNextChar = () => {
-                if (currentIndex < captchaText.length) {
-                    const char = captchaText[currentIndex];
-                    const utterance = new SpeechSynthesisUtterance(char);
-                    utterance.voice = femaleVoice;
-                    utterance.rate = 0.5;
-                    utterance.pitch = 1.2;
-                    utterance.volume = 1.0;
-                    utterance.lang = 'en-US';
-
-                    utterance.onend = () => {
-                        currentIndex++;
-                        speakNextChar();
-                    };
-
-                    window.speechSynthesis.speak(utterance);
-                } else {
-                    setIsSpeaking(false);
-                }
-            };
-
+          utterance.onend = () => {
+            currentIndex++;
             speakNextChar();
+          };
+
+          window.speechSynthesis.speak(utterance);
+        } else {
+          setIsSpeaking(false);
         }
-    };
+      };
+
+      speakNextChar();
+    }
+  };
 
 
   const handleInputChange = (e) => {
@@ -231,7 +204,7 @@ const MesotheliomaLandingPage8 = () => {
     lastName: "",
     emailId: "",
     phoneNumber: "",
-    dateOfDiagnosis:"",
+    dateOfDiagnosis: "",
     jobTitle: "",
     story: "",
     privacyPolicy: false,
@@ -246,7 +219,6 @@ const MesotheliomaLandingPage8 = () => {
   const [startDate, setStartDate] = useState(null);
   const [dateOfDiagnosis, setDateOfDiagnosis] = useState(null);
 
-  // Add email validation function
   const isValidEmail = (email) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email);
@@ -277,7 +249,7 @@ const MesotheliomaLandingPage8 = () => {
 
           if (certUrl) {
             console.log("TrustedForm Cert URL:", certUrl);
-            fetchCertData(certUrl); // Fetch the certificate data
+            fetchCertData(certUrl); 
           }
         }
       });
@@ -315,9 +287,7 @@ const MesotheliomaLandingPage8 = () => {
       return;
     }
 
-    // Special handling for name fields
     if (name === "firstName" || name === "lastName" || name === "jobTitle") {
-      // Remove numbers and special characters except allowed ones
       const sanitizedValue = value.replace(/[^A-Za-z\s\-'\.]/g, "");
       setFormData((prevState) => ({
         ...prevState,
@@ -335,7 +305,6 @@ const MesotheliomaLandingPage8 = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validate required fields
     if (
       !formData.firstName ||
       !formData.lastName ||
@@ -354,7 +323,6 @@ const MesotheliomaLandingPage8 = () => {
       return;
     }
 
-    // Validate email format
     if (!isValidEmail(formData.emailId)) {
       setSubmitStatus({
         success: false,
@@ -389,12 +357,11 @@ const MesotheliomaLandingPage8 = () => {
           success: true,
           message: "Thank you for your submission. We will contact you soon.",
         });
-        // Reset form
         setFormData({
           firstName: "",
           lastName: "",
           emailId: "",
-          dateOfDiagnosis:"",
+          dateOfDiagnosis: "",
           phoneNumber: "",
           jobTitle: "",
           story: "",
@@ -417,7 +384,6 @@ const MesotheliomaLandingPage8 = () => {
     }
   };
 
-  // Custom date picker styles
   const customDatePickerStyles = {
     control: (base) => ({
       ...base,
@@ -447,7 +413,6 @@ const MesotheliomaLandingPage8 = () => {
 
   return (
     <div className="relative min-h-screen w-full">
-      {/* Background Image */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
         <img
@@ -457,9 +422,7 @@ const MesotheliomaLandingPage8 = () => {
         />
       </div>
 
-      {/* Content Container */}
       <div className="relative z-10 flex flex-col lg:flex-row min-h-screen items-center justify-center max-w-7xl mx-auto">
-        {/* Logo - Moved outside the left section */}
         <div className="absolute top-4 left-4 z-20">
           <a href="/">
             <img
@@ -470,9 +433,7 @@ const MesotheliomaLandingPage8 = () => {
           </a>
         </div>
 
-        {/* Left Section */}
         <div className="w-full lg:w-3/5 text-white pl-4 lg:pl-4 pr-6 lg:pr-12 flex flex-col items-start">
-          {/* Main Heading */}
           <div className="mt-24 sm:mt-28 lg:mt-12 max-w-xl">
             <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
               Diagnosed with Mesothelioma After Working in a Steel Mill?
@@ -485,25 +446,10 @@ const MesotheliomaLandingPage8 = () => {
             </p>
           </div>
 
-          {/* Industry Icons */}
           <div className="mt-24 flex flex-col gap-6">
-            {/* Insulation */}
             <div className="flex items-center gap-4">
               <div className="bg-[#4B2C5E] p-4 rounded-lg">
-                {/* <svg
-                  className="w-8 h-8 text-yellow-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M14 7L17 10M7 14L10 17M8 8L16 16M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg> */}
+                
                 <img src={Svg1} alt="Auto Repair Icon" className="w-8 h-8" />
               </div>
               <div>
@@ -513,23 +459,9 @@ const MesotheliomaLandingPage8 = () => {
               </div>
             </div>
 
-            {/* Fireproof Clothing */}
             <div className="flex items-center gap-4">
               <div className="bg-[#4B2C5E] p-4 rounded-lg">
-                {/* <svg
-                  className="w-8 h-8 text-yellow-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 12L11 14L15 10M20.6179 5.98434C20.4132 5.99472 20.2072 5.99997 20 5.99997C16.9265 5.99997 14.123 4.84453 11.9999 2.94434C9.87691 4.84446 7.07339 5.99985 4 5.99985C3.79277 5.99985 3.58678 5.9946 3.38213 5.98422C3.1327 6.94783 3 7.95842 3 9.00001C3 14.5915 6.82432 19.2898 12 20.622C17.1757 19.2898 21 14.5915 21 9.00001C21 7.95847 20.8673 6.94791 20.6179 5.98434Z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg> */}
+                
                 <img src={Svg2} alt="Auto Repair Icon" className="w-8 h-8" />
               </div>
               <div>
@@ -539,37 +471,9 @@ const MesotheliomaLandingPage8 = () => {
               </div>
             </div>
 
-            {/* Refractory Materials */}
             <div className="flex items-center gap-4">
               <div className="bg-[#4B2C5E] p-4 rounded-lg">
-                {/* <svg
-                  className="w-8 h-8 text-yellow-400"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7 16C8.10457 16 9 15.1046 9 14C9 12.8954 8.10457 12 7 12C5.89543 12 5 12.8954 5 14C5 15.1046 5.89543 16 7 16Z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M17 16C18.1046 16 19 15.1046 19 14C19 12.8954 18.1046 12 17 12C15.8954 12 15 12.8954 15 14C15 15.1046 15.8954 16 17 16Z"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M5 14H3V11L5 6H19L21 11V14H19M15 14H9"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg> */}
+                
                 <img src={Svg3} alt="Auto Repair Icon" className="w-8 h-8" />
               </div>
               <div>
@@ -580,7 +484,6 @@ const MesotheliomaLandingPage8 = () => {
             </div>
           </div>
 
-          {/* Additional Text */}
           <div className="mt-8 text-sm lg:text-base">
             <p>
               We work with attorneys who specialize in occupational asbestos
@@ -588,7 +491,6 @@ const MesotheliomaLandingPage8 = () => {
             </p>
           </div>
 
-          {/* Phone Button - Now after industry sections */}
           <div className="mt-8">
             <button
               onClick={() =>
@@ -617,26 +519,22 @@ const MesotheliomaLandingPage8 = () => {
           </div>
         </div>
 
-        {/* Right Section - Claim Form */}
         <div className="w-full lg:w-2/5 text-white p-6 lg:p-10 flex items-center justify-center">
-          {/* Form */}
           <div className="space-y-6 bg-[#4B2C5E]/90 backdrop-blur-sm rounded-2xl p-6 mt-16 lg:mt-24">
             <h2 className="text-2xl font-bold">Claim Form</h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
               {submitStatus.message && (
                 <div
-                  className={`p-4 rounded-md ${
-                    submitStatus.success
+                  className={`p-4 rounded-md ${submitStatus.success
                       ? "bg-green-500/20 text-green-200"
                       : "bg-red-500/20 text-red-200"
-                  }`}
+                    }`}
                 >
                   {submitStatus.message}
                 </div>
               )}
 
-              {/* Hidden TrustedForm fields */}
               <input
                 type="hidden"
                 id="xxTrustedFormCertUrl"
@@ -975,17 +873,7 @@ const MesotheliomaLandingPage8 = () => {
               </div>
 
               <div className="flex items-start space-x-2">
-                {/* <input
-                  type="checkbox"
-                  id="consent2"
-                  name="isHuman"
-                  checked={formData.isHuman}
-                  onChange={handleInputChange}
-                  className="mt-1 rounded border-white text-purple-800 focus:ring-0 focus:ring-offset-0"
-                />
-                <div className="text-xs sm:text-sm">
-                  Please check this box to verify you're a person.
-                </div> */}
+                
                 <CustomCaptcha onCaptchaChange={(isValid) => {
                   setFormData(prev => ({
                     ...prev,

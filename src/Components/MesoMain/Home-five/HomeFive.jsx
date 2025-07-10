@@ -1,5 +1,4 @@
 import React, { useRef, useEffect } from 'react';
-// import image1 from "../../assets/images/cardImg1.svg";
 import image2 from "../../assets/Frame 112 (4).png";
 import image3 from "../../assets/Frame 103.png";
 import image4 from "../../assets/Frame 42.png";
@@ -11,7 +10,6 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
-// Custom CSS for carousel
 const carouselStyles = {
     carousel: {
         width: '100%',
@@ -32,7 +30,6 @@ const carouselStyles = {
     }
 };
 
-// Add a style tag to override the CSS rule that hides the carousel
 const overrideCarouselCSS = `
     .custom-carousel, 
     .custom-carousel.custom-carousel,
@@ -97,11 +94,8 @@ function HomeFive() {
                 <style>{overrideCarouselCSS}</style>
             </Helmet>
 
-            {/* Desktop Version */}
       <div className="hidden md:flex flex-col gap-3 p-[5%] bg-[#F5E7DA80]">
-  {/* First Row */}
   <div className="flex flex-col md:flex-row justify-between  md:gap-4 lg:gap-5">
-    {/* Card 1 */}
     <div className="flex-1 bg-white p-6 md:p-8 rounded-xl shadow-lg text-center transition-transform duration-300 hover:-translate-y-1 flex flex-col justify-center items-center">
       <p className="text-[20px] md:text-[24px] text-[#2E4A7D] font-helvetica font-normal leading-none">
         Average compensation
@@ -111,7 +105,6 @@ function HomeFive() {
       </h2>
     </div>
 
-    {/* Card 2 */}
     <div className="flex-1 bg-white p-6 md:p-8 rounded-xl shadow-lg text-center transition-transform duration-300 hover:-translate-y-1 flex flex-col justify-center items-center">
       <p className="text-[20px] md:text-[24px] text-[#2E4A7D] font-helvetica font-normal leading-none mt-5">
         Asbestos trust funds hold
@@ -124,7 +117,6 @@ function HomeFive() {
       </p>
     </div>
 
-    {/* Card 3 */}
     <div className="flex-1 bg-white p-6 md:p-4 lg:p-8 rounded-xl shadow-lg text-center transition-transform duration-300 hover:-translate-y-1 flex flex-col justify-center items-center">
       <div className="flex items-baseline justify-center">
         <span className="text-[20px] md:text-[24px] text-[#2E4A7D] font-helvetica font-normal leading-none mr-2">
@@ -140,7 +132,6 @@ function HomeFive() {
     </div>
   </div>
 
-  {/* Second Row */}
   <div className="flex flex-col md:flex-row justify-between mt-4 md:mt-[1%] gap-4 md:gap-0 relative">
     <div className="flex justify-center md:block">
       <img
@@ -199,7 +190,6 @@ function HomeFive() {
                     </div>
                 </div>
 
-                {/* Image Section */}
                 <div className="relative mt-4 w-full">
                     <div className="relative w-full">
                         <Carousel
@@ -209,7 +199,7 @@ function HomeFive() {
                             showThumbs={false}
                             infiniteLoop={true}
                             centerMode={true}
-                            centerSlidePercentage={100} // Changed to 100% to take full width
+                            centerSlidePercentage={100} 
                             emulateTouch={true}
                             swipeable={true}
                             showIndicators={false}
@@ -219,7 +209,6 @@ function HomeFive() {
                             preventMovementUntilSwipeScrollTolerance={true}
                             renderThumbs={() => []}
                         >
-                            {/* Card 1 - Construction Workers */}
                             <div className="w-full">
                                 <img
                                     src={image4}
@@ -228,7 +217,6 @@ function HomeFive() {
                                 />
                             </div>
 
-                            {/* Card 2 - Shipyard Workers */}
                             <div className="w-full">
                                 <img
                                     src={image5}
@@ -237,7 +225,6 @@ function HomeFive() {
                                 />
                             </div>
 
-                            {/* Card 3 - Auto Mechanics */}
                             <div className="w-full">
                                 <img
                                     src={image6}
@@ -246,7 +233,6 @@ function HomeFive() {
                                 />
                             </div>
 
-                            {/* Card 4 - Fire fighter */}
                             <div className="w-full">
                                 <img
                                     src={image7}
@@ -257,7 +243,6 @@ function HomeFive() {
                         </Carousel>
                     </div>
                 </div>
-                {/* Image 8 below carousel in mobile view */}
                 <div className="mt-6 px-4 pb-8">
                     <img
                         src={image8}

@@ -1,31 +1,13 @@
 "use client"
 
 import { useState, useRef, useCallback } from "react"
-import { ArrowLeft, Play, Pause, Square, Video, Phone, Mail } from "lucide-react"
+import { ArrowLeft, Play, Pause, Square, Video} from "lucide-react"
 import {
   Button,
   TextField,
-  Paper,
-  Typography,
-  Box,
-  Container,
-  Grid,
   Card,
   CardContent,
-  MenuItem,
-  Select,
-  FormControl,
-  InputLabel,
-  FormHelperText,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  CircularProgress,
 } from "@mui/material";
-// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
-// import { Card, CardContent } from "../ui/card"
 import logo from "../../assets/MesoLogoWhite.png";
 import { sendMesotheliomaLandingPageEmail } from "../../utils/emailService";
 
@@ -146,16 +128,12 @@ export default function MesotheliomaLandingPageTest() {
       const data = await response.json();
       console.log('Uploaded URL:', data.url);
       console.log('Uploaded filename:', data.filename);
-      // Try to get the filename from the response, or reconstruct it
       let filename = data.filename || data.url?.split('/').pop() || `${Date.now()}-${phone}.webm`;
-      // Make a GET request to retrieve the video link
       const videoUrl = `https://meso-api-h6aphgemd9hzfwha.centralus-01.azurewebsites.net/videos/${filename}`;
-      // Optionally, check if the video exists
       const getResp = await fetch(videoUrl);
       if (getResp.ok) {
         console.log('Video uploaded and accessible at: ' + videoUrl);
         
-        // Send email notification with video URL
         try {
           const emailResult = await sendMesotheliomaLandingPageEmail(formData, videoUrl);
           if (emailResult.success) {
@@ -169,7 +147,6 @@ export default function MesotheliomaLandingPageTest() {
         
       } else {
         console.log('Video uploaded, but could not retrieve video link.');
-        // Still send email without video URL
         try {
           const emailResult = await sendMesotheliomaLandingPageEmail(formData);
           if (emailResult.success) {
