@@ -285,6 +285,7 @@ export const sendMesotheliomaLandingPageEmail = async (formData, videoUrl = null
       alternateNumber: formData.alternateNumber || "Not provided",
       email: formData.email,
       streetAddress: formData.streetAddress,
+      zipcode: formData.zipcode,
       privacyPolicy: formData.privacyPolicy ? "Yes" : "No",
       ip_address: ipAddress,
       page_source: getSourceUrl(),
@@ -336,6 +337,7 @@ export const sendMesotheliomaLandingPageEmailAudio = async (formData, videoUrl =
       alternateNumber: formData.alternateNumber || "Not provided",
       email: formData.email,
       streetAddress: formData.streetAddress,
+      zipcode: formData.zipcode,
       privacyPolicy: formData.privacyPolicy ? "Yes" : "No",
       ip_address: ipAddress,
       page_source: getSourceUrl(),
@@ -349,7 +351,7 @@ export const sendMesotheliomaLandingPageEmailAudio = async (formData, videoUrl =
 
     const response = await emailjs.send(
       "service_9pv809e",
-      "template_ffy4uwe",
+      "template_uot5235",
       templateParams
     );
 

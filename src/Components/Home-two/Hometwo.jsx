@@ -723,7 +723,7 @@ const Hometwo = () => {
                         className="block"
                         data-tf-element-role="consent-opt-in"
                       >
-                        I agree to the{" "}
+                        By submitting this form and signing up for texts, I consent to the{" "}
                         <a
                           href="/PrivacyPolicy"
                           className="underline hover:text-blue-200"
@@ -737,15 +737,7 @@ const Hometwo = () => {
                         >
                           disclaimer
                         </a>
-                        &nbsp; and give my express written consent, affiliates
-                        and/or lawyer to contact you at the number provided
-                        above, even if this number is a wireless number or if I
-                        am presently listed on a Do Not Call list. I understand
-                        that I may be contacted by telephone, email, text
-                        message or mail regarding case options and that I may be
-                        called using automatic dialing equipment. Message and
-                        data rates may apply. My consent does not require
-                        purchase. This is Legal advertising.
+                        &nbsp; and give my express written consent to affiliates and/or lawyer to contact me at the number provided above, even if this number is a wireless number or if I am presently listed on a Do Not Call list. I understand that I may be contacted by telephone, email, text message or mail regarding general customer service including case options, and reminders and follow-ups and that I may be called using automatic dialing equipment. Message frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available). Reply HELP for help. This is Legal advertising.
                       </span>
                       <span> </span>
                     </div>
@@ -1209,7 +1201,7 @@ const Hometwo = () => {
                 />
                 <div className="text-xs sm:text-sm font-helvetica ">
                   <span className="block" data-tf-element-role="consent-opt-in">
-                    I agree to the{" "}
+                  By submitting this form and signing up for texts, I consent to the{" "}
                     <a
                       href="/PrivacyPolicy"
                       className="underline hover:text-blue-200"
@@ -1223,15 +1215,7 @@ const Hometwo = () => {
                     >
                       disclaimer
                     </a>
-                    &nbsp; and give my express written consent, affiliates
-                    and/or lawyer to contact you at the number provided above,
-                    even if this number is a wireless number or if I am
-                    presently listed on a Do Not Call list. I understand that I
-                    may be contacted by telephone, email, text message or mail
-                    regarding case options and that I may be called using
-                    automatic dialing equipment. Message and data rates may
-                    apply. My consent does not require purchase. This is Legal
-                    advertising.
+                    &nbsp;  and give my express written consent to affiliates and/or lawyer to contact me at the number provided above, even if this number is a wireless number or if I am presently listed on a Do Not Call list. I understand that I may be contacted by telephone, email, text message or mail regarding general customer service including case options, and reminders and follow-ups and that I may be called using automatic dialing equipment. Message frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available). Reply HELP for help. This is Legal advertising.
                   </span>
                   <span> </span>
                 </div>
