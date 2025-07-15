@@ -144,6 +144,43 @@ export const sendClaimFormEmail = async (formData) => {
   }
 };
 
+export const sendEmailInvitationToAdmin = async (formData) => {
+  try {
+    // 1. You're using 'link' which isn't defined - it should come from formData
+    // 2. Include the email in templateParams if needed by your template
+    const templateParams = {
+      teamLink: formData.teamLink,
+      to_email: formData.emailId, // Add this if your template needs recipient email
+      // Add any other parameters your email template requires
+    };
+
+    // Send admin notification
+    const response = await emailjs.send(
+      "service_9pv809e",
+      "template_x9omuym",
+      templateParams
+    );
+
+    // Send confirmation email to user if email is provided
+    if (formData.emailId) {
+      try {
+        await sendConfirmationEmail(
+          formData.emailId, 
+          "Meeting Invitation", // Changed from "claim form" to something more appropriate
+          { teamLink: formData.teamLink } // Pass relevant data
+        );
+      } catch (confirmationError) {
+        console.error("Failed to send confirmation email:", confirmationError);
+        // You might want to still proceed even if confirmation fails
+      }
+    }
+
+    return { success: true, response };
+  } catch (error) {
+    console.error("Failed to send email:", error);
+    return { success: false, error };
+  }
+};
 // Function to send newsletter subscription
 export const sendNewsletterSubscription = async (email, pageSource = "") => {
   try {
@@ -285,6 +322,7 @@ export const sendMesotheliomaLandingPageEmail = async (formData, videoUrl = null
       alternateNumber: formData.alternateNumber || "Not provided",
       email: formData.email,
       streetAddress: formData.streetAddress,
+      zipcode: formData.zipcode,
       privacyPolicy: formData.privacyPolicy ? "Yes" : "No",
       ip_address: ipAddress,
       page_source: getSourceUrl(),
@@ -336,6 +374,7 @@ export const sendMesotheliomaLandingPageEmailAudio = async (formData, videoUrl =
       alternateNumber: formData.alternateNumber || "Not provided",
       email: formData.email,
       streetAddress: formData.streetAddress,
+      zipcode: formData.zipcode,
       privacyPolicy: formData.privacyPolicy ? "Yes" : "No",
       ip_address: ipAddress,
       page_source: getSourceUrl(),
@@ -349,7 +388,7 @@ export const sendMesotheliomaLandingPageEmailAudio = async (formData, videoUrl =
 
     const response = await emailjs.send(
       "service_9pv809e",
-      "template_ffy4uwe",
+      "template_uot5235",
       templateParams
     );
 

@@ -1,17 +1,221 @@
 "use client"
 
-import { useState, useRef, useCallback } from "react"
-import { ArrowLeft, Play, Pause, Square, Video} from "lucide-react"
+import { useState, useRef, useCallback, useEffect } from "react"
+import { ArrowLeft, Play, Pause, Square, Video, Phone, Mail } from "lucide-react"
 import {
   Button,
   TextField,
+  Paper,
+  Typography,
+  Box,
+  Container,
+  Grid,
   Card,
   CardContent,
+  MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
+  FormHelperText,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  CircularProgress,
 } from "@mui/material";
-import logo from "../../assets/MesoLogoWhite.png";
+// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../ui/select"
+// import { Card, CardContent } from "../ui/card"
+// import logo from "../../assets/MesoLogoWhite.png";
+import DoneImg from '../../assets/Done.png'
+import Image from '../../assets/MainAV.webp'
 import { sendMesotheliomaLandingPageEmail } from "../../utils/emailService";
+import logo from '../../assets/whiteLogoNew.svg'
+import { Snackbar, Alert } from "@mui/material";
+
+const CustomCaptcha = ({ onCaptchaChange }) => {
+  const [captchaText, setCaptchaText] = useState('');
+  const [userInput, setUserInput] = useState('');
+  const [isValid, setIsValid] = useState(false);
+  const [audioEnabled, setAudioEnabled] = useState(false);
+  const [charOffsets, setCharOffsets] = useState([]);
+  const [isSpeaking, setIsSpeaking] = useState(false);
+
+  const generateCaptcha = () => {
+    if (isSpeaking) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(false);
+    }
+    
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    let offsets = [];
+    for (let i = 0; i < 6; i++) {
+      result += chars.charAt(Math.floor(Math.random() * chars.length));
+      offsets.push((Math.random() * 10 - 5).toFixed(2));
+    }
+    setCaptchaText(result);
+    setCharOffsets(offsets);
+    setUserInput('');
+    setIsValid(false);
+    onCaptchaChange(false);
+  };
+
+  useEffect(() => {
+    generateCaptcha();
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      generateCaptcha();
+    }, 60000); 
+
+    return () => {
+      clearInterval(timer);
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+      }
+    };
+  }, [isSpeaking]); 
+
+const speakCaptcha = () => {
+        if ('speechSynthesis' in window) {
+            // Stop any ongoing speech before starting a new one
+            window.speechSynthesis.cancel();
+            setIsSpeaking(true);
+
+            // Load voices
+            const voices = window.speechSynthesis.getVoices();
+
+            // Try to find a female voice
+            const femaleVoice = voices.find(voice =>
+                voice.name.toLowerCase().includes('female') ||
+                voice.name.toLowerCase().includes('woman') ||
+                voice.name.toLowerCase().includes('zira') || // Windows
+                voice.name.toLowerCase().includes('samantha') // macOS
+            ) || voices.find(voice => voice.lang === 'en-US');
+
+            let currentIndex = 0;
+
+            const speakNextChar = () => {
+                if (currentIndex < captchaText.length) {
+                    const char = captchaText[currentIndex];
+                    const utterance = new SpeechSynthesisUtterance(char);
+                    utterance.voice = femaleVoice;
+                    utterance.rate = 0.5;
+                    utterance.pitch = 1.2;
+                    utterance.volume = 1.0;
+                    utterance.lang = 'en-US';
+
+                    utterance.onend = () => {
+                        currentIndex++;
+                        speakNextChar();
+                    };
+
+                    window.speechSynthesis.speak(utterance);
+                } else {
+                    setIsSpeaking(false);
+                }
+            };
+
+            speakNextChar();
+        }``
+    };
+
+
+  const handleInputChange = (e) => {
+    const value = e.target.value;
+    setUserInput(value);
+    const valid = value === captchaText;
+    setIsValid(valid);
+    onCaptchaChange(valid);
+  };
+
+  const handleAudioToggle = (e) => {
+    setAudioEnabled(e.target.checked);
+  };
+
+  return (
+    <div className="mt-4">
+      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+        <div className="bg-gray-100 p-3 rounded font-mono text-lg tracking-wider select-none relative captcha-text-container">
+          {captchaText.split('').map((char, index) => (
+            <span
+              key={index}
+              style={{ transform: `translateY(${charOffsets[index]}px)`, display: 'inline-block' }}
+            >
+              {char}
+            </span>
+          ))}
+        </div>
+        <div className="flex gap-2 items-center justify-center sm:justify-start">
+          <Button
+            variant="outlined"
+            size="small"
+            onClick={generateCaptcha}
+            className="text-gray-600 p-2 min-w-0"
+            title="Refresh CAPTCHA"
+          >
+            ↻
+          </Button>
+          {audioEnabled && (
+            <Button
+              variant="outlined"
+              size="small"
+              onClick={speakCaptcha}
+              className="text-gray-600 p-2 min-w-0"
+              title="Listen to CAPTCHA"
+            >
+              🔊
+            </Button>
+          )}
+        </div>
+      </div>
+      <div className="flex items-center mt-2">
+        <input
+          type="checkbox"
+          id="enableAudio"
+          checked={audioEnabled}
+          onChange={handleAudioToggle}
+          className="mr-2"
+        />
+        <label htmlFor="enableAudio" className="text-sm text-gray-700">Enable Audio</label>
+      </div>
+      <TextField
+        fullWidth
+        label="Enter CAPTCHA"
+        value={userInput}
+        onChange={handleInputChange}
+        variant="outlined"
+        margin="normal"
+        error={userInput !== '' && !isValid}
+        helperText={userInput !== '' && !isValid ? 'CAPTCHA does not match' : ''}
+        InputProps={{
+          className: "text-gray-800",
+        }}
+        InputLabelProps={{
+          className: "text-gray-600",
+        }}
+      />
+      <style jsx>{`
+        .captcha-text-container {
+          background-image: repeating-linear-gradient(
+            0deg,
+            #ccc,
+            #ccc 1px,
+            transparent 1px,
+            transparent 5px
+          );
+          background-size: 100% 10px;
+          background-position: 0 50%;
+        }
+      `}</style>
+    </div>
+  );
+};
 
 export default function MesotheliomaLandingPageTest() {
+  const phoneNumber = '(888) 212 8149';
   const [currentState, setCurrentState] = useState("form")
   const [isRecording, setIsRecording] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -24,18 +228,91 @@ export default function MesotheliomaLandingPageTest() {
     alternateNumber: "",
     email: "",
     streetAddress: "",
+    zipcode: "",
+    privacyPolicy: false,
+    humanVerification: false,
   })
+  const [videoDuration, setVideoDuration] = useState(0)
+  const [recordingTime, setRecordingTime] = useState(0);
+  const recordingIntervalRef = useRef(null);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notification, setNotification] = useState({ open: false, message: '', severity: 'success' });
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
+  // User-friendly field labels
+  const fieldLabels = {
+    firstName: "First Name",
+    lastName: "Last Name",
+    phone: "Phone Number",
+    alternateNumber: "Alternate Number",
+    email: "Email Address",
+    streetAddress: "Street Address",
+    zipcode: "ZIP Code",
+    privacyPolicy: "Privacy Policy Agreement",
+    humanVerification: "CAPTCHA Verification",
+  };
 
   const videoRef = useRef(null)
   const mediaRecorderRef = useRef(null)
   const streamRef = useRef(null)
   const chunksRef = useRef([])
 
-  const handleInputChange = (field, value) => {
-    setFormData((prev) => ({ ...prev, [field]: value }))
+  // Phone number formatting function
+  function formatPhoneNumber(value) {
+    const digits = value.replace(/\D/g, '').slice(0, 10);
+    const len = digits.length;
+    if (len === 0) return '';
+    if (len < 4) return `(${digits}`;
+    if (len < 7) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
   }
 
+  const handleInputChange = (field, value) => {
+    if (field === "phone" || field === "alternateNumber") {
+      // Only allow numbers and format as (XXX) XXX-XXXX
+      const formatted = formatPhoneNumber(value);
+      setFormData((prev) => ({ ...prev, [field]: formatted }));
+    } else if (field === "zipcode") {
+      // Only allow numbers, max 5 digits
+      const numeric = value.replace(/[^0-9]/g, '').slice(0, 5);
+      setFormData((prev) => ({ ...prev, zipcode: numeric }));
+    } else {
+      setFormData((prev) => ({ ...prev, [field]: value }))
+    }
+  }
+
+  // Validation function
+  const validateForm = () => {
+    const errors = {};
+    if (!formData.firstName.trim()) errors.firstName = 'First name is required.';
+    if (!formData.lastName.trim()) errors.lastName = 'Last name is required.';
+    if (!formData.phone.trim()) {
+      errors.phone = 'Phone number is required.';
+    }
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
+      errors.email = 'Enter a valid email address.';
+    }
+    if (!formData.streetAddress.trim()) errors.streetAddress = 'Street address is required.';
+    if (!formData.zipcode.trim()) {
+      errors.zipcode = 'ZIP code is required.';
+    } else if (!/^\d{5}$/.test(formData.zipcode)) {
+      errors.zipcode = 'ZIP code must be exactly 5 digits.';
+    }
+    if (!formData.privacyPolicy) errors.privacyPolicy = 'You must agree to the privacy policy.';
+    if (!formData.humanVerification) errors.humanVerification = 'Please complete the CAPTCHA.';
+    return errors;
+  };
+
   const startCaseReview = () => {
+    setHasSubmitted(true);
+    const errors = validateForm();
+    setFormErrors(errors);
+    if (Object.keys(errors).length > 0) {
+      return;
+    }
     console.log('Form Data:', formData)
     setCurrentState("recording")
   }
@@ -84,6 +361,17 @@ export default function MesotheliomaLandingPageTest() {
 
       mediaRecorder.start()
       setIsRecording(true)
+      setRecordingTime(0);
+      if (recordingIntervalRef.current) clearInterval(recordingIntervalRef.current);
+      recordingIntervalRef.current = setInterval(() => {
+        setRecordingTime(prev => {
+          if (prev + 1 >= 180) {
+            stopRecording();
+            return 180;
+          }
+          return prev + 1;
+        });
+      }, 1000);
     } catch (error) {
       console.error("Error accessing camera:", error)
       alert("Unable to access camera. Please ensure you have granted camera permissions.")
@@ -91,11 +379,15 @@ export default function MesotheliomaLandingPageTest() {
   }, [])
 
   const stopRecording = useCallback(() => {
-    if (mediaRecorderRef.current && isRecording) {
-      mediaRecorderRef.current.stop()
-      setIsRecording(false)
+    if (mediaRecorderRef.current && mediaRecorderRef.current.state === "recording") {
+      mediaRecorderRef.current.stop();
+      setIsRecording(false);
+      if (recordingIntervalRef.current) {
+        clearInterval(recordingIntervalRef.current);
+        recordingIntervalRef.current = null;
+      }
     }
-  }, [isRecording])
+  }, []);
 
   const togglePlayback = () => {
     if (videoRef.current) {
@@ -113,7 +405,7 @@ export default function MesotheliomaLandingPageTest() {
       alert('No video recorded.');
       return;
     }
-    // Use phone number as filename, digits only
+    setIsSubmitting(true); // Start spinner
     let phone = formData.phone || '';
     phone = phone.replace(/\D/g, '');
     if (!phone) phone = 'unknown';
@@ -126,88 +418,129 @@ export default function MesotheliomaLandingPageTest() {
       });
       if (!response.ok) throw new Error('Upload failed');
       const data = await response.json();
-      console.log('Uploaded URL:', data.url);
-      console.log('Uploaded filename:', data.filename);
       let filename = data.filename || data.url?.split('/').pop() || `${Date.now()}-${phone}.webm`;
       const videoUrl = `https://meso-api-h6aphgemd9hzfwha.centralus-01.azurewebsites.net/videos/${filename}`;
       const getResp = await fetch(videoUrl);
       if (getResp.ok) {
-        console.log('Video uploaded and accessible at: ' + videoUrl);
-        
         try {
           const emailResult = await sendMesotheliomaLandingPageEmail(formData, videoUrl);
           if (emailResult.success) {
-            console.log('Email sent successfully with video URL');
+            setNotification({ open: true, message: 'Submitted successfully!', severity: 'success' });
           } else {
-            console.error('Failed to send email:', emailResult.error);
+            setNotification({ open: true, message: 'Submission succeeded, but email failed.', severity: 'warning' });
           }
         } catch (emailError) {
-          console.error('Error sending email:', emailError);
+          setNotification({ open: true, message: 'Submission succeeded, but email failed.', severity: 'warning' });
         }
-        
       } else {
-        console.log('Video uploaded, but could not retrieve video link.');
         try {
           const emailResult = await sendMesotheliomaLandingPageEmail(formData);
           if (emailResult.success) {
-            console.log('Email sent successfully (without video URL)');
+            setNotification({ open: true, message: 'Submitted successfully (without video URL)!', severity: 'success' });
           } else {
-            console.error('Failed to send email:', emailResult.error);
+            setNotification({ open: true, message: 'Submission succeeded, but email failed.', severity: 'warning' });
           }
         } catch (emailError) {
-          console.error('Error sending email:', emailError);
+          setNotification({ open: true, message: 'Submission succeeded, but email failed.', severity: 'warning' });
         }
       }
       setCurrentState("thankyou");
     } catch (err) {
+      setNotification({ open: true, message: 'Upload failed. Please try again.', severity: 'error' });
       console.error('Upload failed:', err);
       alert('Upload failed');
+    } finally {
+      setIsSubmitting(false); // Stop spinner
     }
   };
+
+  useEffect(() => {
+    if (currentState === 'preview' && videoRef.current) {
+      const handleLoadedMetadata = () => {
+        const dur = videoRef.current.duration
+        if (isFinite(dur) && !isNaN(dur)) {
+          setVideoDuration(dur)
+        } else {
+          setVideoDuration(0)
+        }
+      }
+      const video = videoRef.current
+      video.addEventListener('loadedmetadata', handleLoadedMetadata)
+      // If metadata is already loaded
+      if (video.readyState >= 1) {
+        handleLoadedMetadata()
+      }
+      return () => {
+        video.removeEventListener('loadedmetadata', handleLoadedMetadata)
+      }
+    }
+  }, [currentState, recordedVideoUrl])
+
+  useEffect(() => {
+    if (currentState !== 'recording' && recordingIntervalRef.current) {
+      clearInterval(recordingIntervalRef.current);
+      recordingIntervalRef.current = null;
+      setRecordingTime(0);
+    }
+  }, [currentState]);
 
   const renderForm = () => (
     <Card className="w-full max-w-md mx-auto bg-white shadow-xl">
       <CardContent className="p-6">
-        <div className="text-center mb-6">
+        <div className="text-left mb-6">
           <h2 className="text-xl font-bold text-gray-800 mb-2">Book your Free Consultation</h2>
         </div>
-
-        <form className="space-y-4">
+        {/* Error summary box
+        {hasSubmitted && Object.keys(formErrors).length > 0 && (
+          <div className="mb-4 p-3 bg-red-100 border border-red-300 rounded text-red-700">
+            <strong>Please fix the following fields:</strong>
+            <ul className="list-disc pl-5 mt-1">
+              {Object.keys(formErrors)
+                .filter(key => key !== 'humanVerification')
+                .map((key) => (
+                  <li key={key}>{fieldLabels[key] || key}: {formErrors[key]}</li>
+              ))}
+            </ul>
+          </div>
+        )} */}
+        <form className="space-y-4" noValidate>
           <div className="grid grid-cols-2 gap-3">
             <TextField
               id="firstName"
-              label="First Name *"
+              label="First Name"
               value={formData.firstName}
               onChange={(e) => handleInputChange("firstName", e.target.value)}
-              required
               fullWidth
               size="small"
               margin="dense"
+              error={!!formErrors.firstName}
+              helperText={formErrors.firstName}
             />
             <TextField
               id="lastName"
-              label="Last Name *"
+              label="Last Name"
               value={formData.lastName}
               onChange={(e) => handleInputChange("lastName", e.target.value)}
-              required
               fullWidth
               size="small"
               margin="dense"
+              error={!!formErrors.lastName}
+              helperText={formErrors.lastName}
             />
           </div>
-
           <TextField
             id="phone"
-            label="Phone Number * (e.g., (333) 444-5555)"
+            label="Phone Number (e.g., (333) 444-5555)"
             type="tel"
             value={formData.phone}
             onChange={(e) => handleInputChange("phone", e.target.value)}
-            required
             fullWidth
             size="small"
             margin="dense"
+            error={!!formErrors.phone}
+            helperText={formErrors.phone}
+            inputProps={{ maxLength: 14, inputMode: 'tel', pattern: '[0-9]*' }}
           />
-
           <TextField
             id="alternateNumber"
             label="Alternate Number (e.g., (333) 444-5555)"
@@ -217,65 +550,95 @@ export default function MesotheliomaLandingPageTest() {
             fullWidth
             size="small"
             margin="dense"
+            inputProps={{ maxLength: 14, inputMode: 'tel', pattern: '[0-9]*' }}
           />
-
           <TextField
             id="email"
-            label="Email Address *"
+            label="Email Address"
             type="email"
             value={formData.email}
             onChange={(e) => handleInputChange("email", e.target.value)}
-            required
             fullWidth
             size="small"
             margin="dense"
+            error={!!formErrors.email}
+            helperText={formErrors.email}
           />
-
           <TextField
             id="streetAddress"
-            label="Street Address *"
+            label="Street Address"
             value={formData.streetAddress}
             onChange={(e) => handleInputChange("streetAddress", e.target.value)}
-            required
             fullWidth
             size="small"
             margin="dense"
+            error={!!formErrors.streetAddress}
+            helperText={formErrors.streetAddress}
+          />
+          <TextField
+            id="zipcode"
+            label="ZIP Code"
+            value={formData.zipcode}
+            onChange={(e) => handleInputChange("zipcode", e.target.value)}
+            fullWidth
+            size="small"
+            margin="dense"
+            error={!!formErrors.zipcode}
+            helperText={formErrors.zipcode}
+            inputProps={{ maxLength: 5, inputMode: 'numeric', pattern: '[0-9]*' }}
           />
           <div className="flex items-start space-x-2">
-                <input
-                  type="checkbox"
-                  id="consent1"
-                  name="privacyPolicy"
-                  checked={formData.privacyPolicy}
-                  onChange={handleInputChange}
-                  className="mt-1 rounded border-white text-purple-800 focus:ring-0 focus:ring-offset-0"
-                />
-                <span className="block text-xs sm:text-sm">
-                  I agree to the{" "}
-                  <a
-                    href="/PrivacyPolicy"
-                    className="underline hover:text-blue-200"
-                  >
-                    privacy policy
-                  </a>{" "}
-                  and{" "}
-                  <a
-                    href="/Disclaimer"
-                    className="underline hover:text-blue-200"
-                  >
-                    disclaimer
-                  </a>
-                  &nbsp; and give my express written consent, affiliates and/or
-                  lawyer to contact me at the number provided above, even if
-                  this number is a wireless number or if I am presently listed
-                  on a "Do Not Call" list. I understand that I may be contacted
-                  by telephone, email, text message or mail regarding case
-                  options and that I may be called using automatic dialing
-                  equipment. Message and data rates may apply. My consent does
-                  not require purchase. This is legal advertising.
-                </span>
-                <span> </span>
-              </div>
+            <input
+              type="checkbox"
+              id="consent1"
+              name="privacyPolicy"
+              checked={!!formData.privacyPolicy}
+              onChange={e => handleInputChange("privacyPolicy", e.target.checked)}
+              className="mt-1 rounded border-white text-purple-800 focus:ring-0 focus:ring-offset-0"
+            />
+            <span className="block text-xs sm:text-sm">
+            By submitting this form and signing up for texts, I consent to the{" "}
+              <a
+                href="/PrivacyPolicy"
+                className="underline hover:text-blue-200"
+              >
+                privacy policy
+              </a>{" "}
+              and{" "}
+              <a
+                href="/Disclaimer"
+                className="underline hover:text-blue-200"
+              >
+                disclaimer
+              </a>
+              &nbsp; and give my express written consent to affiliates and/or lawyer to contact me at the number provided above, even if this number is a wireless number or if I am presently listed on a Do Not Call list. I understand that I may be contacted by telephone, email, text message or mail regarding general customer service including case options, and reminders and follow-ups and that I may be called using automatic dialling equipment. Message frequency varies. Unsubscribe at any time by replying STOP or clicking the unsubscribe link (where available). Reply HELP for help. This is Legal advertising.
+            </span>
+          </div>
+          {formErrors.privacyPolicy && (
+            <div className="text-red-600 text-xs mt-1">{formErrors.privacyPolicy}</div>
+          )}
+          <CustomCaptcha onCaptchaChange={(isValid) => {
+            setFormData(prev => ({
+              ...prev,
+              humanVerification: isValid
+            }));
+          }} />
+          {formErrors.humanVerification && (
+            <div className="text-red-600 text-xs mt-1">{formErrors.humanVerification}</div>
+          )}
+          {/* Error summary box */}
+        {hasSubmitted && Object.keys(formErrors).length > 0 && (
+          <div className="mb-4 p-3 bg-red-100 border border-red-300 rounded text-red-700">
+            <strong>Please fix the following fields:</strong>
+            <ul className="list-disc pl-5 mt-1">
+              {Object.keys(formErrors)
+                .filter(key => key !== 'humanVerification')
+                .map((key) => (
+                  <li key={key}>{fieldLabels[key] || key}: {formErrors[key]}</li>
+              ))}
+            </ul>
+          </div>
+        )}
           <Button
             type="button"
             onClick={startCaseReview}
@@ -293,39 +656,103 @@ export default function MesotheliomaLandingPageTest() {
   const renderRecording = () => (
     <Card className="w-full max-w-md mx-auto bg-white shadow-xl">
       <CardContent className="p-6">
-        <div className="flex items-center mb-4">
-          <Button variant="ghost" size="sm" onClick={backToForm} className="p-1 hover:bg-gray-100" sx={{ color: '#C49A6C', '&:hover': { backgroundColor: '#f5e7d6' } }}>
-            <ArrowLeft className="w-4 h-4" />
-          </Button>
-          <span className="ml-2 text-sm text-gray-600">Back to Form</span>
-        </div>
+        {/* Form Data Preview */}
+        <Box className="mb-6 p-4 rounded-lg border border-gray-200 bg-gray-50">
+        <Typography variant="h6" className="font-bold mb-1" style={{ color: '#4B2C5E', fontSize: 24 }}>
+            Record a Short video
+          </Typography>
+          <Typography variant="subtitle1" className="font-bold mb-2" style={{ color: '#4B2C5E' }}>
+            <span style={{ color: '#C0492B', fontWeight: 700 }}>Please State</span>: Your Name, Email, Phone Number, Street Address & Zip Code, Tell Us Your Story
+          </Typography>
+          <Typography variant="body2"><b>Name:</b> {formData.firstName} {formData.lastName}</Typography>
+          <Typography variant="body2"><b>Email:</b> {formData.email}</Typography>
+          <Typography variant="body2"><b>Phone Number:</b> {formData.phone}</Typography>
+          <Typography variant="body2"><b>Alternate Number:</b> {formData.alternateNumber}</Typography>
+          <Typography variant="body2"><b>Street Address:</b> {formData.streetAddress}</Typography>
+          <Typography variant="body2"><b>ZIP Code:</b> {formData.zipcode}</Typography>
+          <Typography variant="body2" className="mt-2" style={{ color: '#C0492B', fontWeight: 600 }}>
+            <span style={{ display: 'flex', alignItems: 'center' }}>
+              <svg width="16" height="16" fill="none" stroke="#C0492B" strokeWidth="2" style={{ marginRight: 4 }}><circle cx="8" cy="8" r="7" /><line x1="8" y1="4" x2="8" y2="8" /><circle cx="8" cy="11" r="1" /></svg>
+              Video must not exceed 3 minutes.
+            </span>
+          </Typography>
+        </Box>
 
-        <div className="text-center mb-6">
-          <h2 className="text-xl font-bold text-gray-800 mb-2">Record a Short video</h2>
-          <p className="text-sm text-gray-600">
-            Please record a short video telling us about your case. This helps us better understand your situation.
-          </p>
-        </div>
-
-        <div className="relative mb-6">
-          <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden">
-            <video ref={videoRef} autoPlay muted className="w-full h-full object-cover" />
+        {/* Video Recorder Area */}
+        <div className="mb-6 flex justify-center">
+          <div
+            style={{
+              width: 280,
+              height: 280,
+              border: '2px dashed #C49A6C',
+              borderRadius: 16,
+              background: '#F6F2F7',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              position: 'relative',
+            }}
+          >
+            {/* Timer display while recording */}
+            {isRecording && (
+              <div style={{
+                position: 'absolute',
+                top: 12,
+                right: 12,
+                background: '#4B2C5E',
+                color: '#fff',
+                borderRadius: 8,
+                fontSize: 13,
+                fontWeight: 500,
+                padding: '2px 10px',
+                zIndex: 2,
+              }}>
+                {`${String(Math.floor(recordingTime / 60)).padStart(2, '0')} min, ${String(recordingTime % 60).padStart(2, '0')} sec`}
+              </div>
+            )}
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              style={{
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover',
+                display: isRecording ? 'block' : 'none',
+                borderRadius: 16,
+              }}
+            />
+            {!isRecording && (
+              <svg width="120" height="120" fill="none" stroke="#BCA6C7" strokeWidth="2">
+                <circle cx="60" cy="60" r="50" />
+                <path d="M60 40a20 20 0 1 1 0 40a20 20 0 1 1 0-40z" />
+                <path d="M60 60v10" />
+              </svg>
+            )}
+            {isRecording && (
+              <div style={{ position: 'absolute', top: 12, left: 12, display: 'flex', alignItems: 'center' }}>
+                <div style={{ width: 12, height: 12, background: '#C0492B', borderRadius: '50%', marginRight: 8, animation: 'pulse 1s infinite' }}></div>
+                <span style={{ color: '#C0492B', fontWeight: 600, fontSize: 14 }}>Recording...</span>
+              </div>
+            )}
           </div>
-
-          {isRecording && (
-            <div className="absolute top-4 left-4 flex items-center">
-              <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse mr-2"></div>
-              <span className="text-white text-sm font-medium">Recording...</span>
-            </div>
-          )}
         </div>
 
-        <div className="flex justify-center space-x-4">
+        {/* Buttons */}
+        <div className="flex justify-center gap-4 mt-4">
           {!isRecording ? (
             <Button
               onClick={startRecording}
               variant="contained"
-              sx={{ backgroundColor: '#C49A6C', '&:hover': { backgroundColor: '#b88a5a' }, color: '#fff', px: 4, py: 1.5, fontWeight: 600, borderRadius: 2, display: 'flex', alignItems: 'center' }}
+              sx={{
+                backgroundColor: '#4B2C5E',
+                color: '#fff',
+                px: 4,
+                fontWeight: 600,
+                borderRadius: 2,
+                textTransform: 'none',
+                minWidth: 160,
+              }}
             >
               <Video className="w-5 h-5 mr-2" />
               Start Recording
@@ -333,15 +760,41 @@ export default function MesotheliomaLandingPageTest() {
           ) : (
             <Button
               onClick={stopRecording}
-              variant="contained"
-              color="error"
-              sx={{ px: 4, py: 1.5, fontWeight: 600, borderRadius: 2, display: 'flex', alignItems: 'center' }}
+              variant="outlined"
+              sx={{
+                color: '#C0492B',
+                borderColor: '#C0492B',
+                px: 4,
+                fontWeight: 600,
+                borderRadius: 2,
+                textTransform: 'none',
+                minWidth: 160,
+              }}
             >
               <Square className="w-5 h-5 mr-2" />
-              Stop Recording
+              Stop
             </Button>
           )}
         </div>
+
+        {/* Back to Form Button */}
+        <Button
+          onClick={backToForm}
+          fullWidth
+          variant="outlined"
+          sx={{
+            mt: 4,
+            color: '#C49A6C',
+            borderColor: '#C49A6C',
+            borderRadius: 2,
+            textTransform: 'none',
+            fontWeight: 600,
+            py: 1.5,
+          }}
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          Back to Form
+        </Button>
       </CardContent>
     </Card>
   )
@@ -349,70 +802,176 @@ export default function MesotheliomaLandingPageTest() {
   const renderPreview = () => (
     <Card className="w-full max-w-md mx-auto bg-white shadow-xl">
       <CardContent className="p-6">
-        <div className="flex items-center mb-4">
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => setCurrentState("recording")}
-            className="p-1 hover:bg-gray-100"
-            sx={{ color: '#C49A6C', '&:hover': { backgroundColor: '#f5e7d6' } }}
+        {/* Title and instructions */}
+        <div className="mb-2">
+          <Typography variant="h6" className="font-bold mb-1" style={{ color: '#4B2C5E', fontSize: 24 }}>
+            Record a Short video
+          </Typography>
+          {/* <Typography variant="body2" className="mb-1" style={{ color: '#C0492B', fontWeight: 700 }}>
+            Please State <span style={{ color: '#222', fontWeight: 400 }}>: Your Name, Email, Phone Number, Street Address & Zip Code, Tell Us Your Story</span>
+          </Typography> */}
+          <Typography variant="body2" style={{ color: '#C0492B', fontWeight: 600, display: 'flex', alignItems: 'center' }}>
+            <svg width="16" height="16" fill="none" stroke="#C0492B" strokeWidth="2" style={{ marginRight: 4 }}><circle cx="8" cy="8" r="7" /><line x1="8" y1="4" x2="8" y2="8" /><circle cx="8" cy="11" r="1" /></svg>
+            Video must not exceed 3 minutes.
+          </Typography>
+        </div>
+
+        {/* Video Preview Area */}
+        <div className="mb-6 relative flex justify-center">
+          <div
+            style={{
+              width: 320,
+              height: 240,
+              border: '1.5px solid #BCA6C7',
+              borderRadius: 16,
+              background: '#F6F2F7',
+              overflow: 'hidden',
+              position: 'relative',
+              boxShadow: '0 2px 8px rgba(76, 42, 94, 0.04)',
+            }}
           >
-            <ArrowLeft className="w-4 h-4" />
-          </Button>
-          <span className="ml-2 text-sm text-gray-600">Back to Recording</span>
-        </div>
-
-        <div className="text-center mb-6">
-          <h2 className="text-xl font-bold text-gray-800 mb-2">Video Preview</h2>
-          <p className="text-sm text-gray-600">
-            Review your recorded video. You can re-record if needed or submit your case review.
-          </p>
-        </div>
-
-        <div className="relative mb-6">
-          <div className="aspect-video bg-gray-900 rounded-lg overflow-hidden">
+            {/* Time label */}
+            {/* <div style={{
+              position: 'absolute',
+              top: 10,
+              left: 10,
+              background: '#4B2C5E',
+              color: '#fff',
+              borderRadius: 8,
+              fontSize: 13,
+              fontWeight: 500,
+              padding: '2px 10px',
+              zIndex: 2,
+            }}>
+              {`${String(Math.floor(videoDuration / 60)).padStart(2, '0')} min, ${String(Math.floor(videoDuration % 60)).padStart(2, '0')} sec`}
+            </div> */}
+            {/* Close (X) button */}
+            <Button
+              onClick={() => setCurrentState('form')}
+              size="small"
+              sx={{
+                minWidth: 0,
+                width: 32,
+                height: 32,
+                position: 'absolute',
+                top: 6,
+                right: 6,
+                zIndex: 2,
+                background: '#fff',
+                borderRadius: '50%',
+                boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
+                color: '#C0492B',
+                fontWeight: 700,
+                p: 0,
+                '&:hover': { background: '#F6F2F7' },
+              }}
+            >
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="#C0492B" strokeWidth="2"><line x1="5" y1="5" x2="15" y2="15"/><line x1="15" y1="5" x2="5" y2="15"/></svg>
+            </Button>
+            {/* Video element */}
             <video
               ref={videoRef}
               src={recordedVideoUrl || undefined}
-              className="w-full h-full object-cover"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 16, background: '#F6F2F7' }}
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
               onEnded={() => setIsPlaying(false)}
-              controls
+              controls={false}
+              tabIndex={-1}
             />
-          </div>
-
-          <div className="absolute inset-0 flex items-center justify-center">
-            <Button
-              onClick={togglePlayback}
-              variant="contained"
-              color="inherit"
-              sx={{ backgroundColor: 'rgba(255,255,255,0.8)', color: '#222', borderRadius: '50%', p: 2, '&:hover': { backgroundColor: 'rgba(255,255,255,0.9)' } }}
-            >
-              {isPlaying ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6" />}
-            </Button>
+            {/* Play button overlay */}
+            {!isPlaying && (
+              <Button
+                onClick={togglePlayback}
+                sx={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  transform: 'translate(-50%, -50%)',
+                  background: '#fff',
+                  color: '#4B2C5E',
+                  borderRadius: '50%',
+                  minWidth: 0,
+                  width: 64,
+                  height: 64,
+                  boxShadow: '0 2px 8px rgba(76, 42, 94, 0.10)',
+                  zIndex: 2,
+                  p: 0,
+                  '&:hover': { background: '#F6F2F7' },
+                }}
+              >
+                <Play style={{ width: 36, height: 36 }} />
+              </Button>
+            )}
           </div>
         </div>
 
-        <div className="flex flex-col space-y-3">
+        {/* Action Buttons */}
+        <div className="flex justify-between gap-4 mb-4">
           <Button
-            onClick={handleSubmitCaseReview}
-            fullWidth
-            variant="contained"
-            sx={{ backgroundColor: '#C49A6C', '&:hover': { backgroundColor: '#b88a5a' }, color: '#fff', py: 1.5, fontWeight: 600, borderRadius: 2 }}
-          >
-            Submit Case Review
-          </Button>
-
-          <Button
-            onClick={() => setCurrentState("recording")}
-            fullWidth
+            onClick={() => setCurrentState('form')}
             variant="outlined"
-            sx={{ color: '#C49A6C', borderColor: '#C49A6C', '&:hover': { backgroundColor: '#f5e7d6', borderColor: '#b88a5a', color: '#b88a5a' }, py: 1.5, fontWeight: 600, borderRadius: 2 }}
+            sx={{
+              color: '#4B2C5E',
+              borderColor: '#BCA6C7',
+              borderRadius: 2,
+              fontWeight: 600,
+              textTransform: 'none',
+              px: 3,
+              py: 1.5,
+              flex: 1,
+              '&:hover': { background: '#F6F2F7', borderColor: '#4B2C5E' },
+            }}
+          >
+            <ArrowLeft className="w-5 h-5 mr-2" />
+            Back to Form
+          </Button>
+          <Button
+            onClick={() => setCurrentState('recording')}
+            variant="outlined"
+            sx={{
+              color: '#C0492B',
+              borderColor: '#C0492B',
+              borderRadius: 2,
+              fontWeight: 600,
+              textTransform: 'none',
+              px: 3,
+              py: 1.5,
+              flex: 1,
+              '&:hover': { background: '#F6F2F7', borderColor: '#C0492B' },
+            }}
           >
             Record Again
           </Button>
         </div>
+        <Button
+          onClick={handleSubmitCaseReview}
+          fullWidth
+          variant="contained"
+          sx={{
+            backgroundColor: '#C49A6C',
+            color: '#fff',
+            py: 1.5,
+            fontWeight: 600,
+            borderRadius: 2,
+            fontSize: 18,
+            textTransform: 'none',
+            boxShadow: '0 2px 8px rgba(196, 154, 108, 0.10)',
+            '&:hover': { backgroundColor: '#b88a5a' },
+          }}
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? (
+            <CircularProgress size={24} sx={{ color: '#fff' }} />
+          ) : (
+            <>
+              Submit Now
+              <span style={{ marginLeft: 8, display: 'flex', alignItems: 'center' }}>
+                <svg width="22" height="22" fill="none" stroke="#fff" strokeWidth="2" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              </span>
+            </>
+          )}
+        </Button>
       </CardContent>
     </Card>
   )
@@ -427,23 +986,8 @@ export default function MesotheliomaLandingPageTest() {
         </h2>
 
         <div className="mb-8">
-          <div className="w-24 h-24 mx-auto mb-4 bg-gray-100 rounded-2xl flex items-center justify-center">
-            <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1.5}
-                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-              />
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 16l2 2 4-4"
-                className="text-green-500"
-                stroke="currentColor"
-              />
-            </svg>
+          <div className="w-40 h-40 mx-auto mb-4 bg-gray-100 rounded-2xl flex items-center justify-center">
+            <img src={DoneImg} alt="Done" className="w-20 h-50 object-contain" />
           </div>
         </div>
 
@@ -458,6 +1002,7 @@ export default function MesotheliomaLandingPageTest() {
               alternateNumber: "",
               email: "",
               streetAddress: "",
+              zipcode: "",
             })
           }}
           fullWidth
@@ -473,7 +1018,7 @@ export default function MesotheliomaLandingPageTest() {
   return (
     <div
       className="min-h-screen bg-cover bg-center bg-no-repeat relative"
-      style={{ backgroundImage: "url(/background-image.png)" }}
+      style={{ backgroundImage: `url(${Image})` }}
     >
       {/* Dark overlay */}
       <div className="absolute inset-0 bg-black/60"></div>
@@ -525,8 +1070,8 @@ export default function MesotheliomaLandingPageTest() {
 
               <p className="text-lg lg:text-xl text-gray-200 max-w-lg">
                 {currentState === "thankyou"
-                  ? "If you or a loved one have been diagnosed with mesothelioma after exposure to talc or asbestos, you may be eligible for compensation."
-                  : "If you or a loved one have been diagnosed with mesothelioma after exposure to talc or asbestos, you may be eligible for compensation."}
+                  ? "If you or a loved one have been diagnosed with mesothelioma after exposure to asbestos, you may be eligible for compensation.."
+                  : "If you or a loved one have been diagnosed with mesothelioma after exposure to asbestos, you may be eligible for compensation.."}
               </p>
 
               <div className="flex items-center text-yellow-400">
@@ -535,7 +1080,7 @@ export default function MesotheliomaLandingPageTest() {
               <div className="mt-8">
             <button
               onClick={() =>
-                (window.location.href = `tel:${getCleanPhoneNumber()}`)
+                (window.location.href = `tel:${phoneNumber.replace(/[^0-9+]/g, '')}`)
               }
               className="bg-[#4B2C5E] hover:bg-[#3a2249] text-white rounded-full flex items-center gap-2 py-3 px-6 text-lg transition-all duration-300 hover:scale-105"
             >
@@ -555,7 +1100,7 @@ export default function MesotheliomaLandingPageTest() {
                   />
                 </svg>
               </div>
-              <span>000-000-0000</span>
+              <span>{phoneNumber}</span>
             </button>
           </div>
             </div>
@@ -569,6 +1114,20 @@ export default function MesotheliomaLandingPageTest() {
             </div>
           </div>
         </main>
+        <Snackbar
+          open={notification.open}
+          autoHideDuration={4000}
+          onClose={() => setNotification({ ...notification, open: false })}
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        >
+          <Alert
+            onClose={() => setNotification({ ...notification, open: false })}
+            severity={notification.severity}
+            sx={{ width: '100%' }}
+          >
+            {notification.message}
+          </Alert>
+        </Snackbar>
       </div>
     </div>
   )

@@ -85,9 +85,11 @@ import Map from '../src/FigmaDesign2/Map'
 import VoiceNoteForm from './FigmaDesign2/VoiceNoteForm';
 import AudioLanderOne from './Components/AudioLanders/AudioLanderOne';
 import MesotheliomaLandingPageTest from './Components/FigmaDesign/MesotheliomaLandingPageTest';
+import VideoModalPlayer from './Components/FigmaDesign/VideoModalPlayer';
+import VideoOne from './Components/VideoCall/VideoOne';
 
 function App() {
-
+  
   const router = createBrowserRouter([
     {
       path: '/',
@@ -138,7 +140,7 @@ function App() {
       path: '/Womenandmesothelioma',
       element: <Womenandmesothelioma />,
     },
-
+    
     {
       path: '*',
       element: <h1>404 - Page Not Found</h1>,
@@ -295,7 +297,7 @@ function App() {
       path: '/mesothelioma-claim-automechanics-workers-cc7',
       element: <MesotheliomaLandingPageNew9 />,
     },
-
+  
     {
       path: '/mesothelioma-claims-us-navy-veterans',
       element: <MesotheliomaLandingPageLatest1 />,
@@ -309,7 +311,7 @@ function App() {
       element: <MesotheliomaLandingPageLatest3 />,
     },
     {
-      path: '/mesothelioma-claims-steel-plant-workers',
+      path: '/mesothelioma-claims-steel-plant-workers',   
       element: <MesotheliomaLandingPageLatest4 />,
     },
     {
@@ -385,20 +387,24 @@ function App() {
       element: <ChatInterface3 />,
     },
     {
-      path: '/SokoRef',
-      element: <SokoRef />
+      path:'/VideoOne',
+      element: <VideoOne />
     },
+    // {
+    //   path:'/map',
+    //   element: <Map/>
+    // },
     {
-      path: '/map',
-      element: <Map />
-    },
-    {
-      path: '/AudioLanderOne',
+      path:'/AR1',
       element: <AudioLanderOne />
     },
     {
-      path: '/MesotheliomaLandingPageTest',
+      path:'/VR1',
       element: <MesotheliomaLandingPageTest />
+    },
+    {
+      path:'/t',
+      element: <VideoModalPlayer/>
     }
   ]);
 

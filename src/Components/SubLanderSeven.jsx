@@ -87,48 +87,48 @@ const CustomCaptcha = ({ onCaptchaChange }) => {
   }, [isSpeaking]);
 
   const speakCaptcha = () => {
-        if ('speechSynthesis' in window) {
-            // Stop any ongoing speech before starting a new one
-            window.speechSynthesis.cancel();
-            setIsSpeaking(true);
+    if ('speechSynthesis' in window) {
+      // Stop any ongoing speech before starting a new one
+      window.speechSynthesis.cancel();
+      setIsSpeaking(true);
 
-            // Load voices
-            const voices = window.speechSynthesis.getVoices();
+      // Load voices
+      const voices = window.speechSynthesis.getVoices();
 
-            // Try to find a female voice
-            const femaleVoice = voices.find(voice =>
-                voice.name.toLowerCase().includes('female') ||
-                voice.name.toLowerCase().includes('woman') ||
-                voice.name.toLowerCase().includes('zira') || // Windows
-                voice.name.toLowerCase().includes('samantha') // macOS
-            ) || voices.find(voice => voice.lang === 'en-US');
+      // Try to find a female voice
+      const femaleVoice = voices.find(voice =>
+        voice.name.toLowerCase().includes('female') ||
+        voice.name.toLowerCase().includes('woman') ||
+        voice.name.toLowerCase().includes('zira') || // Windows
+        voice.name.toLowerCase().includes('samantha') // macOS
+      ) || voices.find(voice => voice.lang === 'en-US');
 
-            let currentIndex = 0;
+      let currentIndex = 0;
 
-            const speakNextChar = () => {
-                if (currentIndex < captchaText.length) {
-                    const char = captchaText[currentIndex];
-                    const utterance = new SpeechSynthesisUtterance(char);
-                    utterance.voice = femaleVoice;
-                    utterance.rate = 0.5;
-                    utterance.pitch = 1.2;
-                    utterance.volume = 1.0;
-                    utterance.lang = 'en-US';
+      const speakNextChar = () => {
+        if (currentIndex < captchaText.length) {
+          const char = captchaText[currentIndex];
+          const utterance = new SpeechSynthesisUtterance(char);
+          utterance.voice = femaleVoice;
+          utterance.rate = 0.5;
+          utterance.pitch = 1.2;
+          utterance.volume = 1.0;
+          utterance.lang = 'en-US';
 
-                    utterance.onend = () => {
-                        currentIndex++;
-                        speakNextChar();
-                    };
-
-                    window.speechSynthesis.speak(utterance);
-                } else {
-                    setIsSpeaking(false);
-                }
-            };
-
+          utterance.onend = () => {
+            currentIndex++;
             speakNextChar();
+          };
+
+          window.speechSynthesis.speak(utterance);
+        } else {
+          setIsSpeaking(false);
         }
-    };
+      };
+
+      speakNextChar();
+    }
+  };
 
 
   const handleInputChange = (e) => {
@@ -1289,8 +1289,8 @@ function SubLanderSeven() {
                         disabled={isSubmitting}
                         data-tf-element-role="consent-opt-in"
                         className={`rounded-[10px] bg-[#4b2c5e] text-[#f8f2e9] px-8 sm:px-12 py-3 sm:py-4 font-bold transition-colors text-sm sm:text-base md:text-lg flex items-center justify-center gap-2 ${isSubmitting
-                            ? "opacity-70 cursor-not-allowed"
-                            : "hover:bg-[#3a2249]"
+                          ? "opacity-70 cursor-not-allowed"
+                          : "hover:bg-[#3a2249]"
                           }`}
                       >
                         {isSubmitting ? (

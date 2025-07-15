@@ -6,6 +6,7 @@ import Frame from "../../assets/Frame 87.png";
 function HomeFour() {
     return (
         <>
+    {/* Desktop Version */}
 <div className="hidden md:block">
     <div className="flex justify-center items-center h-[50vh] bg-[#FAF3EC]">
         <div className="flex items-center text-center max-w-[1400px] 2xl:max-w-[1900px] p-10 md:p-6 lg:p-10 relative">
