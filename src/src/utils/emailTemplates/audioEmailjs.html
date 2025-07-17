@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Mesothelioma Case Review Submission</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #4b2c5e;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(135deg, #4B2C5E 0%, #C49A6C 100%);
+            color: white;
+            border-radius: 10px 10px 0 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        .content {
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #faf3ec;
+            border-radius: 8px;
+            border-left: 4px solid #C49A6C;
+        }
+        .section h3 {
+            margin: 0 0 15px 0;
+            color: #4B2C5E;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .field {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+        .field-label {
+            font-weight: bold;
+            color: #4B2C5E;
+            min-width: 140px;
+            margin-right: 15px;
+        }
+        .field-value {
+            color: #333;
+            flex: 1;
+        }
+        .video-section {
+            background-color: #e8f4fd;
+            border-left-color: #2196F3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+        }
+        .video-info {
+            background-color: #f0f8ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+        }
+        .urgent-badge {
+            background-color: #ff4444;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        .timestamp {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚨 NEW MESOTHELIOMA CASE REVIEW</h1>
+        <p>Video Recording & Form Submission</p>
+    </div>
+    
+    <div class="content">
+        <div class="urgent-badge">⚠️ URGENT - REQUIRES IMMEDIATE ATTENTION</div>
+        
+        <div class="section">
+            <h3>📋 Personal Information</h3>
+            <div class="field">
+                <span class="field-label">First Name:</span>
+                <span class="field-value">{{firstName}}</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Last Name:</span>
+                <span class="field-value">{{lastName}}</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Phone Number:</span>
+                <span class="field-value">{{phone}}</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Alternate Number:</span>
+                <span class="field-value">{{alternateNumber}}</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Email Address:</span>
+                <span class="field-value">{{email}}</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Street Address:</span>
+                <span class="field-value">{{streetAddress}}</span>
+            </div>
+        </div>
+
+        <div class="video-section">
+            <h3>🎥 Video Recording</h3>
+            <p><strong>Status:</strong> Video has been recorded and uploaded successfully</p>
+            <div class="video-info">
+                <p><strong>Video Filename:</strong> {{video_filename}}</p>
+                <p><strong>Video URL:</strong> <a href="{{video_url}}" target="_blank">View Video Recording</a></p>
+                <p><strong>Recording Duration:</strong> Video recorded via webcam</p>
+                <p><strong>Format:</strong> WebM (web browser compatible)</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>📝 Consent & Legal</h3>
+            <div class="field">
+                <span class="field-label">Privacy Policy:</span>
+                <span class="field-value">{{privacyPolicy ? '✅ Agreed' : '❌ Not agreed'}}</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Disclaimer:</span>
+                <span class="field-value">{{privacyPolicy ? '✅ Agreed' : '❌ Not agreed'}}</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Contact Consent:</span>
+                <span class="field-value">{{privacyPolicy ? '✅ Express written consent given for phone, email, text, and mail contact' : '❌ No consent given'}}</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h3>🔍 Case Details</h3>
+            <div class="field">
+                <span class="field-label">Case Type:</span>
+                <span class="field-value">Mesothelioma - Talc/Asbestos Exposure</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Service Requested:</span>
+                <span class="field-value">Free Case Review & Consultation</span>
+            </div>
+            <div class="field">
+                <span class="field-label">Lead Source:</span>
+                <span class="field-value">Mesothelioma Landing Page - Video Recording Form</span>
+            </div>
+        </div>
+
+        <div class="timestamp">
+            <strong>Submission Details:</strong><br>
+            <strong>Date:</strong> {{submission_date}}<br>
+            <strong>Time:</strong> {{submission_time}}<br>
+            <strong>IP Address:</strong> {{ip_address}}<br>
+            <strong>User Agent:</strong> {{user_agent}}
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p><strong>Fight For Mesothelioma - Legal Team</strong></p>
+        <p>This is an automated notification from the mesothelioma case review system.</p>
+        <p>Please respond to this lead within 24 hours for optimal case evaluation.</p>
+        <p style="margin-top: 15px; font-size: 10px; color: #999;">
+            This email contains sensitive legal information. Please handle according to your firm's confidentiality protocols.
+        </p>
+    </div>
+</body>
+</html> 

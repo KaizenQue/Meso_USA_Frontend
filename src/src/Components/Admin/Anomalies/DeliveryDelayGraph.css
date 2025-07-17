@@ -1,0 +1,43 @@
+/* Container for the entire component */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full screen height */
+    padding: 20px;
+    background-color: #f4f4f4;
+  }
+  
+  /* Title styling */
+  .title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Dropdown container */
+  .dropdown-container {
+    margin-bottom: 20px;
+  }
+  
+  /* Dropdown styling */
+  .dropdown {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+  }
+  
+  /* Chart container */
+  .chart-container {
+    width: 90%; /* Adjust width as needed */
+    max-width: 1200px; /* Maximum width */
+    height: 70vh; /* Adjust height as needed */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }

@@ -1,0 +1,1262 @@
+[
+    {
+        "2017 NAICS Code": "111110",
+        "2017 NAICS Title": "Soybean Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.488",
+        "Margins of Supply Chain Emission Factors": "0.044",
+        "Supply Chain Emission Factors with Margins": "0.532",
+        "Reference USEEIO Code": "1111A0"
+    },
+    {
+        "2017 NAICS Code": "111120",
+        "2017 NAICS Title": "Oilseed (except Soybean) Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.488",
+        "Margins of Supply Chain Emission Factors": "0.044",
+        "Supply Chain Emission Factors with Margins": "0.532",
+        "Reference USEEIO Code": "1111A0"
+    },
+    {
+        "2017 NAICS Code": "111130",
+        "2017 NAICS Title": "Dry Pea and Bean Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.809",
+        "Margins of Supply Chain Emission Factors": "0.04",
+        "Supply Chain Emission Factors with Margins": "0.848",
+        "Reference USEEIO Code": "1111B0"
+    },
+    {
+        "2017 NAICS Code": "111140",
+        "2017 NAICS Title": "Wheat Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.809",
+        "Margins of Supply Chain Emission Factors": "0.04",
+        "Supply Chain Emission Factors with Margins": "0.848",
+        "Reference USEEIO Code": "1111B0"
+    },
+    {
+        "2017 NAICS Code": "111150",
+        "2017 NAICS Title": "Corn Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.809",
+        "Margins of Supply Chain Emission Factors": "0.04",
+        "Supply Chain Emission Factors with Margins": "0.848",
+        "Reference USEEIO Code": "1111B0"
+    },
+    {
+        "2017 NAICS Code": "111160",
+        "2017 NAICS Title": "Rice Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.809",
+        "Margins of Supply Chain Emission Factors": "0.04",
+        "Supply Chain Emission Factors with Margins": "0.848",
+        "Reference USEEIO Code": "1111B0"
+    },
+    {
+        "2017 NAICS Code": "111191",
+        "2017 NAICS Title": "Oilseed and Grain Combination Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.809",
+        "Margins of Supply Chain Emission Factors": "0.04",
+        "Supply Chain Emission Factors with Margins": "0.848",
+        "Reference USEEIO Code": "1111B0"
+    },
+    {
+        "2017 NAICS Code": "111199",
+        "2017 NAICS Title": "All Other Grain Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.809",
+        "Margins of Supply Chain Emission Factors": "0.04",
+        "Supply Chain Emission Factors with Margins": "0.848",
+        "Reference USEEIO Code": "1111B0"
+    },
+    {
+        "2017 NAICS Code": "111211",
+        "2017 NAICS Title": "Potato Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.591",
+        "Margins of Supply Chain Emission Factors": "0.041",
+        "Supply Chain Emission Factors with Margins": "0.631",
+        "Reference USEEIO Code": "111200"
+    },
+    {
+        "2017 NAICS Code": "111219",
+        "2017 NAICS Title": "Other Vegetable (except Potato) and Melon Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.591",
+        "Margins of Supply Chain Emission Factors": "0.041",
+        "Supply Chain Emission Factors with Margins": "0.631",
+        "Reference USEEIO Code": "111200"
+    },
+    {
+        "2017 NAICS Code": "111310",
+        "2017 NAICS Title": "Orange Groves",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.429",
+        "Margins of Supply Chain Emission Factors": "0.059",
+        "Supply Chain Emission Factors with Margins": "0.488",
+        "Reference USEEIO Code": "111300"
+    },
+    {
+        "2017 NAICS Code": "111320",
+        "2017 NAICS Title": "Citrus (except Orange) Groves",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.429",
+        "Margins of Supply Chain Emission Factors": "0.059",
+        "Supply Chain Emission Factors with Margins": "0.488",
+        "Reference USEEIO Code": "111300"
+    },
+    {
+        "2017 NAICS Code": "111331",
+        "2017 NAICS Title": "Apple Orchards",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.429",
+        "Margins of Supply Chain Emission Factors": "0.059",
+        "Supply Chain Emission Factors with Margins": "0.488",
+        "Reference USEEIO Code": "111300"
+    },
+    {
+        "2017 NAICS Code": "111332",
+        "2017 NAICS Title": "Grape Vineyards",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.429",
+        "Margins of Supply Chain Emission Factors": "0.059",
+        "Supply Chain Emission Factors with Margins": "0.488",
+        "Reference USEEIO Code": "111300"
+    },
+    {
+        "2017 NAICS Code": "111333",
+        "2017 NAICS Title": "Strawberry Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.429",
+        "Margins of Supply Chain Emission Factors": "0.059",
+        "Supply Chain Emission Factors with Margins": "0.488",
+        "Reference USEEIO Code": "111300"
+    },
+    {
+        "2017 NAICS Code": "111334",
+        "2017 NAICS Title": "Berry (except Strawberry) Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.429",
+        "Margins of Supply Chain Emission Factors": "0.059",
+        "Supply Chain Emission Factors with Margins": "0.488",
+        "Reference USEEIO Code": "111300"
+    },
+    {
+        "2017 NAICS Code": "111335",
+        "2017 NAICS Title": "Tree Nut Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.429",
+        "Margins of Supply Chain Emission Factors": "0.059",
+        "Supply Chain Emission Factors with Margins": "0.488",
+        "Reference USEEIO Code": "111300"
+    },
+    {
+        "2017 NAICS Code": "111336",
+        "2017 NAICS Title": "Fruit and Tree Nut Combination Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.429",
+        "Margins of Supply Chain Emission Factors": "0.059",
+        "Supply Chain Emission Factors with Margins": "0.488",
+        "Reference USEEIO Code": "111300"
+    },
+    {
+        "2017 NAICS Code": "111339",
+        "2017 NAICS Title": "Other Noncitrus Fruit Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.429",
+        "Margins of Supply Chain Emission Factors": "0.059",
+        "Supply Chain Emission Factors with Margins": "0.488",
+        "Reference USEEIO Code": "111300"
+    },
+    {
+        "2017 NAICS Code": "111411",
+        "2017 NAICS Title": "Mushroom Production",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.266",
+        "Margins of Supply Chain Emission Factors": "0.041",
+        "Supply Chain Emission Factors with Margins": "0.307",
+        "Reference USEEIO Code": "111400"
+    },
+    {
+        "2017 NAICS Code": "111419",
+        "2017 NAICS Title": "Other Food Crops Grown Under Cover",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.266",
+        "Margins of Supply Chain Emission Factors": "0.041",
+        "Supply Chain Emission Factors with Margins": "0.307",
+        "Reference USEEIO Code": "111400"
+    },
+    {
+        "2017 NAICS Code": "111421",
+        "2017 NAICS Title": "Nursery and Tree Production",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.266",
+        "Margins of Supply Chain Emission Factors": "0.041",
+        "Supply Chain Emission Factors with Margins": "0.307",
+        "Reference USEEIO Code": "111400"
+    },
+    {
+        "2017 NAICS Code": "111422",
+        "2017 NAICS Title": "Floriculture Production",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.266",
+        "Margins of Supply Chain Emission Factors": "0.041",
+        "Supply Chain Emission Factors with Margins": "0.307",
+        "Reference USEEIO Code": "111400"
+    },
+    {
+        "2017 NAICS Code": "111910",
+        "2017 NAICS Title": "Tobacco Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.703",
+        "Margins of Supply Chain Emission Factors": "0.037",
+        "Supply Chain Emission Factors with Margins": "0.74",
+        "Reference USEEIO Code": "111900"
+    },
+    {
+        "2017 NAICS Code": "111920",
+        "2017 NAICS Title": "Cotton Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.703",
+        "Margins of Supply Chain Emission Factors": "0.037",
+        "Supply Chain Emission Factors with Margins": "0.74",
+        "Reference USEEIO Code": "111900"
+    },
+    {
+        "2017 NAICS Code": "111930",
+        "2017 NAICS Title": "Sugarcane Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.703",
+        "Margins of Supply Chain Emission Factors": "0.037",
+        "Supply Chain Emission Factors with Margins": "0.74",
+        "Reference USEEIO Code": "111900"
+    },
+    {
+        "2017 NAICS Code": "111940",
+        "2017 NAICS Title": "Hay Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.703",
+        "Margins of Supply Chain Emission Factors": "0.037",
+        "Supply Chain Emission Factors with Margins": "0.74",
+        "Reference USEEIO Code": "111900"
+    },
+    {
+        "2017 NAICS Code": "111991",
+        "2017 NAICS Title": "Sugar Beet Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.703",
+        "Margins of Supply Chain Emission Factors": "0.037",
+        "Supply Chain Emission Factors with Margins": "0.74",
+        "Reference USEEIO Code": "111900"
+    },
+    {
+        "2017 NAICS Code": "111992",
+        "2017 NAICS Title": "Peanut Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.703",
+        "Margins of Supply Chain Emission Factors": "0.037",
+        "Supply Chain Emission Factors with Margins": "0.74",
+        "Reference USEEIO Code": "111900"
+    },
+    {
+        "2017 NAICS Code": "111998",
+        "2017 NAICS Title": "All Other Miscellaneous Crop Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.703",
+        "Margins of Supply Chain Emission Factors": "0.037",
+        "Supply Chain Emission Factors with Margins": "0.74",
+        "Reference USEEIO Code": "111900"
+    },
+    {
+        "2017 NAICS Code": "112111",
+        "2017 NAICS Title": "Beef Cattle Ranching and Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "2.847",
+        "Margins of Supply Chain Emission Factors": "0.045",
+        "Supply Chain Emission Factors with Margins": "2.893",
+        "Reference USEEIO Code": "1121A0"
+    },
+    {
+        "2017 NAICS Code": "112112",
+        "2017 NAICS Title": "Cattle Feedlots",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "2.847",
+        "Margins of Supply Chain Emission Factors": "0.045",
+        "Supply Chain Emission Factors with Margins": "2.893",
+        "Reference USEEIO Code": "1121A0"
+    },
+    {
+        "2017 NAICS Code": "112120",
+        "2017 NAICS Title": "Dairy Cattle and Milk Production",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "1.682",
+        "Margins of Supply Chain Emission Factors": "0.042",
+        "Supply Chain Emission Factors with Margins": "1.724",
+        "Reference USEEIO Code": "112120"
+    },
+    {
+        "2017 NAICS Code": "112130",
+        "2017 NAICS Title": "Dual-Purpose Cattle Ranching and Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "2.847",
+        "Margins of Supply Chain Emission Factors": "0.045",
+        "Supply Chain Emission Factors with Margins": "2.893",
+        "Reference USEEIO Code": "1121A0"
+    },
+    {
+        "2017 NAICS Code": "112210",
+        "2017 NAICS Title": "Hog and Pig Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "1.077",
+        "Margins of Supply Chain Emission Factors": "0.051",
+        "Supply Chain Emission Factors with Margins": "1.128",
+        "Reference USEEIO Code": "112A00"
+    },
+    {
+        "2017 NAICS Code": "112310",
+        "2017 NAICS Title": "Chicken Egg Production",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.407",
+        "Margins of Supply Chain Emission Factors": "0.031",
+        "Supply Chain Emission Factors with Margins": "0.438",
+        "Reference USEEIO Code": "112300"
+    },
+    {
+        "2017 NAICS Code": "112320",
+        "2017 NAICS Title": "Broilers and Other Meat Type Chicken Production",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.407",
+        "Margins of Supply Chain Emission Factors": "0.031",
+        "Supply Chain Emission Factors with Margins": "0.438",
+        "Reference USEEIO Code": "112300"
+    },
+    {
+        "2017 NAICS Code": "112330",
+        "2017 NAICS Title": "Turkey Production",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.407",
+        "Margins of Supply Chain Emission Factors": "0.031",
+        "Supply Chain Emission Factors with Margins": "0.438",
+        "Reference USEEIO Code": "112300"
+    },
+    {
+        "2017 NAICS Code": "112340",
+        "2017 NAICS Title": "Poultry Hatcheries",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.407",
+        "Margins of Supply Chain Emission Factors": "0.031",
+        "Supply Chain Emission Factors with Margins": "0.438",
+        "Reference USEEIO Code": "112300"
+    },
+    {
+        "2017 NAICS Code": "112390",
+        "2017 NAICS Title": "Other Poultry Production",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.407",
+        "Margins of Supply Chain Emission Factors": "0.031",
+        "Supply Chain Emission Factors with Margins": "0.438",
+        "Reference USEEIO Code": "112300"
+    },
+    {
+        "2017 NAICS Code": "112410",
+        "2017 NAICS Title": "Sheep Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "1.077",
+        "Margins of Supply Chain Emission Factors": "0.051",
+        "Supply Chain Emission Factors with Margins": "1.128",
+        "Reference USEEIO Code": "112A00"
+    },
+    {
+        "2017 NAICS Code": "112420",
+        "2017 NAICS Title": "Goat Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "1.077",
+        "Margins of Supply Chain Emission Factors": "0.051",
+        "Supply Chain Emission Factors with Margins": "1.128",
+        "Reference USEEIO Code": "112A00"
+    },
+    {
+        "2017 NAICS Code": "112511",
+        "2017 NAICS Title": "Finfish Farming and Fish Hatcheries",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "1.077",
+        "Margins of Supply Chain Emission Factors": "0.051",
+        "Supply Chain Emission Factors with Margins": "1.128",
+        "Reference USEEIO Code": "112A00"
+    },
+    {
+        "2017 NAICS Code": "112512",
+        "2017 NAICS Title": "Shellfish Farming",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "1.077",
+        "Margins of Supply Chain Emission Factors": "0.051",
+        "Supply Chain Emission Factors with Margins": "1.128",
+        "Reference USEEIO Code": "112A00"
+    },
+    {
+        "2017 NAICS Code": "112519",
+        "2017 NAICS Title": "Other Aquaculture",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "1.077",
+        "Margins of Supply Chain Emission Factors": "0.051",
+        "Supply Chain Emission Factors with Margins": "1.128",
+        "Reference USEEIO Code": "112A00"
+    },
+    {
+        "2017 NAICS Code": "112910",
+        "2017 NAICS Title": "Apiculture",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "1.077",
+        "Margins of Supply Chain Emission Factors": "0.051",
+        "Supply Chain Emission Factors with Margins": "1.128",
+        "Reference USEEIO Code": "112A00"
+    },
+    {
+        "2017 NAICS Code": "112920",
+        "2017 NAICS Title": "Horses and Other Equine Production",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "1.077",
+        "Margins of Supply Chain Emission Factors": "0.051",
+        "Supply Chain Emission Factors with Margins": "1.128",
+        "Reference USEEIO Code": "112A00"
+    },
+    {
+        "2017 NAICS Code": "112930",
+        "2017 NAICS Title": "Fur-Bearing Animal and Rabbit Production",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "1.077",
+        "Margins of Supply Chain Emission Factors": "0.051",
+        "Supply Chain Emission Factors with Margins": "1.128",
+        "Reference USEEIO Code": "112A00"
+    },
+    {
+        "2017 NAICS Code": "112990",
+        "2017 NAICS Title": "All Other Animal Production",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "1.077",
+        "Margins of Supply Chain Emission Factors": "0.051",
+        "Supply Chain Emission Factors with Margins": "1.128",
+        "Reference USEEIO Code": "112A00"
+    },
+    {
+        "2017 NAICS Code": "113110",
+        "2017 NAICS Title": "Timber Tract Operations",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.199",
+        "Margins of Supply Chain Emission Factors": "0.045",
+        "Supply Chain Emission Factors with Margins": "0.243",
+        "Reference USEEIO Code": "113000"
+    },
+    {
+        "2017 NAICS Code": "113210",
+        "2017 NAICS Title": "Forest Nurseries and Gathering of Forest Products",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.199",
+        "Margins of Supply Chain Emission Factors": "0.045",
+        "Supply Chain Emission Factors with Margins": "0.243",
+        "Reference USEEIO Code": "113000"
+    },
+    {
+        "2017 NAICS Code": "113310",
+        "2017 NAICS Title": "Logging",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.199",
+        "Margins of Supply Chain Emission Factors": "0.045",
+        "Supply Chain Emission Factors with Margins": "0.243",
+        "Reference USEEIO Code": "113000"
+    },
+    {
+        "2017 NAICS Code": "114111",
+        "2017 NAICS Title": "Finfish Fishing",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.127",
+        "Margins of Supply Chain Emission Factors": "0.027",
+        "Supply Chain Emission Factors with Margins": "0.154",
+        "Reference USEEIO Code": "114000"
+    },
+    {
+        "2017 NAICS Code": "114112",
+        "2017 NAICS Title": "Shellfish Fishing",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.127",
+        "Margins of Supply Chain Emission Factors": "0.027",
+        "Supply Chain Emission Factors with Margins": "0.154",
+        "Reference USEEIO Code": "114000"
+    },
+    {
+        "2017 NAICS Code": "114119",
+        "2017 NAICS Title": "Other Marine Fishing",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.127",
+        "Margins of Supply Chain Emission Factors": "0.027",
+        "Supply Chain Emission Factors with Margins": "0.154",
+        "Reference USEEIO Code": "114000"
+    },
+    {
+        "2017 NAICS Code": "114210",
+        "2017 NAICS Title": "Hunting and Trapping",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.127",
+        "Margins of Supply Chain Emission Factors": "0.027",
+        "Supply Chain Emission Factors with Margins": "0.154",
+        "Reference USEEIO Code": "114000"
+    },
+    {
+        "2017 NAICS Code": "115111",
+        "2017 NAICS Title": "Cotton Ginning",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.384",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.384",
+        "Reference USEEIO Code": "115000"
+    },
+    {
+        "2017 NAICS Code": "115112",
+        "2017 NAICS Title": "Soil Preparation, Planting, and Cultivating",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.384",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.384",
+        "Reference USEEIO Code": "115000"
+    },
+    {
+        "2017 NAICS Code": "115113",
+        "2017 NAICS Title": "Crop Harvesting, Primarily by Machine",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.384",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.384",
+        "Reference USEEIO Code": "115000"
+    },
+    {
+        "2017 NAICS Code": "115114",
+        "2017 NAICS Title": "Postharvest Crop Activities (except Cotton Ginning)",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.384",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.384",
+        "Reference USEEIO Code": "115000"
+    },
+    {
+        "2017 NAICS Code": "115115",
+        "2017 NAICS Title": "Farm Labor Contractors and Crew Leaders",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.384",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.384",
+        "Reference USEEIO Code": "115000"
+    },
+    {
+        "2017 NAICS Code": "115116",
+        "2017 NAICS Title": "Farm Management Services",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.384",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.384",
+        "Reference USEEIO Code": "115000"
+    },
+    {
+        "2017 NAICS Code": "115210",
+        "2017 NAICS Title": "Support Activities for Animal Production",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.384",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.384",
+        "Reference USEEIO Code": "115000"
+    },
+    {
+        "2017 NAICS Code": "115310",
+        "2017 NAICS Title": "Support Activities for Forestry",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.384",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.384",
+        "Reference USEEIO Code": "115000"
+    },
+    {
+        "2017 NAICS Code": "211120",
+        "2017 NAICS Title": "Crude Petroleum Extraction",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.377",
+        "Margins of Supply Chain Emission Factors": "0.028",
+        "Supply Chain Emission Factors with Margins": "0.405",
+        "Reference USEEIO Code": "211000"
+    },
+    {
+        "2017 NAICS Code": "211130",
+        "2017 NAICS Title": "Natural Gas Extraction",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.377",
+        "Margins of Supply Chain Emission Factors": "0.028",
+        "Supply Chain Emission Factors with Margins": "0.405",
+        "Reference USEEIO Code": "211000"
+    },
+    {
+        "2017 NAICS Code": "212111",
+        "2017 NAICS Title": "Bituminous Coal and Lignite Surface Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.747",
+        "Margins of Supply Chain Emission Factors": "0.094",
+        "Supply Chain Emission Factors with Margins": "0.841",
+        "Reference USEEIO Code": "212100"
+    },
+    {
+        "2017 NAICS Code": "212112",
+        "2017 NAICS Title": "Bituminous Coal Underground Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.747",
+        "Margins of Supply Chain Emission Factors": "0.094",
+        "Supply Chain Emission Factors with Margins": "0.841",
+        "Reference USEEIO Code": "212100"
+    },
+    {
+        "2017 NAICS Code": "212113",
+        "2017 NAICS Title": "Anthracite Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.747",
+        "Margins of Supply Chain Emission Factors": "0.094",
+        "Supply Chain Emission Factors with Margins": "0.841",
+        "Reference USEEIO Code": "212100"
+    },
+    {
+        "2017 NAICS Code": "212210",
+        "2017 NAICS Title": "Iron Ore Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.54",
+        "Margins of Supply Chain Emission Factors": "0.054",
+        "Supply Chain Emission Factors with Margins": "0.593",
+        "Reference USEEIO Code": "2122A0"
+    },
+    {
+        "2017 NAICS Code": "212221",
+        "2017 NAICS Title": "Gold Ore Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.54",
+        "Margins of Supply Chain Emission Factors": "0.054",
+        "Supply Chain Emission Factors with Margins": "0.593",
+        "Reference USEEIO Code": "2122A0"
+    },
+    {
+        "2017 NAICS Code": "212222",
+        "2017 NAICS Title": "Silver Ore Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.54",
+        "Margins of Supply Chain Emission Factors": "0.054",
+        "Supply Chain Emission Factors with Margins": "0.593",
+        "Reference USEEIO Code": "2122A0"
+    },
+    {
+        "2017 NAICS Code": "212230",
+        "2017 NAICS Title": "Copper, Nickel, Lead, and Zinc Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.27",
+        "Margins of Supply Chain Emission Factors": "0.053",
+        "Supply Chain Emission Factors with Margins": "0.324",
+        "Reference USEEIO Code": "212230"
+    },
+    {
+        "2017 NAICS Code": "212291",
+        "2017 NAICS Title": "Uranium-Radium-Vanadium Ore Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.54",
+        "Margins of Supply Chain Emission Factors": "0.054",
+        "Supply Chain Emission Factors with Margins": "0.593",
+        "Reference USEEIO Code": "2122A0"
+    },
+    {
+        "2017 NAICS Code": "212299",
+        "2017 NAICS Title": "All Other Metal Ore Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.54",
+        "Margins of Supply Chain Emission Factors": "0.054",
+        "Supply Chain Emission Factors with Margins": "0.593",
+        "Reference USEEIO Code": "2122A0"
+    },
+    {
+        "2017 NAICS Code": "212311",
+        "2017 NAICS Title": "Dimension Stone Mining and Quarrying",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.193",
+        "Margins of Supply Chain Emission Factors": "0.086",
+        "Supply Chain Emission Factors with Margins": "0.279",
+        "Reference USEEIO Code": "212310"
+    },
+    {
+        "2017 NAICS Code": "212312",
+        "2017 NAICS Title": "Crushed and Broken Limestone Mining and Quarrying",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.193",
+        "Margins of Supply Chain Emission Factors": "0.086",
+        "Supply Chain Emission Factors with Margins": "0.279",
+        "Reference USEEIO Code": "212310"
+    },
+    {
+        "2017 NAICS Code": "212313",
+        "2017 NAICS Title": "Crushed and Broken Granite Mining and Quarrying",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.193",
+        "Margins of Supply Chain Emission Factors": "0.086",
+        "Supply Chain Emission Factors with Margins": "0.279",
+        "Reference USEEIO Code": "212310"
+    },
+    {
+        "2017 NAICS Code": "212319",
+        "2017 NAICS Title": "Other Crushed and Broken Stone Mining and Quarrying",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.193",
+        "Margins of Supply Chain Emission Factors": "0.086",
+        "Supply Chain Emission Factors with Margins": "0.279",
+        "Reference USEEIO Code": "212310"
+    },
+    {
+        "2017 NAICS Code": "212321",
+        "2017 NAICS Title": "Construction Sand and Gravel Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.184",
+        "Margins of Supply Chain Emission Factors": "0.125",
+        "Supply Chain Emission Factors with Margins": "0.309",
+        "Reference USEEIO Code": "2123A0"
+    },
+    {
+        "2017 NAICS Code": "212322",
+        "2017 NAICS Title": "Industrial Sand Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.184",
+        "Margins of Supply Chain Emission Factors": "0.125",
+        "Supply Chain Emission Factors with Margins": "0.309",
+        "Reference USEEIO Code": "2123A0"
+    },
+    {
+        "2017 NAICS Code": "212324",
+        "2017 NAICS Title": "Kaolin and Ball Clay Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.184",
+        "Margins of Supply Chain Emission Factors": "0.125",
+        "Supply Chain Emission Factors with Margins": "0.309",
+        "Reference USEEIO Code": "2123A0"
+    },
+    {
+        "2017 NAICS Code": "212325",
+        "2017 NAICS Title": "Clay and Ceramic and Refractory Minerals Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.184",
+        "Margins of Supply Chain Emission Factors": "0.125",
+        "Supply Chain Emission Factors with Margins": "0.309",
+        "Reference USEEIO Code": "2123A0"
+    },
+    {
+        "2017 NAICS Code": "212391",
+        "2017 NAICS Title": "Potash, Soda, and Borate Mineral Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.184",
+        "Margins of Supply Chain Emission Factors": "0.125",
+        "Supply Chain Emission Factors with Margins": "0.309",
+        "Reference USEEIO Code": "2123A0"
+    },
+    {
+        "2017 NAICS Code": "212392",
+        "2017 NAICS Title": "Phosphate Rock Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.184",
+        "Margins of Supply Chain Emission Factors": "0.125",
+        "Supply Chain Emission Factors with Margins": "0.309",
+        "Reference USEEIO Code": "2123A0"
+    },
+    {
+        "2017 NAICS Code": "212393",
+        "2017 NAICS Title": "Other Chemical and Fertilizer Mineral Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.184",
+        "Margins of Supply Chain Emission Factors": "0.125",
+        "Supply Chain Emission Factors with Margins": "0.309",
+        "Reference USEEIO Code": "2123A0"
+    },
+    {
+        "2017 NAICS Code": "212399",
+        "2017 NAICS Title": "All Other Nonmetallic Mineral Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.184",
+        "Margins of Supply Chain Emission Factors": "0.125",
+        "Supply Chain Emission Factors with Margins": "0.309",
+        "Reference USEEIO Code": "2123A0"
+    },
+    {
+        "2017 NAICS Code": "213111",
+        "2017 NAICS Title": "Drilling Oil and Gas Wells",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.407",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.407",
+        "Reference USEEIO Code": "213111"
+    },
+    {
+        "2017 NAICS Code": "213112",
+        "2017 NAICS Title": "Support Activities for Oil and Gas Operations",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.372",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.372",
+        "Reference USEEIO Code": "21311A"
+    },
+    {
+        "2017 NAICS Code": "213113",
+        "2017 NAICS Title": "Support Activities for Coal Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.372",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.372",
+        "Reference USEEIO Code": "21311A"
+    },
+    {
+        "2017 NAICS Code": "213114",
+        "2017 NAICS Title": "Support Activities for Metal Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.372",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.372",
+        "Reference USEEIO Code": "21311A"
+    },
+    {
+        "2017 NAICS Code": "213115",
+        "2017 NAICS Title": "Support Activities for Nonmetallic Minerals (except Fuels) Mining",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.372",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.372",
+        "Reference USEEIO Code": "21311A"
+    },
+    {
+        "2017 NAICS Code": "221210",
+        "2017 NAICS Title": "Natural Gas Distribution",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.532",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.532",
+        "Reference USEEIO Code": "221200"
+    },
+    {
+        "2017 NAICS Code": "221310",
+        "2017 NAICS Title": "Water Supply and Irrigation Systems",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.578",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.578",
+        "Reference USEEIO Code": "221300"
+    },
+    {
+        "2017 NAICS Code": "221320",
+        "2017 NAICS Title": "Sewage Treatment Facilities",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.578",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.578",
+        "Reference USEEIO Code": "221300"
+    },
+    {
+        "2017 NAICS Code": "221330",
+        "2017 NAICS Title": "Steam and Air-Conditioning Supply",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.578",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.578",
+        "Reference USEEIO Code": "221300"
+    },
+    {
+        "2017 NAICS Code": "236115",
+        "2017 NAICS Title": "New Single-Family Housing Construction (except For-Sale Builders)",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.194",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.194",
+        "Reference USEEIO Code": "233411"
+    },
+    {
+        "2017 NAICS Code": "236116",
+        "2017 NAICS Title": "New Multifamily Housing Construction (except For-Sale Builders)",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "233412"
+    },
+    {
+        "2017 NAICS Code": "236117",
+        "2017 NAICS Title": "New Housing For-Sale Builders",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.216",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.216",
+        "Reference USEEIO Code": "233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "236118",
+        "2017 NAICS Title": "Residential Remodelers",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.211",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.211",
+        "Reference USEEIO Code": "230302"
+    },
+    {
+        "2017 NAICS Code": "236210",
+        "2017 NAICS Title": "Industrial Building Construction",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.239",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.239",
+        "Reference USEEIO Code": "230301, 233230"
+    },
+    {
+        "2017 NAICS Code": "236220",
+        "2017 NAICS Title": "Commercial and Institutional Building Construction",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.224",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.224",
+        "Reference USEEIO Code": "230301, 233210, 233262, 2332A0"
+    },
+    {
+        "2017 NAICS Code": "237110",
+        "2017 NAICS Title": "Water and Sewer Line and Related Structures Construction",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.277",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.277",
+        "Reference USEEIO Code": "233240"
+    },
+    {
+        "2017 NAICS Code": "237120",
+        "2017 NAICS Title": "Oil and Gas Pipeline and Related Structures Construction",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.277",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.277",
+        "Reference USEEIO Code": "233240"
+    },
+    {
+        "2017 NAICS Code": "237130",
+        "2017 NAICS Title": "Power and Communication Line and Related Structures Construction",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.277",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.277",
+        "Reference USEEIO Code": "233240"
+    },
+    {
+        "2017 NAICS Code": "237210",
+        "2017 NAICS Title": "Land Subdivision",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "233210, 233230, 233240, 233262, 2332A0, 2332C0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "237310",
+        "2017 NAICS Title": "Highway, Street, and Bridge Construction",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.255",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.255",
+        "Reference USEEIO Code": "2332C0"
+    },
+    {
+        "2017 NAICS Code": "237990",
+        "2017 NAICS Title": "Other Heavy and Civil Engineering Construction",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.202",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.202",
+        "Reference USEEIO Code": "2332D0"
+    },
+    {
+        "2017 NAICS Code": "238110",
+        "2017 NAICS Title": "Poured Concrete Foundation and Structure Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238120",
+        "2017 NAICS Title": "Structural Steel and Precast Concrete Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238130",
+        "2017 NAICS Title": "Framing Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238140",
+        "2017 NAICS Title": "Masonry Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238150",
+        "2017 NAICS Title": "Glass and Glazing Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238160",
+        "2017 NAICS Title": "Roofing Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238170",
+        "2017 NAICS Title": "Siding Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238190",
+        "2017 NAICS Title": "Other Foundation, Structure, and Building Exterior Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238210",
+        "2017 NAICS Title": "Electrical Contractors and Other Wiring Installation Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238220",
+        "2017 NAICS Title": "Plumbing, Heating, and Air-Conditioning Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238290",
+        "2017 NAICS Title": "Other Building Equipment Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238310",
+        "2017 NAICS Title": "Drywall and Insulation Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238320",
+        "2017 NAICS Title": "Painting and Wall Covering Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238330",
+        "2017 NAICS Title": "Flooring Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238340",
+        "2017 NAICS Title": "Tile and Terrazzo Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238350",
+        "2017 NAICS Title": "Finish Carpentry Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238390",
+        "2017 NAICS Title": "Other Building Finishing Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    },
+    {
+        "2017 NAICS Code": "238910",
+        "2017 NAICS Title": "Site Preparation Contractors",
+        "GHG": "All GHGs",
+        "Unit": "kg CO2e/2022 USD, purchaser price",
+        "Supply Chain Emission Factors without Margins": "0.221",
+        "Margins of Supply Chain Emission Factors": "0",
+        "Supply Chain Emission Factors with Margins": "0.221",
+        "Reference USEEIO Code": "230301, 230302, 233210, 233230, 233240, 233262, 2332A0, 2332D0, 233411, 233412, 2334A0"
+    }
+]

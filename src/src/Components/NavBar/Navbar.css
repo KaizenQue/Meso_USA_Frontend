@@ -1,0 +1,232 @@
+/* Mobile Navigation Styles */
+.mobile-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FAF3EC;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  position: relative;
+  z-index: 1001;
+}
+
+.mobile-logo {
+  background-color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.phone-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #4B2C5E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.phone-icon:hover {
+  background-color: rgba(75, 44, 94, 0.1);
+}
+
+.menu-toggle {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Mobile Navigation Overlay */
+.mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1002;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-nav-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.mobile-nav-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.mobile-nav-panel {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.97);
+  transition: right 0.3s ease;
+  z-index: 1003;
+  padding-top: 80px; /* Space for the header */
+}
+
+.mobile-nav-panel.open {
+  right: 0;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  height: 100%;
+  padding-bottom: 80px; /* Add some bottom padding */
+}
+
+.mobile-nav-link {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 28px;
+  color: #4B2C5E;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-link:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  background: linear-gradient(to right, #4B2C5E, #2E4A7D);
+  transition: width 0.3s ease;
+}
+
+.mobile-nav-link:hover:after,
+.mobile-nav-link.active:after {
+  width: 100%;
+}
+
+.mobile-nav-link.active {
+  color: #2E4A7D;
+  font-weight: 600;
+}
+
+.mobile-claim-button {
+  background-color: #4B2C5E;
+  border-radius: 60px;
+  padding: 12px 30px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.mobile-claim-button:hover {
+  background-color: #3a2249;
+}
+
+/* Animation for when the menu is opening/closing */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.mobile-nav-overlay.open .mobile-nav-link {
+  animation: slideIn 0.4s forwards;
+  opacity: 0;
+}
+
+.mobile-nav-overlay.open .mobile-nav-link:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.mobile-nav-overlay.open .mobile-nav-link:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.mobile-nav-overlay.open .mobile-nav-link:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.mobile-nav-overlay.open .mobile-claim-button {
+  animation: fadeIn 0.5s forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+}
+
+/* Prevent scrolling when menu is open */
+body.no-scroll {
+  overflow: hidden;
+}
+
+/* Small screens adjustments */
+@media screen and (max-width: 360px) {
+  .mobile-nav-link {
+    font-size: 24px;
+  }
+  
+  .mobile-claim-button {
+    padding: 10px 20px;
+  }
+}
+
+/* Desktop Navbar sticky styles */
+.desktop-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FAF3EC;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Add padding to body to prevent content from hiding behind fixed navbar */
+body {
+  padding-top: 70px; /* Adjust this value based on your navbar height */
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-top: 90px; /* Adjust for desktop navbar height */
+  }
+}
