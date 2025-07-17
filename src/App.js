@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import React, { useEffect } from 'react';
+import React from 'react';
 import MesoOne from "./Components/Meso-one/MesoOne";
 import Header from "./Components/Header/Header";
 import MesoMain from "./Components/Meso-MainPage/MesoMain";
@@ -79,14 +79,10 @@ import MesotheliomaLandingPageLatest16 from './FigmaDesign2/MesotheliomaLandingP
 import MesotheliomaLandingPageLatest17 from './FigmaDesign2/MesotheliomaLandingPageLatest17.jsx';
 import MesotheliomaLandingPageLatest18 from './FigmaDesign2/MesotheliomaLandingPageLatest18.jsx';
 import MesotheliomaLandingPageLatest19 from './FigmaDesign2/MesotheliomaLandingPageLatest19.jsx';
-import ChatInterface5 from './Components/ChatPage/ChatInterface5.jsx';
-import SokoRef from '../src/FigmaDesign2/SokoRef'
-import Map from '../src/FigmaDesign2/Map'
-import VoiceNoteForm from './FigmaDesign2/VoiceNoteForm';
 import AudioLanderOne from './Components/AudioLanders/AudioLanderOne';
 import MesotheliomaLandingPageTest from './Components/FigmaDesign/MesotheliomaLandingPageTest';
 import VideoModalPlayer from './Components/FigmaDesign/VideoModalPlayer';
-import VideoOne from './Components/VideoCall/VideoOne';
+import VideoOne from './Components/VideoCall/VideoOne.jsx';
 
 function App() {
   
@@ -390,10 +386,6 @@ function App() {
       path:'/VideoOne',
       element: <VideoOne />
     },
-    // {
-    //   path:'/map',
-    //   element: <Map/>
-    // },
     {
       path:'/AR1',
       element: <AudioLanderOne />

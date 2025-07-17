@@ -146,22 +146,17 @@ export const sendClaimFormEmail = async (formData) => {
 
 export const sendEmailInvitationToAdmin = async (formData) => {
   try {
-    // 1. You're using 'link' which isn't defined - it should come from formData
-    // 2. Include the email in templateParams if needed by your template
     const templateParams = {
       teamLink: formData.teamLink,
-      to_email: formData.emailId, // Add this if your template needs recipient email
-      // Add any other parameters your email template requires
+      to_email: formData.emailId, 
     };
 
-    // Send admin notification
     const response = await emailjs.send(
       "service_9pv809e",
       "template_x9omuym",
       templateParams
     );
 
-    // Send confirmation email to user if email is provided
     if (formData.emailId) {
       try {
         await sendConfirmationEmail(
