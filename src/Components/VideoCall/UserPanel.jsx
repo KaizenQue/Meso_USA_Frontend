@@ -31,7 +31,7 @@ const UserPanel = ({ onAdminJoin }) => {
 
             setRoom(room);
             setIsConnecting(false);
-            
+
             const link = `${window.location.origin}${window.location.pathname}?room=user-room&admin=true`;
             setAdminLink(link);
 
@@ -81,7 +81,7 @@ const UserPanel = ({ onAdminJoin }) => {
                 participant.tracks.forEach(publication => {
                     publication.track?.detach().forEach(element => element.remove());
                 });
-            }); 
+            });
             room.localParticipant.tracks.forEach(publication => {
                 publication.track?.detach().forEach(element => element.remove());
             });
@@ -136,7 +136,6 @@ const UserPanel = ({ onAdminJoin }) => {
     return (
         <div className="video-container">
             <h2>User Video Room</h2>
-            
             {!room ? (
                 <button onClick={connectToRoom} disabled={isConnecting}>
                     {isConnecting ? 'Connecting...' : 'Join Room'}
@@ -144,7 +143,6 @@ const UserPanel = ({ onAdminJoin }) => {
             ) : (
                 <button onClick={leaveRoom}>Leave Room</button>
             )}
-
             {adminLink && (
                 <div className="admin-invite">
                     <h4>Invite Admin</h4>

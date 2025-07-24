@@ -1,4 +1,4 @@
-// AdminPanel.js
+
 import React, { useRef, useEffect, useState } from 'react';
 import { connect } from 'twilio-video';
 import axios from 'axios';
@@ -100,7 +100,7 @@ const AdminPanel = ({ roomName }) => {
     return (
         <div className="video-container">
             <h2>Admin Video Room: {roomName}</h2>
-            
+
             {room ? (
                 <button onClick={leaveRoom}>Leave Room</button>
             ) : (

@@ -148,7 +148,7 @@ export const sendEmailInvitationToAdmin = async (formData) => {
   try {
     const templateParams = {
       teamLink: formData.teamLink,
-      to_email: formData.emailId, 
+      to_email: formData.emailId,
     };
 
     const response = await emailjs.send(
@@ -160,7 +160,7 @@ export const sendEmailInvitationToAdmin = async (formData) => {
     if (formData.emailId) {
       try {
         await sendConfirmationEmail(
-          formData.emailId, 
+          formData.emailId,
           "Meeting Invitation", // Changed from "claim form" to something more appropriate
           { teamLink: formData.teamLink } // Pass relevant data
         );
@@ -355,7 +355,8 @@ export const sendMesotheliomaLandingPageEmail = async (formData, videoUrl = null
     return { success: false, error };
   }
 };
-
+export const sendVideoCallEmail = async (formData) => {
+};
 
 export const sendMesotheliomaLandingPageEmailAudio = async (formData, videoUrl = null) => {
   try {
@@ -404,4 +405,6 @@ export const sendMesotheliomaLandingPageEmailAudio = async (formData, videoUrl =
     console.error("Failed to send mesothelioma landing page email:", error);
     return { success: false, error };
   }
+
+
 };
